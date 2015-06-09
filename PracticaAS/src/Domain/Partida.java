@@ -23,6 +23,8 @@ public class Partida  {
 	private boolean estaGuanyada;
 	private int puntuacio;
 	
+	private String estrategiaOrdenacio;
+	
 	@OneToOne
 	private Jugador jugadorPartidaActual;
 	
@@ -103,6 +105,10 @@ public class Partida  {
 
 	public void addCasella(Casella c){
 		c.getPrimaryKEy();
+	}
+	
+	public void assignarEstrategia(String s){
+		estrategiaOrdenacio = s;
 	}
 	
 	public Casella getCasella(int i, int j){

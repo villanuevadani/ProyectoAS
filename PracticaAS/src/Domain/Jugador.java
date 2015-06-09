@@ -37,7 +37,10 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	public Partida getPartidaActual() {
 		return partidaActual;
 	}
-
+	
+	public void assignarPartida(Partida p){
+		partidaActual = p;
+	}
 
 	public void setPartidaActual(Partida partidaActual) {
 		this.partidaActual = partidaActual;

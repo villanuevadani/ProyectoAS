@@ -40,6 +40,12 @@ public class JugarPartidaUseCase {
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
+		p.assignarEstrategia("BestScore");
+		jugador.assignarPartida(p);
+	
+		int mp = jugador.getMillorPuntuacio();
+		int score = p.getPuntuacio();
 		
+		//return score + casNum + mp
 	}
 }
