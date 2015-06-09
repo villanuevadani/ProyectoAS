@@ -29,6 +29,7 @@ public class TestUsuariRegistrat {
 		session.beginTransaction();
 		
 		
+		
 		//Jugador alex = new Jugador("uname");
 		/*Jugador alex = new Jugador();
 		alex.setUsername("uname");
