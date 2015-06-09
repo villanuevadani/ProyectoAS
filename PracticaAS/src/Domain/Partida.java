@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -20,15 +21,18 @@ public class Partida  {
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
 	private int puntuacio;
+	
+	@OneToOne
 	private Jugador jugadorPartidaActual;
-	private Jugador jugadorPartidaJugada;
 	
 	@ManyToOne
-	private Vector<Casella> caselles;
+	private Jugador jugadorPartidaJugada;
+	
+	private Casella[][] caselles;
 	
 	
 	Partida(){
-		caselles = new Vector<Casella>();
+		caselles = new Casella[4][4];
 	}
 
 	@Id
@@ -77,25 +81,19 @@ public class Partida  {
 	public void setJugadorPartidaJugada(Jugador jugadorPartidaJugada) {
 		this.jugadorPartidaJugada = jugadorPartidaJugada;
 	}
-	public Vector<Casella> getCaselles() {
+	public Casella[][] getCaselles() {
 		return caselles;
 	}
 
-	public void setCaselles(Vector<Casella> caselles) {
+	public void setCaselles(Casella[][] caselles) {
 		this.caselles = caselles;
 	}
 
 	public void addCasella(Casella c){
-		caselles.addElement(c);
+		c.getPrimaryKEy();
 	}
 	
-	public Casella getCasella(int i){
-		return caselles.elementAt(i);
+	public Casella getCasella(int i, int j){
+		return caselles[i][j];
 	}
-	
-	public int getSizeCaselles(){
-		return caselles.size();
-	}
-
-	
 }
