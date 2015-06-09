@@ -34,6 +34,11 @@ public class Partida  {
 	Partida(){
 		caselles = new Casella[4][4];
 	}
+	
+	//aqui el creaPartida defin. en el diagrama de clases
+	Partida (int id, int j){ //la j es de jugador
+		//TODO
+	}
 
 	@Id
 	public int getIdPartida() {
@@ -50,9 +55,15 @@ public class Partida  {
 		this.estaAcabada = estaAcabada;
 	}
 
-	public boolean isEstaGuanyada() {
-		return estaGuanyada;
+	public boolean estaGuanyada() {
+		return estaGuanyada = true;
 	}
+	
+	public boolean estaPerduda(){
+		return (estaAcabada && !estaGuanyada);
+	}
+	
+	
 
 	public void setEstaGuanyada(boolean estaGuanyada) {
 		this.estaGuanyada = estaGuanyada;
@@ -95,5 +106,13 @@ public class Partida  {
 	
 	public Casella getCasella(int i, int j){
 		return caselles[i][j];
+	}
+	
+	public void prepararMoviment(){
+		//TODO
+	}
+	
+	public void partidaJugada(){
+		//TODO
 	}
 }
