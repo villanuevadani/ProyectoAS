@@ -3,6 +3,7 @@ package Domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
@@ -36,7 +37,7 @@ public class Partida  {
 	}
 	
 	//aqui el creaPartida defin. en el diagrama de clases
-	Partida (int id, int j){ //la j es de jugador
+	Partida (int id, Jugador jugador){ 
 		//TODO
 	}
 
@@ -113,6 +114,10 @@ public class Partida  {
 	}
 	
 	public void partidaJugada(){
+		//TODO
+	}
+	
+	public Set<CasAmbNum> casellesAmbNum(){
 		//TODO
 	}
 }

@@ -51,4 +51,12 @@ public abstract class UsuariRegistrat implements Serializable {
 		this.pwd = pwd;
 	}
 
+	public boolean passIncorrecte(String passwd) {
+		return (passwd.equals(pwd));
+	}
+
+	public boolean esJugador() {
+		return false;
+	}
+
 }

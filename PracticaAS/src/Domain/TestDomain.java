@@ -55,8 +55,8 @@ public class TestDomain {
 		System.out.println(":::Información de la partida "+pa.getIdPartida()+ " :::");
 		if(pa.isEstaAcabada())System.out.println("Partida acabada!");
 		if(! pa.isEstaAcabada())System.out.println("Partida no acabada!");
-		if(pa.isEstaGuanyada())System.out.println("Partida ganada!");
-		if(! pa.isEstaGuanyada())System.out.println("Partida no ganada!");
+		if(pa.estaGuanyada())System.out.println("Partida ganada!");
+		if(! pa.estaGuanyada())System.out.println("Partida no ganada!");
 		System.out.println("Puntuacio: "+pa.getPuntuacio());
 		System.out.println("Jugador de la partida actual: "+pa.getJugadorPartidaActual().getNom());
 		System.out.println("Jugador de la partida acabada: "+pa.getJugadorPartidaJugada().getNom());
@@ -105,8 +105,8 @@ public class TestDomain {
 		System.out.println(":::Información de la partida "+pa.getIdPartida()+ " :::");
 		if(pa.isEstaAcabada())System.out.println("Partida acabada!");
 		if(! pa.isEstaAcabada())System.out.println("Partida no acabada!");
-		if(pa.isEstaGuanyada())System.out.println("Partida ganada!");
-		if(! pa.isEstaGuanyada())System.out.println("Partida no ganada!");
+		if(pa.estaGuanyada())System.out.println("Partida ganada!");
+		if(! pa.estaGuanyada())System.out.println("Partida no ganada!");
 		System.out.println("Puntuacio: "+pa.getPuntuacio());
 		System.out.println("Jugador de la partida actual: "+pa.getJugadorPartidaActual().getNom());
 		System.out.println("Jugador de la partida acabada: "+pa.getJugadorPartidaJugada().getNom());
