@@ -60,7 +60,7 @@ public class TestUsuariRegistrat {
 		ca2.setPrimaryKEy(ck2);
 		n.add(ca);
 		n.add(ca2);
-		pa.setTabler(n);
+		//pa.setTabler(n);
 		
 	//	ca.setNumeroFila(4);
 		//session.save(ck);
