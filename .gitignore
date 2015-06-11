@@ -1,10 +1,6 @@
 *.classpath
-*.classpath
 PracticaAS/.classpath
-PracticaAS/.classpath
-PracticaAS/.classpath
-
-PracticaAS/.classpath
+/bin/
 *.project
 *.prefs
 *.xml
