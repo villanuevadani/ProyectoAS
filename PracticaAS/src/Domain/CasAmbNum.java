@@ -6,7 +6,7 @@ public class CasAmbNum {
 	private int numero;
 	
 	public int getI() {
-		return i;
+		return j;
 	}
 	
 	public void setI(int i) {

@@ -5,3 +5,5 @@ PracticaAS/.classpath
 *.prefs
 *.xml
 PracticaAS/bin/src/log4j.properties
+
+*.DS_Store
