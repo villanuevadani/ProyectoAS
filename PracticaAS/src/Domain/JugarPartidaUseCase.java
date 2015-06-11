@@ -24,14 +24,14 @@ public class JugarPartidaUseCase {
 		
 		boolean b = ur.esJugador();
 		
-		if (!b) throw new Exception ("L'usuari registrat no és jugador");
+		if (!b) throw new Exception ("L'usuari registrat no ï¿½s jugador");
 		
 		jugador = (Jugador)	ur;
 		
 	}
 	
 	
-	public void crearPartida(){
+	public ResultJugarPartida crearPartida(){
 		
 		int id = joc2048.getIdPartida();
 		joc2048.setIdPartida(id+1);
@@ -46,6 +46,13 @@ public class JugarPartidaUseCase {
 		int mp = jugador.getMillorPuntuacio();
 		int score = p.getPuntuacio();
 		
-		//return score + casNum + mp
+		ResultJugarPartida result = new ResultJugarPartida();
+		
+		result.setCasAmbNum(casNum);
+		result.setMillorPuntuacio(mp);
+		result.setPuntInicial(0);
+		
+		return result;
+		
 	}
 }
