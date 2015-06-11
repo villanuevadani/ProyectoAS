@@ -41,6 +41,22 @@ public class Partida  {
 	//aqui el creaPartida defin. en el diagrama de clases
 	Partida (int id, Jugador jugador){ 
 		//TODO
+		idPartida = id+1;
+		puntuacio = 0;
+		estaGuanyada = false;
+		estaAcabada = false;
+		int cont;
+		
+		caselles = new Casella[4][4];
+		
+		for (cont = 0; cont < 16; ++cont){
+			caselles[cont/4][cont%4] = new Casella(cont);		
+		}
+		
+		prepararMoviment();
+		prepararMoviment();
+		
+		jugadorPartidaActual = jugador;
 	}
 
 	@Id
