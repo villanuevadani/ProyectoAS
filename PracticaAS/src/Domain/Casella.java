@@ -7,11 +7,14 @@ import javax.persistence.OneToMany;
 @Entity
 public class Casella {
 
-	private CasellaKey primaryKEy;
+	private CasellaKey primaryKey;
 	@OneToMany 
 	private Partida partida;
 	
-	Casella(){}
+	Casella(int cont){
+		primaryKey.setNumeroFila(cont/4);
+		primaryKey.setNumeroColumna(cont%4);
+	}
 
 	public Partida getPartida() {
 		return partida;
@@ -24,7 +27,7 @@ public class Casella {
 
 	@Id
 	public CasellaKey getPrimaryKEy() {
-		return primaryKEy;
+		return primaryKey;
 	}
 	
 	public boolean getCasellaBuida(int cas){
@@ -38,7 +41,7 @@ public class Casella {
 	
 
 	public void setPrimaryKEy(CasellaKey primaryKEy) {
-		this.primaryKEy = primaryKEy;
+		this.primaryKey = primaryKEy;
 	}
 	
 	
