@@ -5,3 +5,7 @@ PracticaAS/.classpath
 PracticaAS/.classpath
 
 PracticaAS/.classpath
+*.project
+*.prefs
+*.xml
+PracticaAS/bin/src/log4j.properties
