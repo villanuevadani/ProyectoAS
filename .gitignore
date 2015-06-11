@@ -1,9 +1,8 @@
-PracticaAS/bin/
+PracticaAS/bin/Domain/CasAmbNum.class
 *.classpath
 PracticaAS/.classpath
 *.project
 *.prefs
 *.xml
 PracticaAS/bin/src/log4j.properties
-
 *.DS_Store
