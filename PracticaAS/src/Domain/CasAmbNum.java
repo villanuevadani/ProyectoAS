@@ -27,5 +27,5 @@ public class CasAmbNum {
 	
 	public void setNumero(int numero) {
 		this.numero = numero;
-	}	//DDDHDHHDHD
+	}
 }
