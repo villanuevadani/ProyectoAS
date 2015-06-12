@@ -26,7 +26,7 @@ public class Casella {
 
 
 	@Id
-	public CasellaKey getPrimaryKEy() {
+	public CasellaKey getPrimaryKey() {
 		return primaryKey;
 	}
 	
@@ -40,8 +40,8 @@ public class Casella {
 	
 	
 
-	public void setPrimaryKEy(CasellaKey primaryKEy) {
-		this.primaryKey = primaryKEy;
+	public void setPrimaryKey(CasellaKey primaryK) {
+		this.primaryKey = primaryK;
 	}
 	
 	
