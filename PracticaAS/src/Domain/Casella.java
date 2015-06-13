@@ -6,7 +6,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Casella {
-	//holabb
+	
 	private CasellaKey primaryKey;
 	@OneToMany 
 	private Partida partida;

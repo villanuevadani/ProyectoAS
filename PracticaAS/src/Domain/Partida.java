@@ -123,8 +123,8 @@ public class Partida  {
 		c.getPrimaryKEy();
 	}
 	
-	public void assignarEstrategia(String s){
-		estrategiaOrdenacio = s;
+	public void assignarEstrategia(Jugador j){
+		estrategiaOrdenacio = j.estrategia;
 	}
 	
 	public Casella getCasella(int i, int j){

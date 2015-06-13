@@ -16,7 +16,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	private String email;
-	private int millorPuntuacio;
+	private int millorPuntuacio; //??? aixo no es calcula?
+	
+	private String estrategia;
 	
 	@OneToOne
 	private Partida partidaActual;
@@ -58,6 +60,24 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 
 	public int getMillorPuntuacio() {
 		return millorPuntuacio;
+		/*  int n=-1;
+		    for(Partida pa : partidasJugadas){
+				int a = pa.getPuntuacio();
+				if(n < a) n = a;
+			}
+			return p;
+		 */
+	}
+	
+	public double getMitjaPuntuacio(){
+		double p = -1;
+		for(Partida pa : partidasJugadas){
+			int a = pa.getPuntuacio();
+			if(p == -1) p = a;
+			else p+=a;
+		}
+		if(p!=-1) p/=partidasJugadas.size();
+		return p;
 	}
 
 	public void setMillorPuntuacio(int millorPuntuacio) {
@@ -88,4 +108,24 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return true;
 	}
 	
+	public String getEstrategia(){
+		return estrategia;
+	}
+	
+	public void canviarEstrategiaOrdenacio(){
+		if(estrategia.equals("BestScore")) estrategia = "BestMean";
+		else estrategia = "BestScore";
+	}
+	
+	public TuplaMillor obteTuplaMillor(){
+		String s = getUsername();
+		int p = getMillorPuntuacio();
+		return new TuplaMillor(s,p);
+	}
+	
+	public TuplaMitjana obteTuplaMitjana(){
+		String s = getUsername();
+		double p = getMitjaPuntuacio();
+		return new TuplaMitjana(s,p);
+	}
 }
