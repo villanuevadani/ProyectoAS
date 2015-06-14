@@ -56,8 +56,8 @@ public class TestUsuariRegistrat {
 		
 		Casella ca = new Casella();
 		Casella ca2 = new Casella();
-		ca.setPrimaryKEy(ck);
-		ca2.setPrimaryKEy(ck2);
+		ca.setPrimaryKey(ck);
+		ca2.setPrimaryKey(ck2);
 		n.add(ca);
 		n.add(ca2);
 		//pa.setTabler(n);

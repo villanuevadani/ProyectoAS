@@ -67,34 +67,34 @@ public class TestDomain {
 		//ClaseCasella
 		Casella ca= new Casella();	
 		CasellaKey ck= new CasellaKey(3,3,7);
-		ca.setPrimaryKEy(ck);
+		ca.setPrimaryKey(ck);
 		ca.setPartida(pa);
-		System.out.println(":::Información de la  Casella "+ca.getPrimaryKEy().getNumero()+ " :::");
-		System.out.println("Numero de la columna "+ca.getPrimaryKEy().getNumeroColumna());
-		System.out.println("Numero de la fila: "+ca.getPrimaryKEy().getNumeroFila());
+		System.out.println(":::Información de la  Casella "+ca.getPrimaryKey().getNumero()+ " :::");
+		System.out.println("Numero de la columna "+ca.getPrimaryKey().getNumeroColumna());
+		System.out.println("Numero de la fila: "+ca.getPrimaryKey().getNumeroFila());
 		System.out.println("Identificador de la partida: "+ca.getPartida().getIdPartida());
 		System.out.println("");
 		System.out.println("");
 		
 		Casella ca2= new Casella();	
 		CasellaKey ck2= new CasellaKey(1,2,7);
-		ca2.setPrimaryKEy(ck2);
+		ca2.setPrimaryKey(ck2);
 		ca2.setPartida(pa);
 		System.out.println("Información de les caselles: ");
-		System.out.println(":::Informació de la  Casella "+ca2.getPrimaryKEy().getNumero()+ " :::");
-		System.out.println("Numero de la columna "+ca2.getPrimaryKEy().getNumeroColumna());
-		System.out.println("Numero de la fila: "+ca2.getPrimaryKEy().getNumeroFila());
+		System.out.println(":::Informació de la  Casella "+ca2.getPrimaryKey().getNumero()+ " :::");
+		System.out.println("Numero de la columna "+ca2.getPrimaryKey().getNumeroColumna());
+		System.out.println("Numero de la fila: "+ca2.getPrimaryKey().getNumeroFila());
 		System.out.println("Identificador de la partida: "+ca2.getPartida().getIdPartida());
 		System.out.println("");
 		System.out.println("");
 		
 		Casella ca3= new Casella();	
 		CasellaKey ck3= new CasellaKey(2,0,7);
-		ca3.setPrimaryKEy(ck3);
+		ca3.setPrimaryKey(ck3);
 		ca3.setPartida(pa);
-		System.out.println(":::Información de la  Casella "+ca3.getPrimaryKEy().getNumero()+ " :::");
-		System.out.println("Numero de la columna "+ca3.getPrimaryKEy().getNumeroColumna());
-		System.out.println("Numero de la fila: "+ca3.getPrimaryKEy().getNumeroFila());
+		System.out.println(":::Información de la  Casella "+ca3.getPrimaryKey().getNumero()+ " :::");
+		System.out.println("Numero de la columna "+ca3.getPrimaryKey().getNumeroColumna());
+		System.out.println("Numero de la fila: "+ca3.getPrimaryKey().getNumeroFila());
 		System.out.println("Identificador de la partida: "+ca3.getPartida().getIdPartida());
 		System.out.println("");
 		System.out.println("");
@@ -116,9 +116,9 @@ public class TestDomain {
 		pa.addCasella(ca);
 		pa.addCasella(ca2);
 		pa.addCasella(ca3);
-		for(int i=0; i<pa.getSizeCaselles(); ++i){
-			System.out.println("    numero: "+pa.getCasella(i).getPrimaryKEy().getNumero()+" Columna: "+pa.getCasella(i).getPrimaryKEy().getNumeroColumna()+" Fila: "+pa.getCasella(i).getPrimaryKEy().getNumeroFila());
-		}
+		//for(int i=0; i<pa.getSizeCaselles(); ++i){
+		//	System.out.println("    numero: "+pa.getCasella(i).getPrimaryKey().getNumero()+" Columna: "+pa.getCasella(i).getPrimaryKey().getNumeroColumna()+" Fila: "+pa.getCasella(i).getPrimaryKey().getNumeroFila());
+		//}
 			
 		System.out.println("");
 		System.out.println("");

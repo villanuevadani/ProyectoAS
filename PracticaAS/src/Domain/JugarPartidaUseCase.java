@@ -40,7 +40,7 @@ public class JugarPartidaUseCase {
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
-		p.assignarEstrategia(j);
+		p.assignarEstrategia(jugador);
 		jugador.assignarPartida(p);
 	
 		int mp = jugador.getMillorPuntuacio();

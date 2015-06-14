@@ -116,7 +116,7 @@ public class Partida  {
 	}
 	
 	public void assignarEstrategia(Jugador j){
-		estrategiaOrdenacio = j.estrategia;
+		estrategiaOrdenacio = j.getEstrategia();
 	}
 	
 	public Casella getCasella(int i, int j){
