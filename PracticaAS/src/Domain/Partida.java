@@ -120,7 +120,7 @@ public class Partida  {
 	}
 
 	public void addCasella(Casella c){
-		c.getPrimaryKEy();
+		c.getPrimaryKey();
 	}
 	
 	public void assignarEstrategia(Jugador j){

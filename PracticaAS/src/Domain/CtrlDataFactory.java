@@ -1,32 +1,36 @@
 package Domain;
 
 public class CtrlDataFactory {
-	private static final CtrlDataFactory INSTANCE = new CtrlDataFactory();
-	private static CtrlJugador ctrlJugador;
-	private static CtrlPartida ctrlPartida;
-	private static CtrlUsuariRegistrat ctrlUsReg;
+	private static CtrlDataFactory instance;
+	private static ICtrlJugador ctrlJugador;
+	private static ICtrlPartida ctrlPartida;
+	private static ICtrlUsuariRegistrat ctrlUsReg;
+	
+	//faltaria el ADAPTER MISSATGE, lo dejamos apra
+	//+ adelante
 	
 	public CtrlDataFactory(){
-		ctrlJugador = new CtrlJugador();
-		ctrlPartida = new CtrlPartida();
-		ctrlUsReg = new CtrlUsuariRegistrat();
 	}
 	
 	public static CtrlDataFactory getInstance(){
-		return INSTANCE;
+		if (instance == null) instance = new CtrlDataFactory();
+		return instance;
 	}
 	
-	public static CtrlJugador getCtrlJugador(){
+	public static ICtrlJugador getCtrlJugador(){
+		if (ctrlJugador == null) ctrlJugador = new CtrlJugadorDB();
 		return ctrlJugador;
 	}
 
 
 	
-	public static CtrlPartida getCtrlPartida(){
+	public static ICtrlPartida getCtrlPartida(){
+		if (ctrlPartida == null) ctrlPartida = new CtrlPartidaDB();
 		return ctrlPartida;
 	}
 
-	public static CtrlUsuariRegistrat getCtrlUsuariRegistrat() {
+	public static ICtrlUsuariRegistrat getCtrlUsuariRegistrat() {
+		if (ctrlUsReg == null) ctrlUsReg = new CtrlUsuariRegistratDB();
 		return ctrlUsReg;
 	}
 	

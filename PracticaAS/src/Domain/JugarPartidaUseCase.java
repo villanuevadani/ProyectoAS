@@ -10,7 +10,7 @@ public class JugarPartidaUseCase {
 	private Jugador jugador;
 	
 	public JugarPartidaUseCase(CtrlDataFactory cdf){
-		ctrlDataFactory = cdf.getInstance();
+		//ctrlDataFactory = cdf.getInstance();
 		joc2048 = new Joc2048();
 	}
 	
@@ -20,7 +20,7 @@ public class JugarPartidaUseCase {
 		
 		login.Login(userN, passwd);
 		
-		UsuariRegistrat ur = ctrlDataFactory.getCtrlUsuariRegistrat().getUsuariRegistrat(userN);
+		UsuariRegistrat ur = CtrlDataFactory.getCtrlUsuariRegistrat().get(userN);
 		
 		boolean b = ur.esJugador();
 		
