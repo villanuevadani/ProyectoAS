@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 public class VistaUsuario extends JPanel{
 	
-	private JButton CrearPartida;
+	private JButton IniciarSessio;
 	private JButton Sortir;
 	private JTextField tf;
 	public VistaUsuario(){
@@ -57,8 +57,8 @@ public class VistaUsuario extends JPanel{
 	    	JPanel pb = new JPanel();
 	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
 
-	    	CrearPartida = new JButton(" Crear Partida ");
-	    	pb.add(CrearPartida); 
+	    	IniciarSessio = new JButton(" Iniciar Sessio ");
+	    	pb.add(IniciarSessio); 
 	    	
 	    	Sortir = new JButton(" Sortir ");
 	    	pb.add(Sortir);
@@ -68,6 +68,14 @@ public class VistaUsuario extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
 	                VistaPrincipal.getInstance().tancar();
+	            }
+	        });
+	    	IniciarSessio.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent ae) {
+	            	VistaPrincipal.getInstance().remove(jp);
+	                VistaPrincipal.getInstance().seleccionarOpcion();
 	            }
 	        });
 	  }

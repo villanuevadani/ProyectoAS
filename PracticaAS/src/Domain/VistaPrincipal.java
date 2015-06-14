@@ -10,10 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-
-
-
-
 public class VistaPrincipal extends JFrame {
 	
 	
@@ -37,6 +33,16 @@ public class VistaPrincipal extends JFrame {
 		VistaUsuario vu = new VistaUsuario();
 		this.pack();
 	}
+	
+	public void jugarPartida(){
+		VistaPartida vp = new VistaPartida();
+	}
+	
+	
+	public void seleccionarOpcion(){
+		VistaSeleccionOpcion vso = new VistaSeleccionOpcion();
+	}
+	
 
 	public void start() {
 		this.setVisible(true);
