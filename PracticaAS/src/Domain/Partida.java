@@ -167,7 +167,94 @@ public class Partida  {
 	
 
 	public void ferMoviment(String tipusMov){
-		//TODO
+		if(tipusMov.equals("esquerra")) 
+		{
+			for(int i = 3; i > 0; --i)
+			{
+				for(int j = 0; j < 4; ++j)
+				{
+					int num = getNumCasella(i,j);
+					if(num > 0) moure(i,j,tipusMov,num);
+				}
+			}
+		}
+		else if(tipusMov.equals("dreta")) 
+		{
+			for(int i = 0; i < 4; ++i)
+			{
+				for(int j = 0; j < 4; ++j)
+				{
+					int num = getNumCasella(i,j);
+					if(num > 0) moure(i,j,tipusMov,num);
+				}
+			}
+		}
+		else if(tipusMov.equals("amunt"))
+		{
+			for(int i = 0; i < 4; ++i)
+			{
+				for(int j = 3; j > 0; --j)
+				{
+					int num = getNumCasella(i,j);
+					if(num > 0) moure(i,j,tipusMov,num);
+				}
+			}
+		}
+		else if(tipusMov.equals("avall"))
+		{
+			for(int i = 0; i < 4; ++i)
+			{
+				for(int j = 0; j < 4; ++j)
+				{
+					int num = getNumCasella(i,j);
+					if(num > 0) moure(i,j,tipusMov,num);
+				}
+			}
+		}
+	}
+	
+	public void moure(int i, int j, String tipusMov, int num1)
+	{
+		int ii = 0;
+		int jj = 0;
+		Boolean movimentcorrecte = true;
+		if(tipusMov.equals("esquerra"))
+		{
+			ii = i -1;
+			jj = j;
+		}
+		else if(tipusMov.equals("dreta"))
+		{
+			ii = i +1;
+			jj = j;
+		}
+		else if(tipusMov.equals("amunt"))
+		{
+			ii = i;
+			jj = j -1;
+		}
+		else if(tipusMov.equals("avall"))
+		{
+			ii = i;
+			jj = j +1;
+		}
+		if(i < 0 || i > 4 || j < 0 || j > 4) movimentcorrecte = false;
+		if(movimentcorrecte)
+		{
+			int num2 = getNumCasella(ii,jj);
+			if(num1 == num2)
+			{
+				setNumCasella(ii,jj,2*num2);
+				setNumCasella(i,j,-1);
+				puntuacio += 2*num2;
+			}
+			else if(num2 == 0)
+			{
+				setNumCasella(ii,jj,num1);
+				setNumCasella(i,j,-1);
+			}
+			else moure(ii,jj,tipusMov,num1);
+		}
 	}
 	
 	public boolean estaGuanyada() {
