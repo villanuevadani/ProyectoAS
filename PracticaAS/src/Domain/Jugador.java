@@ -118,16 +118,16 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		else estrategia = "BestScore";
 	}
 	
-	public TuplaMillor obteTuplaMillor(){
+	public Tupla obteTuplaMillor(){
 		String s = getUsername();
-		int p = getMillorPuntuacio();
-		return new TuplaMillor(s,p);
+		double p = getMillorPuntuacio();
+		return new Tupla(s,p);
 	}
 	
-	public TuplaMitjana obteTuplaMitjana(){
+	public Tupla obteTuplaMitjana(){
 		String s = getUsername();
 		double p = getMitjaPuntuacio();
-		return new TuplaMitjana(s,p);
+		return new Tupla(s,p);
 	}
 	
 	public void partidaAcabada(int punt, Partida p){

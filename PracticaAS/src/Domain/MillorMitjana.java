@@ -6,9 +6,10 @@ public class MillorMitjana implements IEstrategiaOrdenacio{
 	public ArrayList<Tupla> getRanking(ArrayList<Jugador> jugadors) {
 		ArrayList<Tupla> result = new ArrayList<Tupla>();
 		for(Jugador j : jugadors){
-			TuplaMitjana t = j.obteTuplaMitjana();
+			Tupla t = j.obteTuplaMitjana();
 			if(t.getPuntuacio()!=-1) result.add(t);
 		}
+		result.sort(//comparador aqui);
 		return result;
 	}
 

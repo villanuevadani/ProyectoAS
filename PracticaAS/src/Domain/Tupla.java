@@ -1,7 +1,9 @@
 package Domain;
 
-public abstract class Tupla {
+public class Tupla {
 	String userN;
+	double puntuacio;
+	
 	public Tupla(String s){
 		userN = s;
 	}
