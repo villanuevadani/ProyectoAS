@@ -66,13 +66,16 @@ public class JugarPartidaUseCase {
 		if (!guanyada) perduda = p.estaPerduda();
 		
 		result.setEstaAcabada(guanyada ||perduda);
+		
 		result.setEstaPerduda(perduda);
 
+		if (!result.isEstaAcabada()) p.prepararMoviment();
+		
 		result.setCasellesAmbNumero(p.casellesAmbNum());
 		
 		result.setPuntuacio(p.getPuntuacio());
-		
-		if (guanyada || perduda) p.partidaJugada();
+				
+		if (result.isEstaAcabada()) p.partidaJugada();
 			
 	}
 }
