@@ -1,6 +1,7 @@
 package Domain;
 
 public class CasAmbNum {
+	//prueba
 	private int i;
 	private int j;
 	private int numero;
