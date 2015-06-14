@@ -42,7 +42,6 @@ public class Partida  {
 	
 	//aqui el creaPartida defin. en el diagrama de clases
 	Partida (int id, Jugador jugador){ 
-		//TODO
 		idPartida = id+1;
 		puntuacio = 0;
 		estaGuanyada = false;
