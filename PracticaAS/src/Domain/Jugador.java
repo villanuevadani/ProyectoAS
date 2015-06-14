@@ -1,6 +1,7 @@
 package Domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
@@ -24,16 +25,16 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	private Partida partidaActual;
 	
 	@ManyToOne
-	private Vector<Partida> partidasJugadas;
+	private ArrayList<Partida> partidasJugadas;
 	
 	Jugador(){
 		super();
-		partidasJugadas = new Vector<Partida>();
+		partidasJugadas = new ArrayList<Partida>();
 	}
 	
 	Jugador(String uname) {
 		super(uname);
-		partidasJugadas = new Vector<Partida>();
+		partidasJugadas = new ArrayList<Partida>();
 	}
 	
 	public Partida getPartidaActual() {
@@ -84,20 +85,20 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.millorPuntuacio = millorPuntuacio;
 	}
 
-	public Vector<Partida> getPartidasJugadas() {
+	public ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
 
-	public void setPartidasJugadas(Vector<Partida> partidasJugadas) {
+	public void setPartidasJugadas(ArrayList<Partida> partidasJugadas) {
 		this.partidasJugadas = partidasJugadas;
 	}
 	
 	public void addPartida(Partida c){
-		partidasJugadas.addElement(c);
+		partidasJugadas.add(c);
 	}
 	
 	public Partida getPartida(int i){
-		return partidasJugadas.elementAt(i);
+		return partidasJugadas.get(i);
 	}
 	
 	public int getSizePartidasJugadas(){
@@ -127,5 +128,11 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		String s = getUsername();
 		double p = getMitjaPuntuacio();
 		return new TuplaMitjana(s,p);
+	}
+	
+	public void partidaAcabada(int punt, Partida p){
+		partidaActual = null;
+		partidasJugadas.add(p);
+		if (punt > millorPuntuacio) millorPuntuacio = punt;	
 	}
 }

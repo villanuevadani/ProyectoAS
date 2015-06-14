@@ -38,7 +38,9 @@ public class Casella {
 		return false; //TODO
 	}
 	
-	
+	public int getNumero(){
+		return primaryKey.getNumero();
+	}
 
 	public void setPrimaryKey(CasellaKey primaryK) {
 		this.primaryKey = primaryK;

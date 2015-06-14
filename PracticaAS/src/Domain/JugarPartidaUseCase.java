@@ -55,4 +55,24 @@ public class JugarPartidaUseCase {
 		return result;
 		
 	}
+	
+	public void FerMoviment(Partida p, String tipusMov){
+		
+		ResultFerMovimentPartida result = new ResultFerMovimentPartida();
+		
+		p.ferMoviment(tipusMov);
+		boolean guanyada = p.estaGuanyada();
+		boolean perduda = false;
+		if (!guanyada) perduda = p.estaPerduda();
+		
+		result.setEstaAcabada(guanyada ||perduda);
+		result.setEstaPerduda(perduda);
+
+		result.setCasellesAmbNumero(p.casellesAmbNum());
+		
+		result.setPuntuacio(p.getPuntuacio());
+		
+		if (guanyada || perduda) p.partidaJugada();
+			
+	}
 }
