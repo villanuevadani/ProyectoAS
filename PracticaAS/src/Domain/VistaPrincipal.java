@@ -42,7 +42,8 @@ public class VistaPrincipal extends JFrame {
 		this.setVisible(true);
 		this.setMinimumSize( new Dimension(50,50) );
         this.setResizable(false);
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
        VistaJugarPartida vys = new VistaJugarPartida();
        this.pack();
        // seleccionaEspecialitat();
