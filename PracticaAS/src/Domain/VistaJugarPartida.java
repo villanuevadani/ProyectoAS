@@ -30,15 +30,15 @@ public class VistaJugarPartida extends JPanel{
 	        this.add(jlabel);
 	        jlabel = new JLabel("2048");
 	        jlabel.setFont(new Font("Tahoma",1,50));
-	        jlabel.setHorizontalAlignment(JLabel.CENTER);
+	        //jlabel.setHorizontalAlignment(JLabel.CENTER);
 	        JPanel aux = new JPanel();
-	        aux.setLayout( new FlowLayout(FlowLayout.LEFT));
+	        aux.setLayout( new FlowLayout(FlowLayout.CENTER));
 	        aux.add(jlabel);
 	        this.add(aux);
 	        genBotons(this);
 	        VistaPrincipal.getInstance().add(this);
 	        VistaPrincipal.getInstance().pack();
-	       // IngressarPacientView.getInstance().add(this);
+	 
 	}
 	
 
@@ -58,6 +58,14 @@ public class VistaJugarPartida extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
 	                VistaPrincipal.getInstance().tancar();
+	            }
+	        });
+	    	JugarPartida.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent ae) {
+	            	VistaPrincipal.getInstance().remove(jp);
+	                VistaPrincipal.getInstance().identificacioUsuari();
 	            }
 	        });
 	  }

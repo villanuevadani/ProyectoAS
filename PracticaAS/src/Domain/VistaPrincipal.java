@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 
 
 
+
+
 public class VistaPrincipal extends JFrame {
 	
 	
@@ -30,13 +32,18 @@ public class VistaPrincipal extends JFrame {
 	public void tancar() {
 	    	System.exit(0);
 	}
+	
+	public void identificacioUsuari() {
+		VistaUsuario vu = new VistaUsuario();
+		this.pack();
+	}
 
 	public void start() {
 		this.setVisible(true);
 		this.setMinimumSize( new Dimension(50,50) );
         this.setResizable(false);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-       VistaJugarPartida vs = new VistaJugarPartida();
+       VistaJugarPartida vys = new VistaJugarPartida();
        this.pack();
        // seleccionaEspecialitat();
         this.setLocationRelativeTo(null);
