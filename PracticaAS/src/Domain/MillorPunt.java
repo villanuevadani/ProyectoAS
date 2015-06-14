@@ -8,7 +8,7 @@ public class MillorPunt  implements IEstrategiaOrdenacio{
 			Tupla t = j.obteTuplaMillor();
 			if(t.getPuntuacio()!=-1) result.add(t);
 		}
-		result.sort(//comparador);
+		result.sort(new TuplaComparator());
 		return result;
 	}
 

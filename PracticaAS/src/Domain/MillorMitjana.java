@@ -9,7 +9,7 @@ public class MillorMitjana implements IEstrategiaOrdenacio{
 			Tupla t = j.obteTuplaMitjana();
 			if(t.getPuntuacio()!=-1) result.add(t);
 		}
-		result.sort(//comparador aqui);
+		result.sort(new TuplaComparator());
 		return result;
 	}
 
