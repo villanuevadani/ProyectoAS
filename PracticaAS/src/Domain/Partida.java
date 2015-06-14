@@ -2,7 +2,9 @@ package Domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 import java.util.Vector;
 
@@ -125,10 +127,45 @@ public class Partida  {
 		return caselles[i][j].getNumero();
 	}
 	
-	public void prepararMoviment(){
-		//TODO
+	public void setNumCasella(int i, int j, int num){
+		caselles[i][j].getPrimaryKey().setNumero(num);
 	}
 	
+	public void prepararMoviment(){
+		ArrayList <Casella> casellesBuides = getCasellesBuides();
+		afegirNumero(casellesBuides);
+	}
+	
+	public ArrayList<Casella> getCasellesBuides(){
+		ArrayList<Casella> casellesbuides = new ArrayList<Casella>();
+		
+		for (int i = 0; i < 4; ++ i){
+			for (int j = 0; j < 4; ++j){
+				Casella cas = new Casella();
+				boolean buida = caselles[i][j].getCasellaBuida(cas);
+				if (buida) casellesbuides.add(cas);					
+			}
+		}
+		
+		return casellesbuides;
+	}
+	
+	public void afegirNumero(ArrayList <Casella> casellesBuides){
+		
+		Random rand = new Random();
+		int ncasella = rand.nextInt() % casellesBuides.size();
+		Casella cas = casellesBuides.get(ncasella);
+		int i = 0, j = 0, num = 0;
+		cas.getInfo(i,j,num);
+		
+		num  = rand.nextInt()%2;
+		if (num == 0) num = 2; 
+		else num = 4;
+		
+		setNumCasella(i,j,num);
+	}
+	
+
 	public void ferMoviment(String tipusMov){
 		//TODO
 	}
@@ -151,17 +188,15 @@ public class Partida  {
 	}
 	
 	public boolean estaPerduda(){
-		
-		//como se supone que se comprueba
-		//lo del 2048 en el estaGuanyada
-		//no hace falta volver a comprobarlo aqui
+
+		//lo del 2048 se comprueba en estaGuanyada
 		
 		boolean perduda = true;
 		
 		for (int i = 0; i < 4 && perduda; ++i){
 			for (int j = 0; j < 4 && perduda; ++j){
 				int num = getNumCasella(i,j);
-				if (num%2 != 0) perduda = false; //no me deja comprobar si NULL
+				if (num == -1) perduda = false; //no me deja comprobar si NULL
 			}
 		}
 		
@@ -174,6 +209,22 @@ public class Partida  {
 	}
 	
 	public Set<CasAmbNum> casellesAmbNum(){
-		//TODO
+		Set<CasAmbNum> result = new HashSet<CasAmbNum>();
+		
+		for(int i = 0; i < 4; ++i){
+			for(int j = 0; j < 4; ++j){
+				int num = 0;
+				boolean teNumero = caselles[i][j].getInfo(i,j,num);
+				if (teNumero){
+					CasAmbNum casnum = new CasAmbNum();
+					casnum.setI(i);
+					casnum.setJ(j);
+					casnum.setNumero(num);
+					result.add(casnum);
+				}
+			}
+		}
+		
+		return result;
 	}
 }

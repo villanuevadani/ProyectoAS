@@ -14,7 +14,10 @@ public class Casella {
 	Casella(int cont){
 		primaryKey.setNumeroFila(cont/4);
 		primaryKey.setNumeroColumna(cont%4);
+		primaryKey.setNumero(-1);
 	}
+	
+	Casella(){}
 
 	public Partida getPartida() {
 		return partida;
@@ -30,12 +33,21 @@ public class Casella {
 		return primaryKey;
 	}
 	
-	public boolean getCasellaBuida(int cas){
-		return false;//TODO
+	public boolean getCasellaBuida(Casella cas){
+		boolean buida = false;
+		if (primaryKey.getNumero() % 2 != 0) {
+			cas = this;
+			buida = true;
+		}
+		
+		return buida;
 	}
 	
 	public boolean getInfo(int i, int j, int num){
-		return false; //TODO
+		i = primaryKey.getNumeroFila();
+		j = primaryKey.getNumeroColumna();
+		num = primaryKey.getNumero();
+		return (num != -1); //devuelve cierto si tiene numero
 	}
 	
 	public int getNumero(){
