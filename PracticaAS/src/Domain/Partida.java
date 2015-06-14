@@ -291,7 +291,7 @@ public class Partida  {
 	}
 	
 	public void partidaJugada(){
-		//TODO
+		jugadorPartidaActual.partidaAcabada(puntuacio, this);
 	}
 	
 	public Set<CasAmbNum> casellesAmbNum(){
