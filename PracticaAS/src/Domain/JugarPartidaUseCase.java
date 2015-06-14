@@ -1,9 +1,10 @@
 package Domain;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class JugarPartidaUseCase {
-	private CtrlDataFactory ctrlDataFactory;
+	//private CtrlDataFactory ctrlDataFactory;
 	private LoginUseCase login;
 	private ConsultarRankingUseCase ranking;
 	private Joc2048 joc2048;
@@ -16,7 +17,8 @@ public class JugarPartidaUseCase {
 	
 	public void ferAutenticacio(String userN, String passwd) throws Exception{
 		
-		login = new LoginUseCase(ctrlDataFactory);
+		//login = new LoginUseCase(CtrlDataFactory.getInstance());
+		login = new LoginUseCase();
 		
 		login.Login(userN, passwd);
 		
@@ -77,5 +79,11 @@ public class JugarPartidaUseCase {
 				
 		if (result.isEstaAcabada()) p.partidaJugada();
 			
+	}
+	
+	public ArrayList<Tupla> obtenirRanking(){
+		ranking = new ConsultarRankingUseCase();
+		
+		return ranking.consultarRanking();
 	}
 }

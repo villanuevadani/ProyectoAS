@@ -1,5 +1,7 @@
 package Domain;
 
+import java.util.ArrayList;
+
 import org.hibernate.Session;
 
 
@@ -21,6 +23,10 @@ public class CtrlJugadorDB implements ICtrlJugador {
 			throw new Exception("Jugador no existeix");
 		}
 		return j;
+	}
+	
+	public ArrayList<Jugador> getAll(){
+		//TODO
 	}
 
 }

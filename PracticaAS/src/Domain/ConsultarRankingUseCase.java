@@ -1,6 +1,14 @@
 package Domain;
 
+import java.util.ArrayList;
+
 public class ConsultarRankingUseCase {
-	//get all jugadors
-	//cridar getRanking(jugadors)
+
+	public ArrayList<Tupla> consultarRanking(){
+		CtrlDataFactory.getCtrlJugador().getAll();
+		//getRanking(jugadors) a EstrategiaOrdenacio
+		
+		//retornar el ranking
+	}
+
 }

@@ -4,7 +4,7 @@ public class LoginUseCase {
 	
 	//private CtrlDataFactory ctrlDataFactory;
 	
-	public LoginUseCase(CtrlDataFactory cdf){
+	public LoginUseCase(){
 		//ctrlDataFactory = CtrlDataFactory.getInstance();
 	}
 
