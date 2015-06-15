@@ -17,9 +17,12 @@ public class VistaUsuario extends JPanel{
 	
 	private JButton IniciarSessio;
 	private JButton Sortir;
-	private JTextField tf;
+	private JTextField tf1, tf2;
 	private JugarPartidaViewController jpvc;
 	private VistaPrincipal vp;
+	private JTextArea jtext;
+	
+	
 	public VistaUsuario(VistaPrincipal v, JugarPartidaViewController j){
 		vp = v;
 		jpvc = j;
@@ -34,8 +37,8 @@ public class VistaUsuario extends JPanel{
         jlabel.setForeground(Color.darkGray);
         jlabel.setFont(new Font("Tahoma",1,12));
         aux.add(jlabel);
-        JTextField textField = new JTextField(20);
-        aux.add(textField);
+        tf1 = new JTextField(20);
+        aux.add(tf1);
         
         JPanel aux2 = new JPanel();
        // aux2.setBackground(Color.DARK_GRAY);
@@ -47,13 +50,13 @@ public class VistaUsuario extends JPanel{
         jlabel2.setForeground(Color.darkGray);
         jlabel2.setFont(new Font("Tahoma",1,12));
         aux2.add(jlabel2);
-        JTextField textField2 = new JTextField(20);
-        aux2.add(textField2);        
+        tf2 = new JTextField(20);
+        aux2.add(tf2);        
         
         //aux.setLayout( new FlowLayout(FlowLayout.LEFT));
         //aux2.setLayout( new FlowLayout(FlowLayout.LEFT));
        JPanel aux3 = new JPanel();
-       JTextArea jtext = new JTextArea(3,30);
+       jtext = new JTextArea(3,30);
        aux3.add(jtext);
        
         this.add(aux);
@@ -89,6 +92,12 @@ public class VistaUsuario extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
+	            	try {
+						jpvc.iniciarSessioPressed(tf1.getText(), tf2.getText());
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						jtext.setText(e.toString());
+					}
 	            	vp.remove(jp);
 	                vp.seleccionarOpcion();
 	            }
