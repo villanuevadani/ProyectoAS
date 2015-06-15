@@ -22,8 +22,6 @@ public class CtrlDataFactory {
 		if (ctrlJugador == null) ctrlJugador = new CtrlJugadorDB();
 		return ctrlJugador;
 	}
-
-
 	
 	public static ICtrlPartida getCtrlPartida(){
 		if (ctrlPartida == null) ctrlPartida = new CtrlPartidaDB();
@@ -35,8 +33,8 @@ public class CtrlDataFactory {
 		return ctrlUsReg;
 	}
 	
-	public static ICtrlJoc getCtrlJoc(){
-		if(ctrlJoc == null) ctrlJoc = new CtrlJoc();
+	public static int getIdPartida(){
+		if(ctrlJoc == null) ctrlJoc = new CtrlJocDB();
 		return ctrlJoc;
 	}
 	

@@ -9,10 +9,10 @@ public class JugarPartidaUseCase {
 	private ConsultarRankingUseCase ranking;
 	private Joc2048 joc2048;
 	private Jugador jugador;
+	private Partida p;
 	
-	public JugarPartidaUseCase(CtrlDataFactory cdf){
-		//ctrlDataFactory = cdf.getInstance();
-		joc2048 = CtrlDataFactory.getCtrlJoc().getInstance();
+	public JugarPartidaUseCase(){
+
 	}
 	
 	public void ferAutenticacio(String userN, String passwd) throws Exception{
@@ -38,7 +38,7 @@ public class JugarPartidaUseCase {
 		int id = joc2048.getIdPartida();
 		joc2048.setIdPartida(id+1);
 		
-		Partida p = new Partida(id, jugador);
+		p = new Partida(id, jugador);
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
@@ -59,7 +59,7 @@ public class JugarPartidaUseCase {
 		
 	}
 	
-	public void FerMoviment(Partida p, String tipusMov){
+	public ResultFerMovimentPartida FerMoviment(String tipusMov){
 		
 		ResultFerMovimentPartida result = new ResultFerMovimentPartida();
 		
@@ -79,6 +79,8 @@ public class JugarPartidaUseCase {
 		result.setPuntuacio(p.getPuntuacio());
 				
 		if (result.isEstaAcabada()) p.partidaJugada();
+		
+		return result;
 			
 	}
 	
