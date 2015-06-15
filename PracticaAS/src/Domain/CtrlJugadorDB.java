@@ -1,6 +1,7 @@
 package Domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 
@@ -25,8 +26,21 @@ public class CtrlJugadorDB implements ICtrlJugador {
 		return j;
 	}
 	
-	public ArrayList<Jugador> getAll(){
-		//TODO
+	public List <Jugador> getAll() throws Exception{
+		Session s = null;
+		try{
+			s = HibernateUtil.getSessionFactory().getCurrentSession();
+			List<Jugador> totsJugadors;
+			s.beginTransaction();
+			totsJugadors = s.createSQLQuery("SELECT * FROM Jugadors").list();
+			if(totsJugadors.size() > 0) return totsJugadors;
+			return null;
+			
+		}
+		
+		catch(Exception e){
+			throw e;
+		}
 	}
 
 }
