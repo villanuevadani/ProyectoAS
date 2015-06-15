@@ -55,7 +55,7 @@ public class VistaUsuario extends JPanel{
 		 
 		 	
 	    	JPanel pb = new JPanel();
-	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
+	    	pb.setLayout( new FlowLayout(FlowLayout.CENTER));
 
 	    	IniciarSessio = new JButton(" Iniciar Sessio ");
 	    	pb.add(IniciarSessio); 
