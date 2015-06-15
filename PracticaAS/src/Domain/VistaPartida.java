@@ -28,6 +28,8 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private int puntuacio;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
+		jpvc.crearPartidaPressed();
+		
 		vp = v;
 		jpvc = j;
 		bboton = false;
@@ -167,11 +169,26 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[3][3].setPreferredSize(new Dimension(70,70));
         row4.add(matr[3][3]);
         this.add(row4);
-        
-        
+        refresh();
+        addKeyListener(this);
         genBotons(this);
         vp.add(this);
         vp.pack();
+	}
+	
+	private void refresh(){
+		puntuacio = res.getPuntuacio();
+	    Set<CasAmbNum> cas = res.getCasellesAmbNumero();
+	    int i = 0, j = 0;
+		for (CasAmbNum c : cas) {
+		    matr[i][j].setText(Integer.toString(c.getNumero()));
+		    System.out.println("numero" + c.getNumero());
+		    ++j;
+		    if (j > 3){
+		    	j = 0;
+		    	++i;
+		    }
+		}
 	}
 	
 	public void keyPressed(KeyEvent e) {
@@ -199,18 +216,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    	res = jpvc.direccioPressed("avall");
 		    }
 		    bboton = false;
-		    puntuacio = res.getPuntuacio();
-		    Set<CasAmbNum> cas = res.getCasellesAmbNumero();
-		    int i = 0, j = 0;
-			for (CasAmbNum c : cas) {
-			    matr[i][j].setText(Integer.toString(c.getNumero()));
-			    System.out.println("numero" + c.getNumero());
-			    ++j;
-			    if (j > 3){
-			    	j = 0;
-			    	++i;
-			    }
-			}
+		    refresh();
 	    }		
 	}
 	
