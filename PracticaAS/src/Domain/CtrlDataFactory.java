@@ -5,7 +5,6 @@ public class CtrlDataFactory {
 	private static ICtrlJugador ctrlJugador;
 	private static ICtrlPartida ctrlPartida;
 	private static ICtrlUsuariRegistrat ctrlUsReg;
-	private static ICtrlJoc ctrlJoc;
 	
 	//faltaria el ADAPTER MISSATGE, lo dejamos apra
 	//+ adelante
@@ -33,10 +32,8 @@ public class CtrlDataFactory {
 		return ctrlUsReg;
 	}
 	
-	public static int getIdPartida(){
-		if(ctrlJoc == null) ctrlJoc = new CtrlJocDB();
-		return ctrlJoc;
+	public static Joc2048 getJoc2048(){
+		return Joc2048.getInstance();
 	}
-	
 	
 }

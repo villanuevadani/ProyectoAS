@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class JugarPartidaUseCase {
-	//private CtrlDataFactory ctrlDataFactory;
+
 	private LoginUseCase login;
 	private ConsultarRankingUseCase ranking;
-	private Joc2048 joc2048;
 	private Jugador jugador;
 	private Partida p;
 	
@@ -35,19 +34,21 @@ public class JugarPartidaUseCase {
 	
 	public ResultJugarPartida crearPartida(){
 		
-		int id = joc2048.getIdPartida();
-		joc2048.setIdPartida(id+1);
+
+		int id = CtrlDataFactory.getJoc2048().getIdPartida();
+		
+		CtrlDataFactory.getJoc2048().setIdPartida(id+1);
 		
 		p = new Partida(id, jugador);
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
-		joc2048.setEstrategia("BestScore");
+		Joc2048.getInstance().setEstrategia("BestScore");
 
 		jugador.assignarPartida(p);
 	
 		int mp = jugador.getMillorPuntuacio();
-		int score = p.getPuntuacio();
+		//int score = p.getPuntuacio();
 		
 		ResultJugarPartida result = new ResultJugarPartida();
 		
@@ -85,7 +86,7 @@ public class JugarPartidaUseCase {
 	}
 	
 	public ArrayList<Tupla> obtenirRanking() throws Exception{
-		ranking = new ConsultarRankingUseCase(joc2048);
+		ranking = new ConsultarRankingUseCase();
 		return ranking.consultarRanking();
 	}
 }
