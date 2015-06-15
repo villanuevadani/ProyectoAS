@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
 
 @Entity
 public class Partida {
@@ -77,6 +78,10 @@ public class Partida {
 
 	public void setEstaAcabada(boolean estaAcabada) {
 		this.estaAcabada = estaAcabada;
+	}
+	
+	public boolean isEstaGuanyada(){
+		return estaGuanyada;
 	}
 
 	public void setEstaGuanyada(boolean estaGuanyada) {
@@ -138,6 +143,7 @@ public class Partida {
 		afegirNumero(casellesBuides);
 	}
 	
+	@Transient
 	public ArrayList<Casella> getCasellesBuides(){
 		ArrayList<Casella> casellesbuides = new ArrayList<Casella>();
 		
@@ -151,6 +157,8 @@ public class Partida {
 		
 		return casellesbuides;
 	}
+	
+	
 	
 	public void afegirNumero(ArrayList <Casella> casellesBuides){
 		
