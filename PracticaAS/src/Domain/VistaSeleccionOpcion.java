@@ -1,5 +1,6 @@
 package Domain;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ public class VistaSeleccionOpcion extends JPanel{
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		JPanel jp3 = new JPanel();
+		this.setBackground(Color.DARK_GRAY);
 		genBotons(this);
 		 VistaPrincipal.getInstance().add(this);
 	     VistaPrincipal.getInstance().pack();
@@ -31,6 +33,7 @@ public class VistaSeleccionOpcion extends JPanel{
 		 
 		 	JPanel pb = new JPanel();
 	    	pb.setLayout( new FlowLayout(FlowLayout.CENTER));
+	    	pb.setBackground(Color.DARK_GRAY);
 	    	JugarPartida = new JButton(" Jugar Partida ");
 	    	pb.add(JugarPartida);
 	    	jp.add(pb);
@@ -53,6 +56,14 @@ public class VistaSeleccionOpcion extends JPanel{
 	            public void actionPerformed(ActionEvent ae) {
 	            	VistaPrincipal.getInstance().remove(jp);
 	                VistaPrincipal.getInstance().jugarPartida();
+	            }
+	        });
+	    	ConsultarRanking.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent ae) {
+	            	VistaPrincipal.getInstance().remove(jp);
+	                VistaPrincipal.getInstance().consultarRanking();
 	            }
 	        });
 	  }

@@ -44,6 +44,10 @@ public class VistaPrincipal extends JFrame {
 		VistaSeleccionOpcion vso = new VistaSeleccionOpcion();
 	}
 	
+	public void consultarRanking(){
+		VistaConsultarRanking vcr = new VistaConsultarRanking();
+	}
+	
 
 	public void start() {
 		this.setVisible(true);

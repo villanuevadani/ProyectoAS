@@ -21,20 +21,25 @@ public class VistaUsuario extends JPanel{
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	 	JLabel jlabel, jlabel2;
 	 	JPanel aux = new JPanel();
+	 	aux.setBackground(Color.DARK_GRAY);
         jlabel = new JLabel("             ");
         jlabel.setForeground( new Color(0,0,0,0));
         aux.add(jlabel);
         jlabel = new JLabel("Username:\n");
+        jlabel.setForeground(Color.ORANGE);
         jlabel.setFont(new Font("Tahoma",1,12));
         aux.add(jlabel);
         JTextField textField = new JTextField(20);
         aux.add(textField);
         
         JPanel aux2 = new JPanel();
+        aux2.setBackground(Color.DARK_GRAY);
         jlabel2 = new JLabel("             ");
         jlabel2.setForeground( new Color(0,0,0,0));
         aux2.add(jlabel2);
+       
         jlabel2 = new JLabel("Password:\n");
+        jlabel2.setForeground(Color.ORANGE);
         jlabel2.setFont(new Font("Tahoma",1,12));
         aux2.add(jlabel2);
         JTextField textField2 = new JTextField(20);
@@ -55,9 +60,10 @@ public class VistaUsuario extends JPanel{
 		 
 		 	
 	    	JPanel pb = new JPanel();
+	    	pb.setBackground(Color.DARK_GRAY);
 	    	pb.setLayout( new FlowLayout(FlowLayout.CENTER));
 
-	    	IniciarSessio = new JButton(" Iniciar Sessio ");
+	    	IniciarSessio = new JButton(" Iniciar Sessió ");
 	    	pb.add(IniciarSessio); 
 	    	
 	    	Sortir = new JButton(" Sortir ");
