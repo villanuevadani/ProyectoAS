@@ -8,6 +8,7 @@ public class Casella {
 	private Partida partida;
 	
 	Casella(int cont){
+		primaryKey = new CasellaKey();
 		primaryKey.setNumeroFila(cont/4);
 		primaryKey.setNumeroColumna(cont%4);
 		primaryKey.setNumero(-1);

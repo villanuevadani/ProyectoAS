@@ -166,7 +166,8 @@ public class Partida {
 	public void afegirNumero(ArrayList <Casella> casellesBuides){
 		
 		Random rand = new Random();
-		int ncasella = rand.nextInt() % casellesBuides.size();
+		int ncasella = rand.nextInt(casellesBuides.size());
+		System.out.println("falla" + Integer.toString(ncasella));
 		Casella cas = casellesBuides.get(ncasella);
 		int i = 0, j = 0, num = 0;
 		cas.getInfo(i,j,num);
@@ -178,6 +179,8 @@ public class Partida {
 		setNumCasella(i,j,num);
 	}
 	
+	
+	//int randomNum = rand.nextInt((max - min) + 1) + min;
 
 	public void ferMoviment(String tipusMov){
 		if(tipusMov.equals("esquerra")) 
