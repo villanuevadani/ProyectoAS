@@ -12,7 +12,7 @@ public class JugarPartidaUseCase {
 	
 	public JugarPartidaUseCase(CtrlDataFactory cdf){
 		//ctrlDataFactory = cdf.getInstance();
-		joc2048 = new Joc2048();
+		joc2048 = CtrlDataFactory.getCtrlJoc().getInstance();
 	}
 	
 	public void ferAutenticacio(String userN, String passwd) throws Exception{
