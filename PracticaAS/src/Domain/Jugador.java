@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -20,17 +21,16 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	private String email;
 	
-	@Column
+	
 	private int millorPuntuacio; 
 	
-	@Column
+	
 	private String estrategia;
 	
-	@OneToOne
+	
 	private Partida partidaActual;
 	
-	@ManyToOne
-	private ArrayList<Partida> partidasJugadas;
+	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
 	
 	Jugador(){
 		super();
@@ -43,6 +43,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		partidasJugadas = new ArrayList<Partida>();
 	}
 	
+	@OneToOne
 	public Partida getPartidaActual() {
 		return partidaActual;
 	}
@@ -90,6 +91,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.millorPuntuacio = millorPuntuacio;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY)
 	public ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
