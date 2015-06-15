@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 public class Casella {
 	
 	private CasellaKey primaryKey;
+	
 	@OneToMany 
 	private Partida partida;
 	

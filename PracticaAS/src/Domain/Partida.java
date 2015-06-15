@@ -30,7 +30,7 @@ public class Partida  {
 	@OneToOne
 	private Jugador jugadorPartidaActual;
 	
-	@ManyToOne
+	@OneToOne
 	private Jugador jugadorPartidaJugada;
 	
 	private Casella[][] caselles;

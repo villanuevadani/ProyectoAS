@@ -55,7 +55,6 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.partidaActual = partidaActual;
 	}
 
-	@Id
 	public String getEmail() {
 		return email;
 	}
