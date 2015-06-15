@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -17,8 +19,11 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	private String email;
-	private int millorPuntuacio; //??? aixo no es calcula?
 	
+	@Column
+	private int millorPuntuacio; 
+	
+	@Column
 	private String estrategia;
 	
 	@OneToOne
@@ -50,7 +55,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.partidaActual = partidaActual;
 	}
 
-
+	@Id
 	public String getEmail() {
 		return email;
 	}
