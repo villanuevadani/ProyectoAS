@@ -27,11 +27,13 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	@Id
 	private String email;
 	
-	
+	@Column
 	private int millorPuntuacio; 
 	
+	@Column
 	private Partida partidaActual;
 	
+	@Column
 	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
 	
 	Jugador(){

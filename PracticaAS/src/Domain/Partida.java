@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -21,11 +22,14 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class Partida {
 	private int idPartida;
+	
+	@Column
 	private boolean estaAcabada;
+	@Column
 	private boolean estaGuanyada;
+	@Column
 	private int puntuacio;
 	
-	private String estrategiaOrdenacio;
 	
 	@OneToOne
 	private Jugador jugadorPartidaActual;

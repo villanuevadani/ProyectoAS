@@ -2,6 +2,7 @@ package Domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -11,10 +12,14 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class UsuariRegistrat implements Serializable {
 	
-	
+	@Column
 	private String nom;
+	@Column
 	private String cognom;
+	
 	private String username;
+	
+	@Column
 	private String pwd;
 	
 	UsuariRegistrat(){}
