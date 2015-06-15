@@ -24,41 +24,40 @@ public class VistaPartida extends JPanel{
 	 	JLabel jlabel, jlabel2, jlabel3, jRecord;
 	 	JPanel aux = new JPanel();
 	 	aux.setLayout( new FlowLayout(FlowLayout.LEFT));
-        jlabel = new JLabel("             ");
+        jlabel = new JLabel("              ");
         jlabel.setForeground( new Color(0,0,0,0));
         aux.add(jlabel);
         jlabel = new JLabel("Puntuació\n");
         jlabel.setForeground(Color.gray);
         jlabel.setFont(new Font("Tahoma",1,12));
+        //aux.add(jlabel);
         jlabel2 = new JLabel("Record");
         jlabel2.setForeground(Color.gray);
         jlabel2.setFont(new Font("Tahoma",1,12));
-        jlabel3 = new JLabel("                      ");
+        jlabel3 = new JLabel("                    ");
         aux.add(jlabel);
         aux.add(jlabel3);
         aux.add(jlabel2);
-        aux.setBackground(Color.darkGray);
-        jRecord = new JLabel("User1");
-        jRecord.setFont(new Font("Tahoma",1,18));
-        jRecord.setForeground(Color.WHITE);
-        aux.add(jRecord);
        
+        jRecord = new JLabel("User1");
+        jRecord.setFont(new Font("Tahoma",1,12));
+        jRecord.setForeground(Color.gray);
+        aux.add(jRecord);
         this.add(aux);
         
         JPanel aux2 = new JPanel();
         aux2.setLayout( new FlowLayout(FlowLayout.CENTER));
         JLabel jpunt,jaux, jrec;
-        jpunt = new JLabel("0");
-        jaux = new JLabel("                             ");
-        jrec = new JLabel("0");
-        jpunt.setForeground(Color.ORANGE);
-        jpunt.setFont(new Font("Tahoma",1,24));
-        jrec.setForeground(Color.ORANGE);
-        jrec.setFont(new Font("Tahoma",1,24));
+        jpunt = new JLabel("99999");
+        jaux = new JLabel("                   ");
+        jrec = new JLabel("99999");
+        jpunt.setForeground(Color.darkGray);
+        jpunt.setFont(new Font("Tahoma",1,22));
+        jrec.setForeground(Color.darkGray);
+        jrec.setFont(new Font("Tahoma",1,22));
         aux2.add(jpunt);
         aux2.add(jaux);
         aux2.add(jrec);
-        aux2.setBackground(Color.darkGray);
         this.add(aux2);
         
         JPanel row1 = new JPanel();
@@ -165,7 +164,7 @@ public class VistaPartida extends JPanel{
 		 
 		 	JPanel pb = new JPanel();
 	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
-	    	pb.setBackground(Color.DARK_GRAY);
+
 	    	Sortir = new JButton(" Sortir ");
 	    	pb.add(Sortir);
 	    	jp.add(pb);
