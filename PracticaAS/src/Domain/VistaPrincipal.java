@@ -48,6 +48,10 @@ public class VistaPrincipal extends JFrame {
 		VistaConsultarRanking vcr = new VistaConsultarRanking();
 	}
 	
+	public void partidaAcabada(){
+		VistaPartidaAcabada vpa = new VistaPartidaAcabada();
+	}
+	
 
 	public void start() {
 		this.setVisible(true);

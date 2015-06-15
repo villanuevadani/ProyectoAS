@@ -173,6 +173,8 @@ public class VistaPartida extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
 	                VistaPrincipal.getInstance().tancar();
+	            	//VistaPrincipal.getInstance().remove(jp);
+	            	//VistaPrincipal.getInstance().partidaAcabada();
 	            }
 	        });
 	  }
