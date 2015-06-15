@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -17,22 +18,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
 
 @Entity
-public class Partida  {
+public class Partida {
 	private int idPartida;
+	
+	@Column
 	private boolean estaAcabada;
+	@Column
 	private boolean estaGuanyada;
+	@Column
 	private int puntuacio;
 	
-	private String estrategiaOrdenacio;
-	
-	@OneToOne
+	@Column
+	@OneToOne(fetch=FetchType.EAGER, mappedBy="partidaActual", targetEntity = Jugador.class)
 	private Jugador jugadorPartidaActual;
 	
-	@OneToOne
+	/*@OneToOne
 	private Jugador jugadorPartidaJugada;
-	
+	*/
 	private Casella[][] caselles;
 	
 	
@@ -74,6 +79,10 @@ public class Partida  {
 	public void setEstaAcabada(boolean estaAcabada) {
 		this.estaAcabada = estaAcabada;
 	}
+	
+	public boolean isEstaGuanyada(){
+		return estaGuanyada;
+	}
 
 	public void setEstaGuanyada(boolean estaGuanyada) {
 		this.estaGuanyada = estaGuanyada;
@@ -95,13 +104,14 @@ public class Partida  {
 		this.jugadorPartidaActual = jugadorPartidaActual;
 	}
 
-	public Jugador getJugadorPartidaJugada() {
+	/*public Jugador getJugadorPartidaJugada() {
 		return jugadorPartidaJugada;
 	}
 
 	public void setJugadorPartidaJugada(Jugador jugadorPartidaJugada) {
 		this.jugadorPartidaJugada = jugadorPartidaJugada;
 	}
+	*/
 	public Casella[][] getCaselles() {
 		return caselles;
 	}
@@ -115,7 +125,6 @@ public class Partida  {
 	}
 	
 	public void assignarEstrategia(Jugador j){
-		estrategiaOrdenacio = j.getEstrategia();
 	}
 	
 	public Casella getCasella(int i, int j){
@@ -135,6 +144,7 @@ public class Partida  {
 		afegirNumero(casellesBuides);
 	}
 	
+	@Transient
 	public ArrayList<Casella> getCasellesBuides(){
 		ArrayList<Casella> casellesbuides = new ArrayList<Casella>();
 		
@@ -148,6 +158,8 @@ public class Partida  {
 		
 		return casellesbuides;
 	}
+	
+	
 	
 	public void afegirNumero(ArrayList <Casella> casellesBuides){
 		
@@ -290,10 +302,10 @@ public class Partida  {
 		return perduda;
 	}
 	
-	public void partidaJugada(){
+/*	public void partidaJugada(){
 		jugadorPartidaActual.partidaAcabada(puntuacio, this);
 	}
-	
+*/
 	public Set<CasAmbNum> casellesAmbNum(){
 		Set<CasAmbNum> result = new HashSet<CasAmbNum>();
 		

@@ -2,6 +2,7 @@ package Domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
@@ -15,6 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.CollectionOfElements;
+import org.hibernate.annotations.LazyCollection;
+
 
 @Entity
 public class Jugador extends UsuariRegistrat implements Serializable {
@@ -22,22 +27,26 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	@Id
 	private String email;
 	
-	
+	@Column
 	private int millorPuntuacio; 
 	
+	@Column
+	@OneToOne(fetch=FetchType.EAGER, mappedBy="jugadorPartidaActual", targetEntity = Partida.class)
 	private Partida partidaActual;
 	
+	/*@Column
 	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
+	*/
 	
 	Jugador(){
 		super();
-		partidasJugadas = new ArrayList<Partida>();
-		millorPuntuacio = -1;
+		//partidasJugadas = new ArrayList<Partida>();
+		//millorPuntuacio = -1;
 	}
 	
 	Jugador(String uname) {
 		super(uname);
-		partidasJugadas = new ArrayList<Partida>();
+		//partidasJugadas = new ArrayList<Partida>();
 	}
 	
 	@OneToOne
@@ -72,7 +81,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 			return p;
 		 */
 	}
-	
+	/*
 	public int getMitjaPuntuacio(){
 		int p = -1;
 		for(Partida pa : partidasJugadas){
@@ -82,15 +91,15 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		}
 		if(p!=-1) p/= partidasJugadas.size();
 		return p;
+		
 	}
 
 	public void setMillorPuntuacio(int millorPuntuacio) {
 		this.millorPuntuacio = millorPuntuacio;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@Column(name = "PARTIDASJUG")
-	public ArrayList<Partida> getPartidasJugadas() {
+	@ManyToOne
+	ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
 
@@ -109,7 +118,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	public int getSizePartidasJugadas(){
 		return partidasJugadas.size();
 	}
-	
+	*/
 	public boolean esJugador(){
 		return true;
 	}
@@ -120,7 +129,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return new Tupla(s,p);
 	}
 	
-	public Tupla obteTuplaMitjana(){
+	/*public Tupla obteTuplaMitjana(){
 		String s = getUsername();
 		int p = getMitjaPuntuacio();
 		return new Tupla(s,p);
@@ -130,5 +139,5 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		partidaActual = null;
 		partidasJugadas.add(p);
 		if (punt > millorPuntuacio) millorPuntuacio = punt;	
-	}
+	}*/
 }
