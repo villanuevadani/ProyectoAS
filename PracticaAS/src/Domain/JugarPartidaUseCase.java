@@ -82,7 +82,7 @@ public class JugarPartidaUseCase {
 			
 	}
 	
-	public ArrayList<Tupla> obtenirRanking(){
+	public ArrayList<Tupla> obtenirRanking() throws Exception{
 		ranking = new ConsultarRankingUseCase(joc2048);
 		return ranking.consultarRanking();
 	}
