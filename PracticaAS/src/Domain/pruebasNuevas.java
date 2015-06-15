@@ -26,16 +26,22 @@ public class pruebasNuevas {
 		us.setNom("Daniel");
 		us.setCognom("Villanueva");
 		us.setPwd("davi");
+		
+		session.save(us);
 				
 		UsuariRegistrat us2 = new UsuariRegistrat("gutierrezgerman");
-		us.setNom("German");
-		us.setCognom("Gutierrez");
-		us.setPwd("gegu");
+		us2.setNom("German");
+		us2.setCognom("Gutierrez");
+		us2.setPwd("gegu");
+		
+		session.save(us2);
 		
 		UsuariRegistrat us3 = new UsuariRegistrat("semirajazzey");
-		us.setNom("Jazzey");
-		us.setCognom("Semira");
-		us.setPwd("jase");
+		us3.setNom("Jazzey");
+		us3.setCognom("Semira");
+		us3.setPwd("jase");
+		
+		session.save(us3);
 		
 		Joc2048 j2 = new Joc2048();
 		j2.setIdPartida(2048);
@@ -46,9 +52,6 @@ public class pruebasNuevas {
 		p.setIdPartida(2048);
 		
 		
-		session.save(us2);
-		session.save(us3);
-		session.save(us);
 		session.save(j2);
 		session.save(p);
 		session.getTransaction().commit();
