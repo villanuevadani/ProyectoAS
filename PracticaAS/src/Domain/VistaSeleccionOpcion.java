@@ -33,7 +33,7 @@ public class VistaSeleccionOpcion extends JPanel{
 		 
 		 	JPanel pb = new JPanel();
 	    	pb.setLayout( new FlowLayout(FlowLayout.CENTER));
-	    	pb.setBackground(Color.DARK_GRAY);
+	    	//pb.setBackground(Color.DARK_GRAY);
 	    	JugarPartida = new JButton(" Jugar Partida ");
 	    	pb.add(JugarPartida);
 	    	jp.add(pb);

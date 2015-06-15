@@ -29,11 +29,11 @@ public class VistaJugarPartida extends JPanel{
 	        jlabel.setForeground( new Color(0,0,0,0));
 	        this.add(jlabel);*/
 	        jlabel = new JLabel("2048");
-	        jlabel.setForeground(Color.ORANGE);
+	        jlabel.setForeground(Color.darkGray);
 	        jlabel.setFont(new Font("Tahoma",1,50));
 	        //jlabel.setHorizontalAlignment(JLabel.CENTER);
 	        JPanel aux = new JPanel();
-	        aux.setBackground(Color.DARK_GRAY);
+	       // aux.setBackground(Color.gray);
 	        aux.setLayout( new FlowLayout(FlowLayout.CENTER));
 	        aux.add(jlabel);
 	        this.add(aux);
@@ -47,7 +47,7 @@ public class VistaJugarPartida extends JPanel{
 	
 	 private void genBotons(JPanel jp) {
 	    	JPanel pb = new JPanel();
-	    	pb.setBackground(Color.DARK_GRAY);
+	    	//pb.setBackground(Color.gray);
 	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
 
 	    	JugarPartida = new JButton(" Jugar Partida ");
