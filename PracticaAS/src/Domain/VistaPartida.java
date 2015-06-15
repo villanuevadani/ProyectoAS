@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 public class VistaPartida extends JPanel implements KeyListener{
 	private JButton Sortir;
 	private Boolean bboton;
-	private JugarPartidaViewController jpvc;
+	private JugarPartidaViewController jpvc;  
 	private VistaPrincipal vp;
 	private JLabel jlabel, jlabel2, jlabel3, jRecord, jpunt,jaux, jrec;
 	private JButton matr[][]; 
@@ -28,10 +28,12 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private int puntuacio;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
+		
+		jpvc = j;
+		
 		jpvc.crearPartidaPressed();
 		
 		vp = v;
-		jpvc = j;
 		bboton = false;
 		matr = new JButton[4][4];
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -43,7 +45,7 @@ public class VistaPartida extends JPanel implements KeyListener{
         jlabel = new JLabel("              ");
         jlabel.setForeground( new Color(0,0,0,0));
         aux.add(jlabel);
-        jlabel = new JLabel("Puntuació\n");
+        jlabel = new JLabel("Puntuaciï¿½\n");
         jlabel.setForeground(Color.gray);
         jlabel.setFont(new Font("Tahoma",1,12));
         //aux.add(jlabel);
