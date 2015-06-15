@@ -11,7 +11,7 @@ public class pruebasNuevas {
 		config.addAnnotatedClass(UsuariRegistrat.class);
 		config.addAnnotatedClass(Joc2048.class);
 		config.addAnnotatedClass(Partida.class);
-		//config.addAnnotatedClass(Jugador.class);
+		config.addAnnotatedClass(Jugador.class);
 		//config.addAnnotatedClass(Casella.class);
 		config.configure("hibernate.cfg.xml");
 		

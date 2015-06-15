@@ -71,6 +71,10 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.email = email;
 	}
 
+	public void setMillorPuntuacio(int millorPuntuacio) {
+		this.millorPuntuacio = millorPuntuacio;
+	}
+	
 	public int getMillorPuntuacio() {
 		return millorPuntuacio;
 		/*  int n=-1;
@@ -94,9 +98,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		
 	}
 
-	public void setMillorPuntuacio(int millorPuntuacio) {
-		this.millorPuntuacio = millorPuntuacio;
-	}
+
 
 	@ManyToOne
 	ArrayList<Partida> getPartidasJugadas() {
