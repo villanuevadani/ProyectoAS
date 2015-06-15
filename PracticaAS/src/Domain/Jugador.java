@@ -19,7 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.CollectionOfElements;
 import org.hibernate.annotations.LazyCollection;
-
+import java.util.List;
 
 @Entity
 public class Jugador extends UsuariRegistrat implements Serializable {
@@ -31,12 +31,15 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	private int millorPuntuacio; 
 	
 	@Column
+	private int MitjaPuntuacio;
+	
+	@Column
 	@OneToOne(fetch=FetchType.EAGER, mappedBy="jugadorPartidaActual", targetEntity = Partida.class)
 	private Partida partidaActual;
 	
 	@Column
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="jugadorPartidaJugada")
-	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
+	private ArrayList<Partida> partidasJugadas;
 	
 	
 	Jugador(){
@@ -101,7 +104,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 
 
 
-	@ManyToOne
+	
 	ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
