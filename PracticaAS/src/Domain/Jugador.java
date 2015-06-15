@@ -15,10 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.CollectionOfElements;
 import org.hibernate.annotations.LazyCollection;
+
 import java.util.List;
 
 @Entity
@@ -89,7 +91,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 			return n;*/
 		 
 	}
-	
+	@Transient
 	public int getMitjaPuntuacio(){
 		int p = -1;
 		for(Partida pa : partidasJugadas){
@@ -121,6 +123,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return partidasJugadas.get(i);
 	}
 	
+	@Transient
 	public int getSizePartidasJugadas(){
 		return partidasJugadas.size();
 	}
