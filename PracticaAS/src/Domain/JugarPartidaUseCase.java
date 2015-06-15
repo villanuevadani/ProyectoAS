@@ -15,7 +15,6 @@ public class JugarPartidaUseCase {
 	}
 	
 	public void ferAutenticacio(String userN, String passwd) throws Exception{
-		
 		//login = new LoginUseCase(CtrlDataFactory.getInstance());
 		login = new LoginUseCase();
 		
@@ -43,7 +42,7 @@ public class JugarPartidaUseCase {
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
-		Joc2048.getInstance().setEstrategia("BestScore");
+		CtrlDataFactory.getJoc2048().setEstrategia("BestScore");
 
 		jugador.assignarPartida(p);
 	

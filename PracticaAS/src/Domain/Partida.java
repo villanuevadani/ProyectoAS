@@ -150,12 +150,10 @@ public class Partida {
 	public ArrayList<Casella> getCasellesBuides(){
 		ArrayList<Casella> casellesbuides = new ArrayList<Casella>();
 		
-		for (int i = 0; i < 4; ++ i){
-			for (int j = 0; j < 4; ++j){
-				Casella cas = new Casella();
-				boolean buida = caselles[i][j].getCasellaBuida(cas);
-				if (buida) casellesbuides.add(cas);					
-			}
+		for (int i = 0; i < 16; ++ i){
+			Casella cas = new Casella(i);
+			boolean buida = caselles[i/4][i%4].getCasellaBuida(cas);
+			if (buida) casellesbuides.add(cas);	
 		}
 		
 		return casellesbuides;
@@ -171,7 +169,6 @@ public class Partida {
 		Casella cas = casellesBuides.get(ncasella);
 		int i = 0, j = 0, num = 0;
 		cas.getInfo(i,j,num);
-		
 		num  = rand.nextInt()%2;
 		if (num == 0) num = 2; 
 		else num = 4;
