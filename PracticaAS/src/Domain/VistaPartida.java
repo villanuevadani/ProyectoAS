@@ -7,25 +7,35 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Iterator;
+import java.util.Set;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VistaPartida extends JPanel{
+public class VistaPartida extends JPanel implements KeyListener{
 	private JButton Sortir;
+	private Boolean bboton;
 	private JugarPartidaViewController jpvc;
 	private VistaPrincipal vp;
+	private JLabel jlabel, jlabel2, jlabel3, jRecord, jpunt,jaux, jrec;
+	private JButton matr[][]; 
+	private ResultFerMovimentPartida res;
+	private int puntuacio;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
 		vp = v;
 		jpvc = j;
+		bboton = false;
+		matr = new JButton[4][4];
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBackground(Color.black);
 
-
-	 	JLabel jlabel, jlabel2, jlabel3, jRecord;
+	 	
 	 	JPanel aux = new JPanel();
 	 	aux.setLayout( new FlowLayout(FlowLayout.LEFT));
         jlabel = new JLabel("              ");
@@ -51,10 +61,10 @@ public class VistaPartida extends JPanel{
         
         JPanel aux2 = new JPanel();
         aux2.setLayout( new FlowLayout(FlowLayout.CENTER));
-        JLabel jpunt,jaux, jrec;
-        jpunt = new JLabel("99999");
+        
+        jpunt = new JLabel(Integer.toString(puntuacio));
         jaux = new JLabel("                   ");
-        jrec = new JLabel("99999");
+        jrec = new JLabel("record");
         jpunt.setForeground(Color.darkGray);
         jpunt.setFont(new Font("Tahoma",1,22));
         jrec.setForeground(Color.darkGray);
@@ -67,101 +77,141 @@ public class VistaPartida extends JPanel{
         JPanel row1 = new JPanel();
         row1.setBackground(Color.black);
       //  row1.setLayout(new GridLayout(4,4));
-        JButton j11 = new JButton();
-        j11.setBackground(Color.LIGHT_GRAY);
-        j11.setPreferredSize(new Dimension(70,70));
-        row1.add(j11);
+        matr[0][0] = new JButton();
+        matr[0][0].setBackground(Color.LIGHT_GRAY);
+        matr[0][0].setPreferredSize(new Dimension(70,70));
+        row1.add(matr[0][0]);
         
-        JButton j12 = new JButton();
-        j12.setBackground(Color.LIGHT_GRAY);
-        j12.setPreferredSize(new Dimension(70,70));
-        row1.add(j12);
+        matr[0][1] = new JButton();
+        matr[0][1].setBackground(Color.LIGHT_GRAY);
+        matr[0][1].setPreferredSize(new Dimension(70,70));
+        row1.add(matr[0][1]);
         
-        JButton j13 = new JButton();
-        j13.setBackground(Color.LIGHT_GRAY);
-        j13.setPreferredSize(new Dimension(70,70));
-        row1.add(j13);
+        matr[0][2] = new JButton();
+        matr[0][2].setBackground(Color.LIGHT_GRAY);
+        matr[0][2].setPreferredSize(new Dimension(70,70));
+        row1.add(matr[0][2]);
         
-        JButton j14 = new JButton();
-        j14.setBackground(Color.LIGHT_GRAY);
-        j14.setPreferredSize(new Dimension(70,70));
-        row1.add(j14);
+        matr[0][3] = new JButton();
+        matr[0][3].setBackground(Color.LIGHT_GRAY);
+        matr[0][3].setPreferredSize(new Dimension(70,70));
+        row1.add(matr[0][3]);
         this.add(row1);
         
         JPanel row2 = new JPanel();
         row2.setBackground(Color.black);
-        JButton j21 = new JButton();
-        j21.setBackground(Color.LIGHT_GRAY);
-        j21.setPreferredSize(new Dimension(70,70));
-        row2.add(j21);
+        matr[1][0] = new JButton();
+        matr[1][0].setBackground(Color.LIGHT_GRAY);
+        matr[1][0].setPreferredSize(new Dimension(70,70));
+        row2.add(matr[1][0]);
         
-        JButton j22 = new JButton();
-        j22.setBackground(Color.LIGHT_GRAY);
-        j22.setPreferredSize(new Dimension(70,70));
-        row2.add(j22);
+        matr[1][1] = new JButton();
+        matr[1][1].setBackground(Color.LIGHT_GRAY);
+        matr[1][1].setPreferredSize(new Dimension(70,70));
+        row2.add(matr[1][1]);
         
-        JButton j23 = new JButton();
-        j23.setBackground(Color.LIGHT_GRAY);
-        j23.setPreferredSize(new Dimension(70,70));
-        row2.add(j23);
+        matr[1][2] = new JButton();
+        matr[1][2].setBackground(Color.LIGHT_GRAY);
+        matr[1][2].setPreferredSize(new Dimension(70,70));
+        row2.add(matr[1][2]);
         
-        JButton j24 = new JButton();
-        j24.setBackground(Color.LIGHT_GRAY);
-        j24.setPreferredSize(new Dimension(70,70));
-        row2.add(j24);
+        matr[1][3] = new JButton();
+        matr[1][3].setBackground(Color.LIGHT_GRAY);
+        matr[1][3].setPreferredSize(new Dimension(70,70));
+        row2.add(matr[1][3]);
         
         this.add(row2);
         
         JPanel row3 = new JPanel();
         row3.setBackground(Color.black);
-        JButton j31 = new JButton();
-        j31.setBackground(Color.LIGHT_GRAY);
-        j31.setPreferredSize(new Dimension(70,70));
-        row3.add(j31);
+        matr[2][0] = new JButton();
+        matr[2][0].setBackground(Color.LIGHT_GRAY);
+        matr[2][0].setPreferredSize(new Dimension(70,70));
+        row3.add(matr[2][0]);
         
-        JButton j32 = new JButton();
-        j32.setBackground(Color.LIGHT_GRAY);
-        j32.setPreferredSize(new Dimension(70,70));
-        row3.add(j32);
+        matr[2][1] = new JButton();
+        matr[2][1].setBackground(Color.LIGHT_GRAY);
+        matr[2][1].setPreferredSize(new Dimension(70,70));
+        row3.add(matr[2][1]);
         
-        JButton j33 = new JButton();
-        j33.setBackground(Color.LIGHT_GRAY);
-        j33.setPreferredSize(new Dimension(70,70));
-        row3.add(j33);
+        matr[2][2] = new JButton();
+        matr[2][2].setBackground(Color.LIGHT_GRAY);
+        matr[2][2].setPreferredSize(new Dimension(70,70));
+        row3.add(matr[2][2]);
         
-        JButton j34 = new JButton();
-        j34.setBackground(Color.LIGHT_GRAY);
-        j34.setPreferredSize(new Dimension(70,70));
-        row3.add(j34);
+        matr[2][3] = new JButton();
+        matr[2][3].setBackground(Color.LIGHT_GRAY);
+        matr[2][3].setPreferredSize(new Dimension(70,70));
+        row3.add(matr[2][3]);
         this.add(row3);
         
         JPanel row4 = new JPanel();
         row4.setBackground(Color.black);
-        JButton j41 = new JButton();
-        j41.setBackground(Color.LIGHT_GRAY);
-        j41.setPreferredSize(new Dimension(70,70));
-        row4.add(j41);
+        matr[3][0] = new JButton();
+        matr[3][0].setBackground(Color.LIGHT_GRAY);
+        matr[3][0].setPreferredSize(new Dimension(70,70));
+        row4.add(matr[3][0]);
         
-        JButton j42 = new JButton();
-        j42.setBackground(Color.LIGHT_GRAY);
-        j42.setPreferredSize(new Dimension(70,70));
-        row4.add(j42);
+        matr[3][1] = new JButton();
+        matr[3][1].setBackground(Color.LIGHT_GRAY);
+        matr[3][1].setPreferredSize(new Dimension(70,70));
+        row4.add(matr[3][1]);
         
-        JButton j43 = new JButton();
-        j43.setBackground(Color.LIGHT_GRAY);
-        j43.setPreferredSize(new Dimension(70,70));
-        row4.add(j43);
+        matr[3][2] = new JButton();
+        matr[3][2].setBackground(Color.LIGHT_GRAY);
+        matr[3][2].setPreferredSize(new Dimension(70,70));
+        row4.add(matr[3][2]);
         
-        JButton j44 = new JButton();
-        j44.setBackground(Color.LIGHT_GRAY);
-        j44.setPreferredSize(new Dimension(70,70));
-        row4.add(j44);
+        matr[3][3] = new JButton();
+        matr[3][3].setBackground(Color.LIGHT_GRAY);
+        matr[3][3].setPreferredSize(new Dimension(70,70));
+        row4.add(matr[3][3]);
         this.add(row4);
         
         
         genBotons(this);
         vp.add(this);
         vp.pack();
+	}
+	
+	public void keyPressed(KeyEvent e) {
+		System.out.println("0");
+	    if(bboton){
+	    	int key = e.getKeyCode();
+
+		    if (key == KeyEvent.VK_LEFT) {
+		    	System.out.println("1");
+		        res = jpvc.direccioPressed("esquerra");
+		    }
+
+		    if (key == KeyEvent.VK_RIGHT) {
+		    	System.out.println("2");
+		    	res = jpvc.direccioPressed("dreta");
+		    }
+
+		    if (key == KeyEvent.VK_UP) {
+		    	System.out.println("3");
+		    	res = jpvc.direccioPressed("amunt");
+		    }
+
+		    if (key == KeyEvent.VK_DOWN) {
+		    	System.out.println("4");
+		    	res = jpvc.direccioPressed("avall");
+		    }
+		    bboton = false;
+		    puntuacio = res.getPuntuacio();
+		    Set<CasAmbNum> cas = res.getCasellesAmbNumero();
+		    int i = 0, j = 0;
+			for (CasAmbNum c : cas) {
+			    matr[i][j].setText(Integer.toString(c.getNumero()));
+			    System.out.println("numero" + c.getNumero());
+			    ++j;
+			    if (j > 3){
+			    	j = 0;
+			    	++i;
+			    }
+			}
+	    }		
 	}
 	
 	 private void genBotons(JPanel jp) {
@@ -181,5 +231,56 @@ public class VistaPartida extends JPanel{
 	            	//vp.partidaAcabada();
 	            }
 	        });
+	    	
+	    	
 	  }
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		System.out.println("a");
+		bboton = true;
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		System.out.println("0");
+	    if(bboton){
+	    	int key = e.getKeyCode();
+
+		    if (key == KeyEvent.VK_LEFT) {
+		    	System.out.println("1");
+		        res = jpvc.direccioPressed("esquerra");
+		    }
+
+		    if (key == KeyEvent.VK_RIGHT) {
+		    	System.out.println("2");
+		    	res = jpvc.direccioPressed("dreta");
+		    }
+
+		    if (key == KeyEvent.VK_UP) {
+		    	System.out.println("3");
+		    	res = jpvc.direccioPressed("amunt");
+		    }
+
+		    if (key == KeyEvent.VK_DOWN) {
+		    	System.out.println("4");
+		    	res = jpvc.direccioPressed("avall");
+		    }
+		    bboton = false;
+		    puntuacio = res.getPuntuacio();
+		    Set<CasAmbNum> cas = res.getCasellesAmbNumero();
+		    int i = 0, j = 0;
+			for (CasAmbNum c : cas) {
+			    matr[i][j].setText(Integer.toString(c.getNumero()));
+			    System.out.println("numero" + c.getNumero());
+			    ++j;
+			    if (j > 3){
+			    	j = 0;
+			    	++i;
+			    }
+			}
+	    }
+		
+	}
 }
