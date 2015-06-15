@@ -73,14 +73,14 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		 */
 	}
 	
-	public double getMitjaPuntuacio(){
-		double p = -1;
+	public int getMitjaPuntuacio(){
+		int p = -1;
 		for(Partida pa : partidasJugadas){
 			int a = pa.getPuntuacio();
 			if(p == -1) p = a;
 			else p+=a;
 		}
-		if(p!=-1) p/=partidasJugadas.size();
+		if(p!=-1) p/= partidasJugadas.size();
 		return p;
 	}
 
@@ -88,7 +88,8 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.millorPuntuacio = millorPuntuacio;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@Column(name = "PARTIDASJUG")
 	public ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
@@ -115,13 +116,13 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	public Tupla obteTuplaMillor(){
 		String s = getUsername();
-		double p = getMillorPuntuacio();
+		int p = getMillorPuntuacio();
 		return new Tupla(s,p);
 	}
 	
 	public Tupla obteTuplaMitjana(){
 		String s = getUsername();
-		double p = getMitjaPuntuacio();
+		int p = getMitjaPuntuacio();
 		return new Tupla(s,p);
 	}
 	

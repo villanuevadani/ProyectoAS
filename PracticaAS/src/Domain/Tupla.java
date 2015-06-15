@@ -2,9 +2,9 @@ package Domain;
 
 public class Tupla{
 	String userN;
-	double puntuacio;
+	int puntuacio;
 	
-	public Tupla(String s, double p){
+	public Tupla(String s, int p){
 		userN = s;
 		puntuacio = p;
 	}
@@ -13,7 +13,7 @@ public class Tupla{
 		return userN;
 	}
 	
-	public double getPuntuacio(){
+	public int getPuntuacio(){
 		return puntuacio;
 	}
 }
