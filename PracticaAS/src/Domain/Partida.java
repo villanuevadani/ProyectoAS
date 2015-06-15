@@ -35,9 +35,11 @@ public class Partida {
 	@OneToOne(fetch=FetchType.EAGER, mappedBy="partidaActual", targetEntity = Jugador.class)
 	private Jugador jugadorPartidaActual;
 	
-	/*@OneToOne
+//	@ManyToOne(fetch=FetchType.EAGER, mappedBy="partidasJugadas", targetEntity = Jugador.class)
+	@Column
+	@ManyToOne
 	private Jugador jugadorPartidaJugada;
-	*/
+	
 	private Casella[][] caselles;
 	
 	
@@ -104,14 +106,14 @@ public class Partida {
 		this.jugadorPartidaActual = jugadorPartidaActual;
 	}
 
-	/*public Jugador getJugadorPartidaJugada() {
+	public Jugador getJugadorPartidaJugada() {
 		return jugadorPartidaJugada;
 	}
 
 	public void setJugadorPartidaJugada(Jugador jugadorPartidaJugada) {
 		this.jugadorPartidaJugada = jugadorPartidaJugada;
 	}
-	*/
+	
 	public Casella[][] getCaselles() {
 		return caselles;
 	}

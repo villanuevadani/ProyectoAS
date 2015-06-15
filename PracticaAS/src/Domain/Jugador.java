@@ -34,19 +34,20 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	@OneToOne(fetch=FetchType.EAGER, mappedBy="jugadorPartidaActual", targetEntity = Partida.class)
 	private Partida partidaActual;
 	
-	/*@Column
+	@Column
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="jugadorPartidaJugada")
 	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
-	*/
+	
 	
 	Jugador(){
 		super();
-		//partidasJugadas = new ArrayList<Partida>();
-		//millorPuntuacio = -1;
+		partidasJugadas = new ArrayList<Partida>();
+		millorPuntuacio = -1;
 	}
 	
 	Jugador(String uname) {
 		super(uname);
-		//partidasJugadas = new ArrayList<Partida>();
+		partidasJugadas = new ArrayList<Partida>();
 	}
 	
 	@OneToOne
@@ -77,15 +78,15 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	public int getMillorPuntuacio() {
 		return millorPuntuacio;
-		/*  int n=-1;
+		 /* int n=-1;
 		    for(Partida pa : partidasJugadas){
 				int a = pa.getPuntuacio();
 				if(n < a) n = a;
 			}
-			return p;
-		 */
+			return n;*/
+		 
 	}
-	/*
+	
 	public int getMitjaPuntuacio(){
 		int p = -1;
 		for(Partida pa : partidasJugadas){
@@ -120,7 +121,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	public int getSizePartidasJugadas(){
 		return partidasJugadas.size();
 	}
-	*/
+	
 	public boolean esJugador(){
 		return true;
 	}
@@ -131,7 +132,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return new Tupla(s,p);
 	}
 	
-	/*public Tupla obteTuplaMitjana(){
+	public Tupla obteTuplaMitjana(){
 		String s = getUsername();
 		int p = getMitjaPuntuacio();
 		return new Tupla(s,p);
@@ -141,5 +142,5 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		partidaActual = null;
 		partidasJugadas.add(p);
 		if (punt > millorPuntuacio) millorPuntuacio = punt;	
-	}*/
+	}
 }
