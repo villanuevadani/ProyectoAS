@@ -31,13 +31,13 @@ public class Partida {
 	@Column
 	private int puntuacio;
 	
-	
-	@OneToOne
+	@Column
+	@OneToOne(fetch=FetchType.EAGER, mappedBy="partidaActual", targetEntity = Jugador.class)
 	private Jugador jugadorPartidaActual;
 	
-	@OneToOne
+	/*@OneToOne
 	private Jugador jugadorPartidaJugada;
-	
+	*/
 	private Casella[][] caselles;
 	
 	
@@ -104,13 +104,14 @@ public class Partida {
 		this.jugadorPartidaActual = jugadorPartidaActual;
 	}
 
-	public Jugador getJugadorPartidaJugada() {
+	/*public Jugador getJugadorPartidaJugada() {
 		return jugadorPartidaJugada;
 	}
 
 	public void setJugadorPartidaJugada(Jugador jugadorPartidaJugada) {
 		this.jugadorPartidaJugada = jugadorPartidaJugada;
 	}
+	*/
 	public Casella[][] getCaselles() {
 		return caselles;
 	}
@@ -301,10 +302,10 @@ public class Partida {
 		return perduda;
 	}
 	
-	public void partidaJugada(){
+/*	public void partidaJugada(){
 		jugadorPartidaActual.partidaAcabada(puntuacio, this);
 	}
-	
+*/
 	public Set<CasAmbNum> casellesAmbNum(){
 		Set<CasAmbNum> result = new HashSet<CasAmbNum>();
 		

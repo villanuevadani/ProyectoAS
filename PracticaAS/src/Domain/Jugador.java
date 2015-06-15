@@ -31,20 +31,22 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	private int millorPuntuacio; 
 	
 	@Column
+	@OneToOne(fetch=FetchType.EAGER, mappedBy="jugadorPartidaActual", targetEntity = Partida.class)
 	private Partida partidaActual;
 	
-	@Column
+	/*@Column
 	private ArrayList<Partida> partidasJugadas = new ArrayList<Partida>();
+	*/
 	
 	Jugador(){
 		super();
-		partidasJugadas = new ArrayList<Partida>();
-		millorPuntuacio = -1;
+		//partidasJugadas = new ArrayList<Partida>();
+		//millorPuntuacio = -1;
 	}
 	
 	Jugador(String uname) {
 		super(uname);
-		partidasJugadas = new ArrayList<Partida>();
+		//partidasJugadas = new ArrayList<Partida>();
 	}
 	
 	@OneToOne
@@ -79,7 +81,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 			return p;
 		 */
 	}
-	
+/*	
 	public double getMitjaPuntuacio(){
 		double p = -1;
 		for(Partida pa : partidasJugadas){
@@ -115,7 +117,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	public int getSizePartidasJugadas(){
 		return partidasJugadas.size();
 	}
-	
+	*/
 	public boolean esJugador(){
 		return true;
 	}
@@ -126,7 +128,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return new Tupla(s,p);
 	}
 	
-	public Tupla obteTuplaMitjana(){
+	/*public Tupla obteTuplaMitjana(){
 		String s = getUsername();
 		double p = getMitjaPuntuacio();
 		return new Tupla(s,p);
@@ -136,5 +138,5 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		partidaActual = null;
 		partidasJugadas.add(p);
 		if (punt > millorPuntuacio) millorPuntuacio = punt;	
-	}
+	}*/
 }
