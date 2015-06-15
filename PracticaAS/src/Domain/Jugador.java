@@ -18,13 +18,11 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class Jugador extends UsuariRegistrat implements Serializable {
 	
+	@Id
 	private String email;
 	
 	@Column
 	private int millorPuntuacio; 
-	
-	@Column
-	private String estrategia;
 	
 	@OneToOne
 	private Partida partidaActual;
@@ -112,15 +110,6 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	
 	public boolean esJugador(){
 		return true;
-	}
-	
-	public String getEstrategia(){
-		return estrategia;
-	}
-	
-	public void canviarEstrategiaOrdenacio(){
-		if(estrategia.equals("BestScore")) estrategia = "BestMean";
-		else estrategia = "BestScore";
 	}
 	
 	public Tupla obteTuplaMillor(){
