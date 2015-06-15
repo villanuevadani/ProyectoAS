@@ -1,6 +1,7 @@
 package Domain;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -49,7 +50,7 @@ public class VistaPrincipal extends JFrame {
 		this.setMinimumSize( new Dimension(50,50) );
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		this.setBackground(Color.black);
        VistaJugarPartida vys = new VistaJugarPartida();
        this.pack();
        // seleccionaEspecialitat();

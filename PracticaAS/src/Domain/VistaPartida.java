@@ -1,6 +1,7 @@
 package Domain;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,9 @@ public class VistaPartida extends JPanel{
 
 	public VistaPartida() {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+
+
 	 	JLabel jlabel, jlabel2;
 	 	JPanel aux = new JPanel();
         jlabel = new JLabel("             ");
@@ -25,6 +29,52 @@ public class VistaPartida extends JPanel{
         jlabel.setFont(new Font("Tahoma",1,12));
         aux.add(jlabel);
         this.add(aux);
+        JPanel row1 = new JPanel();
+     
+        JButton j1 = new JButton();
+        j1.setBackground(Color.CYAN);
+        j1.setPreferredSize(new Dimension(70,70));
+        row1.add(j1);
+        
+        JButton j2 = new JButton();
+        j2.setBackground(Color.CYAN);
+        j2.setPreferredSize(new Dimension(70,70));
+        row1.add(j2);
+        
+        JButton j3 = new JButton();
+        j3.setBackground(Color.CYAN);
+        j3.setPreferredSize(new Dimension(70,70));
+        row1.add(j3);
+        
+        JButton j4 = new JButton();
+        j4.setBackground(Color.CYAN);
+        j4.setPreferredSize(new Dimension(70,70));
+        row1.add(j4);
+        this.add(row1);
+        
+        JPanel row2 = new JPanel();
+      
+        JButton j12 = new JButton();
+        j12.setBackground(Color.CYAN);
+        j12.setPreferredSize(new Dimension(70,70));
+        row1.add(j12);
+        
+        JButton j22 = new JButton();
+        j22.setBackground(Color.CYAN);
+        j22.setPreferredSize(new Dimension(70,70));
+        row1.add(j22);
+        
+        JButton j32 = new JButton();
+        j32.setBackground(Color.CYAN);
+        j32.setPreferredSize(new Dimension(70,70));
+        row1.add(j32);
+        
+        JButton j42 = new JButton();
+        j42.setBackground(Color.CYAN);
+        j42.setPreferredSize(new Dimension(70,70));
+        row1.add(j42);
+        this.add(row2);
+        
         genBotons(this);
         VistaPrincipal.getInstance().add(this);
         VistaPrincipal.getInstance().pack();

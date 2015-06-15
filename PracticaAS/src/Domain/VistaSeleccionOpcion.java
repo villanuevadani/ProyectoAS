@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ public class VistaSeleccionOpcion extends JPanel{
 	private JButton ConsultarRanking;
 	
 	public VistaSeleccionOpcion(){
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel jp1 = new JPanel();
 		JPanel jp2 = new JPanel();
 		JPanel jp3 = new JPanel();
