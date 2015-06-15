@@ -1,15 +1,10 @@
 package Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-@Entity
 public class Casella {
 	
 	private CasellaKey primaryKey;
 	
-	@OneToMany 
 	private Partida partida;
 	
 	Casella(int cont){
@@ -28,8 +23,6 @@ public class Casella {
 		this.partida = partida;
 	}
 
-
-	@Id
 	public CasellaKey getPrimaryKey() {
 		return primaryKey;
 	}
