@@ -37,11 +37,12 @@ public class VistaPartida extends JPanel{
         aux.add(jlabel);
         aux.add(jlabel3);
         aux.add(jlabel2);
-       
+        aux.setBackground(Color.darkGray);
         jRecord = new JLabel("User1");
         jRecord.setFont(new Font("Tahoma",1,18));
-        jRecord.setForeground(Color.black);
+        jRecord.setForeground(Color.WHITE);
         aux.add(jRecord);
+       
         this.add(aux);
         
         JPanel aux2 = new JPanel();
@@ -57,6 +58,7 @@ public class VistaPartida extends JPanel{
         aux2.add(jpunt);
         aux2.add(jaux);
         aux2.add(jrec);
+        aux2.setBackground(Color.darkGray);
         this.add(aux2);
         
         JPanel row1 = new JPanel();
@@ -163,7 +165,7 @@ public class VistaPartida extends JPanel{
 		 
 		 	JPanel pb = new JPanel();
 	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
-
+	    	pb.setBackground(Color.DARK_GRAY);
 	    	Sortir = new JButton(" Sortir ");
 	    	pb.add(Sortir);
 	    	jp.add(pb);
