@@ -30,6 +30,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	Jugador(){
 		super();
 		partidasJugadas = new ArrayList<Partida>();
+		millorPuntuacio = -1;
 	}
 	
 	Jugador(String uname) {

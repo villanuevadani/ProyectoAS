@@ -42,7 +42,8 @@ public class JugarPartidaUseCase {
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
-		p.assignarEstrategia(jugador);
+		joc2048.setEstrategia("BestScore");
+
 		jugador.assignarPartida(p);
 	
 		int mp = jugador.getMillorPuntuacio();
@@ -67,7 +68,7 @@ public class JugarPartidaUseCase {
 		boolean perduda = false;
 		if (!guanyada) perduda = p.estaPerduda();
 		
-		result.setEstaAcabada(guanyada ||perduda);
+		result.setEstaAcabada(guanyada || perduda);
 		
 		result.setEstaPerduda(perduda);
 
@@ -82,8 +83,7 @@ public class JugarPartidaUseCase {
 	}
 	
 	public ArrayList<Tupla> obtenirRanking(){
-		ranking = new ConsultarRankingUseCase();
-		
+		ranking = new ConsultarRankingUseCase(joc2048);
 		return ranking.consultarRanking();
 	}
 }
