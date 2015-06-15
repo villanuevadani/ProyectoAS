@@ -2,6 +2,7 @@ package Domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.CollectionOfElements;
+import org.hibernate.annotations.LazyCollection;
 
 
 @Entity
@@ -88,8 +93,8 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		this.millorPuntuacio = millorPuntuacio;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY)
-	public ArrayList<Partida> getPartidasJugadas() {
+	@ManyToOne
+	ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}
 

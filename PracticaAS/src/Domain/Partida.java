@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-public class Partida  {
+public class Partida {
 	private int idPartida;
 	private boolean estaAcabada;
 	private boolean estaGuanyada;
@@ -115,7 +115,6 @@ public class Partida  {
 	}
 	
 	public void assignarEstrategia(Jugador j){
-		estrategiaOrdenacio = j.getEstrategia();
 	}
 	
 	public Casella getCasella(int i, int j){
