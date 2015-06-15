@@ -16,8 +16,12 @@ import javax.swing.JTable;
 public class VistaConsultarRanking extends JPanel{
 	
 	private JButton ok;
+	private JugarPartidaViewController jpvc;
+	private VistaPrincipal vp;
 	
-	public VistaConsultarRanking(){
+	public VistaConsultarRanking(VistaPrincipal v, JugarPartidaViewController j){
+		vp = v;
+		jpvc = j;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBackground(Color.DARK_GRAY);
 		
@@ -38,8 +42,8 @@ public class VistaConsultarRanking extends JPanel{
 	    jtable.add(table, BorderLayout.CENTER);
 	    this.add(jtable);
 	     genBotons(this);
-	     VistaPrincipal.getInstance().add(this);
-	     VistaPrincipal.getInstance().pack();
+	     vp.add(this);
+	     vp.pack();
 	}
 	
 	
@@ -55,7 +59,7 @@ public class VistaConsultarRanking extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	                VistaPrincipal.getInstance().tancar();
+	                vp.tancar();
 	            }
 	        });
 	    	

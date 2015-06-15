@@ -20,8 +20,12 @@ public class VistaJugarPartida extends JPanel{
 	private JButton JugarPartida;
 	private JButton Sortir;
 	private JTextField tf;
+	private JugarPartidaViewController jpvc;
+	private VistaPrincipal vp;
 	
-	public VistaJugarPartida(){
+	public VistaJugarPartida(VistaPrincipal v, JugarPartidaViewController j){
+		vp = v;
+		jpvc = j;
 		  this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	      JLabel jlabel;
 	        
@@ -38,8 +42,8 @@ public class VistaJugarPartida extends JPanel{
 	        aux.add(jlabel);
 	        this.add(aux);
 	        genBotons(this);
-	        VistaPrincipal.getInstance().add(this);
-	        VistaPrincipal.getInstance().pack();
+	        vp.add(this);
+	        vp.pack();
 	 
 	}
 	
@@ -60,15 +64,15 @@ public class VistaJugarPartida extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	                VistaPrincipal.getInstance().tancar();
+	                vp.tancar();
 	            }
 	        });
 	    	JugarPartida.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	            	VistaPrincipal.getInstance().remove(jp);
-	                VistaPrincipal.getInstance().identificacioUsuari();
+	            	vp.remove(jp);
+	                vp.identificacioUsuari();
 	            }
 	        });
 	  }

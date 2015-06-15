@@ -11,7 +11,7 @@ public class JugarPartidaUseCase {
 	private Partida p;
 	
 	public JugarPartidaUseCase(){
-
+		System.out.println("HOLA");
 	}
 	
 	public void ferAutenticacio(String userN, String passwd) throws Exception{

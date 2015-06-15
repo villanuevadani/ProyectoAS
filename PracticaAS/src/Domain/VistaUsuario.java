@@ -18,7 +18,11 @@ public class VistaUsuario extends JPanel{
 	private JButton IniciarSessio;
 	private JButton Sortir;
 	private JTextField tf;
-	public VistaUsuario(){
+	private JugarPartidaViewController jpvc;
+	private VistaPrincipal vp;
+	public VistaUsuario(VistaPrincipal v, JugarPartidaViewController j){
+		vp = v;
+		jpvc = j;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	 	JLabel jlabel, jlabel2;
 	 	JPanel aux = new JPanel();
@@ -56,8 +60,8 @@ public class VistaUsuario extends JPanel{
         this.add(aux2);
      	genBotons(this);
 		this.add(aux3);
-		 VistaPrincipal.getInstance().add(this);
-	     VistaPrincipal.getInstance().pack();
+		vp.add(this);
+	    vp.pack();
 	 
 	}
 	
@@ -78,15 +82,15 @@ public class VistaUsuario extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	                VistaPrincipal.getInstance().tancar();
+	                vp.tancar();
 	            }
 	        });
 	    	IniciarSessio.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	            	VistaPrincipal.getInstance().remove(jp);
-	                VistaPrincipal.getInstance().seleccionarOpcion();
+	            	vp.remove(jp);
+	                vp.seleccionarOpcion();
 	            }
 	        });
 	  }

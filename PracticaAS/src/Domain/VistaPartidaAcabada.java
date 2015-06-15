@@ -14,8 +14,12 @@ import javax.swing.JPanel;
 public class VistaPartidaAcabada extends JPanel{
 	private JButton consultarRanking;
 	private JButton Sortir;
+	private JugarPartidaViewController jpvc;
+	private VistaPrincipal vp;
 
-	public VistaPartidaAcabada(){
+	public VistaPartidaAcabada(VistaPrincipal v, JugarPartidaViewController j){
+		vp = v; 
+		jpvc = j;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		JPanel jp1 = new JPanel();
@@ -45,8 +49,8 @@ public class VistaPartidaAcabada extends JPanel{
 		jp3.add(jl8);
 		this.add(jp3);
 		genBotons(this);
-	     VistaPrincipal.getInstance().add(this);
-	     VistaPrincipal.getInstance().pack();
+	     vp.add(this);
+	     vp.pack();
 	}
 	
 	 private void genBotons(JPanel jp) {
@@ -63,15 +67,15 @@ public class VistaPartidaAcabada extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	            	VistaPrincipal.getInstance().remove(jp);
-	                VistaPrincipal.getInstance().consultarRanking();
+	            	vp.remove(jp);
+	                vp.consultarRanking();
 	            }
 	        });
 	    	Sortir.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	                VistaPrincipal.getInstance().tancar();
+	                vp.tancar();
 	            }
 	        });
 	 }   	

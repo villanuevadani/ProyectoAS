@@ -16,8 +16,12 @@ public class VistaSeleccionOpcion extends JPanel{
 	private JButton Sortir;
 	private JButton JugarPartida;
 	private JButton ConsultarRanking;
+	private JugarPartidaViewController jpvc;
+	private VistaPrincipal vp;
 	
-	public VistaSeleccionOpcion(){
+	public VistaSeleccionOpcion(VistaPrincipal v, JugarPartidaViewController j){
+		vp = v;
+		jpvc = j;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel jp1 = new JPanel();
 		JLabel h = new JLabel("             ");
@@ -31,8 +35,8 @@ public class VistaSeleccionOpcion extends JPanel{
 	    JTextArea jtext = new JTextArea(3,30);
 	    aux3.add(jtext);
 	    this.add(aux3);
-		 VistaPrincipal.getInstance().add(this);
-	     VistaPrincipal.getInstance().pack();
+		 vp.add(this);
+	     vp.pack();
 		
 		
 	}
@@ -56,23 +60,23 @@ public class VistaSeleccionOpcion extends JPanel{
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	                VistaPrincipal.getInstance().tancar();
+	                vp.tancar();
 	            }
 	        });
 	    	JugarPartida.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	            	VistaPrincipal.getInstance().remove(jp);
-	                VistaPrincipal.getInstance().jugarPartida();
+	            	vp.remove(jp);
+	                vp.jugarPartida();
 	            }
 	        });
 	    	ConsultarRanking.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
-	            	VistaPrincipal.getInstance().remove(jp);
-	                VistaPrincipal.getInstance().consultarRanking();
+	            	vp.remove(jp);
+	                vp.consultarRanking();
 	            }
 	        });
 	  }

@@ -2,19 +2,17 @@ package Domain;
 
 public class JugarPartidaViewController {
 	
-	private static JugarPartidaViewController instance;
+	private JugarPartidaViewController instance;
 	
 	private JugarPartidaUseCase jugarPartidaUc;
 	
-	public static JugarPartidaViewController getInstance(){
-		if(instance == null) {
-			instance = new JugarPartidaViewController();
-		}
-		return instance;
+	
+	public JugarPartidaViewController(){
+		jugarPartidaUc = new JugarPartidaUseCase();
 	}
 	
 	public void jugarPartidaPressed(){
-		jugarPartidaUc = new JugarPartidaUseCase();
+		//jugarPartidaUc = new JugarPartidaUseCase();
 	}
 	
 	public void sortirPressed(){

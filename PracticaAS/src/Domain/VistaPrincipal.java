@@ -13,16 +13,10 @@ import javax.swing.JTextField;
 
 public class VistaPrincipal extends JFrame {
 	
-	
-	private static VistaPrincipal instance;
+	private JugarPartidaViewController jpvc;
 
-	private VistaPrincipal(){}
-	
-	public static VistaPrincipal getInstance(){
-		if(instance == null) {
-			instance = new VistaPrincipal();
-		}
-		return instance;
+	public VistaPrincipal(){
+		jpvc = new JugarPartidaViewController();
 	}
 	
 	
@@ -31,25 +25,25 @@ public class VistaPrincipal extends JFrame {
 	}
 	
 	public void identificacioUsuari() {
-		VistaUsuario vu = new VistaUsuario();
+		VistaUsuario vu = new VistaUsuario(this,jpvc);
 		this.pack();
 	}
 	
 	public void jugarPartida(){
-		VistaPartida vp = new VistaPartida();
+		VistaPartida vp = new VistaPartida(this,jpvc);
 	}
 	
 	
 	public void seleccionarOpcion(){
-		VistaSeleccionOpcion vso = new VistaSeleccionOpcion();
+		VistaSeleccionOpcion vso = new VistaSeleccionOpcion(this,jpvc);
 	}
 	
 	public void consultarRanking(){
-		VistaConsultarRanking vcr = new VistaConsultarRanking();
+		VistaConsultarRanking vcr = new VistaConsultarRanking(this,jpvc);
 	}
 	
 	public void partidaAcabada(){
-		VistaPartidaAcabada vpa = new VistaPartidaAcabada();
+		VistaPartidaAcabada vpa = new VistaPartidaAcabada(this,jpvc);
 	}
 	
 
@@ -59,7 +53,7 @@ public class VistaPrincipal extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.black);
-       VistaJugarPartida vys = new VistaJugarPartida();
+       VistaJugarPartida vys = new VistaJugarPartida(this,jpvc);
        this.pack();
        // seleccionaEspecialitat();
         this.setLocationRelativeTo(null);
