@@ -10,6 +10,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class VistaUsuario extends JPanel{
@@ -47,10 +48,14 @@ public class VistaUsuario extends JPanel{
         
         //aux.setLayout( new FlowLayout(FlowLayout.LEFT));
         //aux2.setLayout( new FlowLayout(FlowLayout.LEFT));
+       JPanel aux3 = new JPanel();
+       JTextArea jtext = new JTextArea(3,30);
+       aux3.add(jtext);
        
         this.add(aux);
         this.add(aux2);
-		genBotons(this);
+     	genBotons(this);
+		this.add(aux3);
 		 VistaPrincipal.getInstance().add(this);
 	     VistaPrincipal.getInstance().pack();
 	 

@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class VistaSeleccionOpcion extends JPanel{
 	
@@ -18,10 +20,17 @@ public class VistaSeleccionOpcion extends JPanel{
 	public VistaSeleccionOpcion(){
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel jp1 = new JPanel();
+		JLabel h = new JLabel("             ");
+		jp1.add(h);
 		JPanel jp2 = new JPanel();
 		JPanel jp3 = new JPanel();
 		this.setBackground(Color.DARK_GRAY);
+		this.add(jp1);
 		genBotons(this);
+		JPanel aux3 = new JPanel();
+	    JTextArea jtext = new JTextArea(3,30);
+	    aux3.add(jtext);
+	    this.add(aux3);
 		 VistaPrincipal.getInstance().add(this);
 	     VistaPrincipal.getInstance().pack();
 		
