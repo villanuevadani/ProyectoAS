@@ -76,16 +76,10 @@ public class JugarPartidaUseCase {
 		result.setEstaPerduda(perduda);
 
 		if (!result.isEstaAcabada()) p.prepararMoviment();
-		//System.out.println("Ara hi ha " + p.casellesAmbNum().size() + " amb n");
 		result.setCasellesAmbNumero(p.casellesAmbNum());
 		
-		result.setPuntuacio(p.getPuntuacio());
-				
-		//if (result.isEstaAcabada()) p.partidaJugada();
-
-		//if (result.isEstaAcabada()) p.partidaJugada(); HAY QUE DESCOMENTARLO!!
-
-		
+		result.setPuntuacio(p.getPuntuacio());				
+		//if (result.isEstaAcabada()) p.partidaJugada();	
 		return result;
 			
 	}

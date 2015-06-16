@@ -42,7 +42,7 @@ public class Casella {
 		i = primaryKey.getNumeroFila();
 		j = primaryKey.getNumeroColumna();
 		num = primaryKey.getNumero();
-		return (num != -1); //devuelve cierto si tiene numero
+		return (num != -1); 
 	}
 	
 	public int getI(){
@@ -64,6 +64,4 @@ public class Casella {
 	public void setPrimaryKey(CasellaKey primaryK) {
 		this.primaryKey = primaryK;
 	}
-	
-	
 }

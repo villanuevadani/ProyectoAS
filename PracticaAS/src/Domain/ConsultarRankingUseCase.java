@@ -5,9 +5,7 @@ import java.util.List;
 
 public class ConsultarRankingUseCase {
 	
-	public ConsultarRankingUseCase(){
-		
-	}
+	public ConsultarRankingUseCase(){}
 	
 	public ArrayList<Tupla> consultarRanking() throws Exception{
 		List<Jugador> list = CtrlDataFactory.getCtrlJugador().getAll();

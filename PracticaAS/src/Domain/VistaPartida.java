@@ -184,8 +184,6 @@ public class VistaPartida extends JPanel implements KeyListener{
         row4.add(matr[3][3]);
         this.add(row4);
         ini();
-        
-        //io = new IOKeyListener(this);
         this.addKeyListener(this);
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -201,7 +199,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 		Set<CasAmbNum> cas = rjp.getCasAmbNum();
 	    int i = 0, j = 0;
 		for (CasAmbNum c : cas) {
-			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
 		}
 	}
@@ -212,8 +209,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 		jpunt.setText(Integer.toString(puntuacio));
 
 		Set<CasAmbNum> cas = res.getCasellesAmbNumero();
-		System.out.println(cas.size() + " per pintar");
-	    /*int i = 0, j = 0;*/
 	    for(int z = 0; z < 4; ++z)
 	    {
 	    	for(int w=0; w < 4; ++ w)
@@ -225,7 +220,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 	    	}
 	    }
 		for (CasAmbNum c : cas) {
-			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
 
 		    if(c.getNumero() == 4) {
@@ -301,18 +295,13 @@ public class VistaPartida extends JPanel implements KeyListener{
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
 	                vp.tancar();
-	            	//vp.remove(jp);
-	            	//vp.partidaAcabada();
 	            }
-	        });
-	    	
-	    	
+	        });  		    	
 	  }
 	 
 	 public void keyTyped(KeyEvent e){}
 	 public void keyReleased(KeyEvent e){}
 	 public void keyPressed(KeyEvent e) {
-	    	System.out.println("press");
 	    	int key = e.getKeyCode();
 		    
 		    if (key == KeyEvent.VK_LEFT) {
@@ -324,7 +313,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    }
 
 		    if (key == KeyEvent.VK_UP) {
-		    	System.out.println("amunt is all in");
 		    	keyPressed("amunt");
 		    }
 
@@ -333,55 +321,4 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    }
 			
 	    }
-	 
-	/*
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		System.out.println("a");
-		bboton = true;
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		System.out.println("0");
-	    if(bboton){
-	    	int key = e.getKeyCode();
-	    
-
-		    if (key == KeyEvent.VK_LEFT) {
-		    	System.out.println("1");
-		        res = jpvc.direccioPressed("esquerra");
-		    }
-
-		    if (key == KeyEvent.VK_RIGHT) {
-		    	System.out.println("2");
-		    	res = jpvc.direccioPressed("dreta");
-		    }
-
-		    if (key == KeyEvent.VK_UP) {
-		    	System.out.println("3");
-		    	res = jpvc.direccioPressed("amunt");
-		    }
-
-		    if (key == KeyEvent.VK_DOWN) {
-		    	System.out.println("4");
-		    	res = jpvc.direccioPressed("avall");
-		    }
-		    bboton = false;
-		    puntuacio = res.getPuntuacio();
-		    Set<CasAmbNum> cas = res.getCasellesAmbNumero();
-		    int i = 0, j = 0;
-			for (CasAmbNum c : cas) {
-			    matr[i][j].setText(Integer.toString(c.getNumero()));
-			    System.out.println("numero" + c.getNumero());
-			    ++j;
-			    if (j > 3){
-			    	j = 0;
-			    	++i;
-			    }
-			}
-	    }
-	
-	}*/
 }

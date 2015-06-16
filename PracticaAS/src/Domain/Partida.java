@@ -134,22 +134,18 @@ public class Partida {
 		}
 
 	public int getNumCasella(int i, int j){
-		/*return caselles[i][j].getNumero();*/
 		return caselles[i][j].getN();
 	}
 	
 	public void setNumCasella(int i, int j, int num){
 		Casella c = caselles[i][j];
-		//System.out.println("oldcontent" + c.getN());
 		CasellaKey k = c.getPrimaryKey();
 		k.setNumero(num);
 		caselles[i][j] = c;
-		//System.out.println("newcontent" + c.getN());
 	}
 	
 	public void prepararMoviment(){
 		ArrayList <Casella> casellesBuides = getCasellesBuides();
-	//	System.out.println("Hi ha " + casellesBuides.size());
 		afegirNumero(casellesBuides);
 	}
 	
@@ -172,13 +168,11 @@ public class Partida {
 		
 		Random rand = new Random();
 		int ncasella = rand.nextInt(casellesBuides.size());
-		//System.out.println("falla" + Integer.toString(ncasella));
 		Casella cas = casellesBuides.get(ncasella);
 		int i = cas.getI();
 		int j = cas.getJ();
 		int num = cas.getN();
 		
-		//cas.getInfo(i,j,num);
 		int x  = rand.nextInt()%2;
 		if (x == 0) num = 2; 
 		else num = 4;
@@ -187,7 +181,6 @@ public class Partida {
 	}
 	
 	
-	//int randomNum = rand.nextInt((max - min) + 1) + min;
 
 	public void ferMoviment(String tipusMov){
 		Casella tauler[][] = getCaselles();
@@ -229,56 +222,10 @@ public class Partida {
 			}
 		}
 
-		/*
-		if(tipusMov.equals("esquerra")) 
-		{
-			for(int i = 3; i > 0; --i)
-			{
-				for(int j = 0; j < 4; ++j)
-				{
-					int num = getNumCasella(i,j);
-					if(num > 0) moure(i,j,tipusMov,num);
-				}
-			}
-		}
-		else if(tipusMov.equals("dreta")) 
-		{
-			for(int i = 0; i < 4; ++i)
-			{
-				for(int j = 0; j < 4; ++j)
-				{
-					int num = getNumCasella(i,j);
-					if(num > 0) moure(i,j,tipusMov,num);
-				}
-			}
-		}
-		else if(tipusMov.equals("amunt"))
-		{
-			for(int i = 0; i < 4; ++i)
-			{
-				for(int j = 3; j > 0; --j)
-				{
-					int num = getNumCasella(i,j);
-					if(num > 0) moure(i,j,tipusMov,num);
-				}
-			}
-		}
-		else if(tipusMov.equals("avall"))
-		{
-			for(int i = 0; i < 4; ++i)
-			{
-				for(int j = 0; j < 4; ++j)
-				{
-					int num = getNumCasella(i,j);
-					if(num > 0) moure(i,j,tipusMov,num);
-				}
-			}
-		}
-		*/
+		
 	}
 	
 	public void desplaça(int i, int j, String tipusMov, int n){
-		System.out.println("desplaçant " + i + " " + j + " : " + n);
 		int ii = i;
 		int jj = j;
 		Casella tauler[][] = getCaselles();
@@ -289,13 +236,11 @@ public class Partida {
 				if(tauler[ii][jj].getN()!=-1){
 					stop = true;
 					if(tauler[ii][jj].getN()==n){
-						System.out.println("merge amb " + ii + " " + jj + " : " + n);
 						setNumCasella(i,j,-1);
 						setNumCasella(ii,jj,2*n);
 						puntuacio += 2*n;
 					}
 					else{
-						System.out.println("colocada a " + ii+1 + " " + jj + " : " + n);
 						setNumCasella(i,j,-1);
 						setNumCasella(ii+1,jj,n);
 					}
@@ -303,7 +248,6 @@ public class Partida {
 				--ii;
 			}
 			if(!stop){
-				System.out.println("colocada a " + 0 + " " + jj + " : " + n);
 				setNumCasella(i,j,-1);
 				setNumCasella(0,jj,n);
 			}
@@ -327,7 +271,6 @@ public class Partida {
 				++ii;
 			}
 			if(!stop){
-				System.out.println("colocada a " + 3 + " " + jj + " : " + n);
 				setNumCasella(i,j,-1);
 				setNumCasella(3,jj,n);
 			}
@@ -351,7 +294,6 @@ public class Partida {
 				--jj;
 			}
 			if(!stop){
-				System.out.println("colocada a " + ii + " " + 0 + " : " + n);
 				setNumCasella(i,j,-1);
 				setNumCasella(ii,0,n);
 			}
@@ -375,7 +317,6 @@ public class Partida {
 				++jj;
 			}
 			if(!stop){
-				System.out.println("colocada a " + ii + " " + 3 + " : " + n);
 				setNumCasella(i,j,-1);
 				setNumCasella(ii,3,n);
 			}
@@ -384,7 +325,6 @@ public class Partida {
 	
 	public void moure(int i, int j, String tipusMov, int num1)
 	{
-		System.out.println("moure casella " + i + " " + j + ":" + num1);
 		int ii = 0;
 		int jj = 0;
 		Boolean movimentcorrecte = true;
@@ -411,26 +351,18 @@ public class Partida {
 		if(ii < 0 || ii > 4 || jj < 0 || jj > 4) movimentcorrecte = false;
 		if(movimentcorrecte)
 		{
-			System.out.println("correcte");
 			int num2 = getNumCasella(ii,jj);
-			System.out.println(num2);
 			if(num1 == num2)
 			{
-				System.out.println("merge casella " + ii + " " + jj + " " + 2*num2);
 				setNumCasella(ii,jj,2*num2);
-				System.out.println("amb casella " + i + " " + j + " " + -1);
 				setNumCasella(i,j,-1);
 				puntuacio += 2*num2;
 			}
 			else if(num2 == -1)
 			{
-				System.out.println("buida");
-				System.out.println(ii + " " + jj + ":" + num2);
 				setNumCasella(ii,jj,num1);
-				System.out.println(i + " " + j + ":" + -1);
 				setNumCasella(i,j,-1);
 			}
-			/*else moure(ii,jj,tipusMov,num1);*/
 		}
 	}
 	
@@ -443,24 +375,17 @@ public class Partida {
 				surt2048 = (num == 2048);
 			}
 		}
-	
-		estaAcabada = estaGuanyada = surt2048;
-		
-		//Falta enviar mensaje si estaGuanyada
-		
+		estaAcabada = estaGuanyada = surt2048;	
 		return estaGuanyada;
 	}
 	
-	public boolean estaPerduda(){
-
-		//lo del 2048 se comprueba en estaGuanyada
-		
+	public boolean estaPerduda(){		
 		boolean perduda = true;
 		
 		for (int i = 0; i < 4 && perduda; ++i){
 			for (int j = 0; j < 4 && perduda; ++j){
 				int num = getNumCasella(i,j);
-				if (num == -1) perduda = false; //no me deja comprobar si NULL
+				if (num == -1) perduda = false; 
 			}
 		}
 		
@@ -468,10 +393,6 @@ public class Partida {
 		return perduda;
 	}
 	
-/*	public void partidaJugada(){
-		jugadorPartidaActual.partidaAcabada(puntuacio, this);
-	}
-*/
 	public Set<CasAmbNum> casellesAmbNum(){
 		Set<CasAmbNum> result = new HashSet<CasAmbNum>();
 		
