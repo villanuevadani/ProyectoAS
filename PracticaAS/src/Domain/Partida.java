@@ -341,7 +341,7 @@ public class Partida {
 					}
 					else{
 						setNumCasella(i,j,-1);
-						setNumCasella(ii+1,jj,n);
+						setNumCasella(ii,jj+1,n);
 					}
 				}
 				--jj;
@@ -364,7 +364,7 @@ public class Partida {
 					}
 					else{
 						setNumCasella(i,j,-1);
-						setNumCasella(ii-1,jj,n);
+						setNumCasella(ii,jj-1,n);
 					}
 				}
 				++jj;
