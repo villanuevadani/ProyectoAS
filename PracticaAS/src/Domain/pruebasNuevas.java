@@ -41,6 +41,11 @@ public class pruebasNuevas {
 		
 		session.getTransaction().commit();
 		
+		factory = config.buildSessionFactory();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		UsuariRegistrat ur = (UsuariRegistrat) session.get(UsuariRegistrat.class, "villa");
+		System.out.println(ur.getPwd());
 	}
 
 }
