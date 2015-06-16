@@ -27,7 +27,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private ResultFerMovimentPartida res;
 	private ResultJugarPartida rjp;
 	private int puntuacio;
-	private IOKeyListener io;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
 		
