@@ -85,19 +85,19 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[0][1] = new JButton();
         matr[0][1].setBackground(Color.LIGHT_GRAY);
         matr[0][1].setPreferredSize(new Dimension(70,70));
-        matr[0][1].setFont(new Font("Tahoma",1,20));
+        matr[0][1].setFont(new Font("Tahoma",1,40));
         row1.add(matr[0][1]);
         
         matr[0][2] = new JButton();
         matr[0][2].setBackground(Color.LIGHT_GRAY);
         matr[0][2].setPreferredSize(new Dimension(70,70));
-        matr[0][2].setFont(new Font("Tahoma",1,20));
+        matr[0][2].setFont(new Font("Tahoma",1,40));
         row1.add(matr[0][2]);
         
         matr[0][3] = new JButton();
         matr[0][3].setBackground(Color.LIGHT_GRAY);
         matr[0][3].setPreferredSize(new Dimension(70,70));
-        matr[0][3].setFont(new Font("Tahoma",1,20));
+        matr[0][3].setFont(new Font("Tahoma",1,40));
         row1.add(matr[0][3]);
         this.add(row1);
         
@@ -106,25 +106,25 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[1][0] = new JButton();
         matr[1][0].setBackground(Color.LIGHT_GRAY);
         matr[1][0].setPreferredSize(new Dimension(70,70));
-        matr[1][0].setFont(new Font("Tahoma",1,20));
+        matr[1][0].setFont(new Font("Tahoma",1,40));
         row2.add(matr[1][0]);
         
         matr[1][1] = new JButton();
         matr[1][1].setBackground(Color.LIGHT_GRAY);
         matr[1][1].setPreferredSize(new Dimension(70,70));
-        matr[1][1].setFont(new Font("Tahoma",1,20));
+        matr[1][1].setFont(new Font("Tahoma",1,40));
         row2.add(matr[1][1]);
         
         matr[1][2] = new JButton();
         matr[1][2].setBackground(Color.LIGHT_GRAY);
         matr[1][2].setPreferredSize(new Dimension(70,70));
-        matr[1][2].setFont(new Font("Tahoma",1,20));
+        matr[1][2].setFont(new Font("Tahoma",1,40));
         row2.add(matr[1][2]);
         
         matr[1][3] = new JButton();
         matr[1][3].setBackground(Color.LIGHT_GRAY);
         matr[1][3].setPreferredSize(new Dimension(70,70));
-        matr[1][3].setFont(new Font("Tahoma",1,20));
+        matr[1][3].setFont(new Font("Tahoma",1,40));
         row2.add(matr[1][3]);
         
         
@@ -135,25 +135,25 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[2][0] = new JButton();
         matr[2][0].setBackground(Color.LIGHT_GRAY);
         matr[2][0].setPreferredSize(new Dimension(70,70));
-        matr[2][0].setFont(new Font("Tahoma",1,20));
+        matr[2][0].setFont(new Font("Tahoma",1,40));
         row3.add(matr[2][0]);
         
         matr[2][1] = new JButton();
         matr[2][1].setBackground(Color.LIGHT_GRAY);
         matr[2][1].setPreferredSize(new Dimension(70,70));
-        matr[2][1].setFont(new Font("Tahoma",1,20));
+        matr[2][1].setFont(new Font("Tahoma",1,40));
         row3.add(matr[2][1]);
         
         matr[2][2] = new JButton();
         matr[2][2].setBackground(Color.LIGHT_GRAY);
         matr[2][2].setPreferredSize(new Dimension(70,70));
-        matr[2][2].setFont(new Font("Tahoma",1,20));
+        matr[2][2].setFont(new Font("Tahoma",1,40));
         row3.add(matr[2][2]);
         
         matr[2][3] = new JButton();
         matr[2][3].setBackground(Color.LIGHT_GRAY);
         matr[2][3].setPreferredSize(new Dimension(70,70));
-        matr[2][3].setFont(new Font("Tahoma",1,20));
+        matr[2][3].setFont(new Font("Tahoma",1,40));
         row3.add(matr[2][3]);
         this.add(row3);
         
@@ -162,25 +162,25 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[3][0] = new JButton();
         matr[3][0].setBackground(Color.LIGHT_GRAY);
         matr[3][0].setPreferredSize(new Dimension(70,70));
-        matr[3][0].setFont(new Font("Tahoma",1,20));
+        matr[3][0].setFont(new Font("Tahoma",1,40));
         row4.add(matr[3][0]);
         
         matr[3][1] = new JButton();
         matr[3][1].setBackground(Color.LIGHT_GRAY);
         matr[3][1].setPreferredSize(new Dimension(70,70));
-        matr[3][1].setFont(new Font("Tahoma",1,20));
+        matr[3][1].setFont(new Font("Tahoma",1,40));
         row4.add(matr[3][1]);
         
         matr[3][2] = new JButton();
         matr[3][2].setBackground(Color.LIGHT_GRAY);
         matr[3][2].setPreferredSize(new Dimension(70,70));
-        matr[3][2].setFont(new Font("Tahoma",1,20));
+        matr[3][2].setFont(new Font("Tahoma",1,40));
         row4.add(matr[3][2]);
         
         matr[3][3] = new JButton();
         matr[3][3].setBackground(Color.LIGHT_GRAY);
         matr[3][3].setPreferredSize(new Dimension(70,70));
-        matr[3][3].setFont(new Font("Tahoma",1,20));
+        matr[3][3].setFont(new Font("Tahoma",1,40));
         row4.add(matr[3][3]);
         this.add(row4);
         ini();
@@ -215,16 +215,53 @@ public class VistaPartida extends JPanel implements KeyListener{
 	    	for(int w=0; w < 4; ++ w)
 	    	{
 	    		 matr[z][w].setText(" ");
+	    		 matr[z][w].setBackground(Color.LIGHT_GRAY);
+	    		 matr[z][w].setForeground(Color.DARK_GRAY);
+	    		 matr[z][w].setFont(new Font("Tahoma",1,40));
 	    	}
 	    }
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		    /*++j;
-		    if (j > 3){
-		    	j = 0;
-		    	++i;
-		    }*/
+
+		    if(c.getNumero() == 8) {
+		    	matr[c.getI()][c.getJ()].setBackground(Color.YELLOW);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,40));
+		    }
+		    else if(c.getNumero() == 16){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.orange);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,25));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 32) {
+		    	matr[c.getI()][c.getJ()].setBackground(Color.magenta);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,25));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 64) {
+		    	matr[c.getI()][c.getJ()].setBackground(Color.RED);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,25));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 128) {
+		    	matr[c.getI()][c.getJ()].setBackground(Color.CYAN);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 256){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.BLUE);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 1024){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.GREEN);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
+		    }
+		    else if(c.getNumero() == 2048){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.black);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
 		}
 	}
 	/*
