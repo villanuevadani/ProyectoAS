@@ -322,7 +322,8 @@ public class Partida {
 			}
 		}
 	}
-	
+	/*
+	 * La funció moure no funcionava correctament i la hem reescrit com a desplaça()
 	public void moure(int i, int j, String tipusMov, int num1)
 	{
 		int ii = 0;
@@ -364,7 +365,7 @@ public class Partida {
 				setNumCasella(i,j,-1);
 			}
 		}
-	}
+	}*/
 	
 	public boolean estaGuanyada() {
 	
