@@ -51,6 +51,14 @@ public class JugarPartidaUseCase {
 		return result;
 	}
 	
+	public boolean estaGuanyada(){
+		return p.estaGuanyada();
+	}
+	
+	public boolean estaAcabada(){
+		return p.estaPerduda();
+	}
+	
 	public ResultFerMovimentPartida FerMoviment(String tipusMov){
 		
 		ResultFerMovimentPartida result = new ResultFerMovimentPartida();

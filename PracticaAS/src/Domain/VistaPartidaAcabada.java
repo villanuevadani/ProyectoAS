@@ -8,19 +8,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VistaPartidaAcabada extends JPanel{
+public class VistaPartidaAcabada extends JFrame{
 	private JButton consultarRanking;
 	private JButton Sortir;
 	private JugarPartidaViewController jpvc;
 	private VistaPrincipal vp;
+	private JPanel panel;
 
 	public VistaPartidaAcabada(VistaPrincipal v, JugarPartidaViewController j){
 		vp = v; 
 		jpvc = j;
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		JPanel jp1 = new JPanel();
 		jp1.setLayout( new FlowLayout(FlowLayout.CENTER));
@@ -32,7 +35,7 @@ public class VistaPartidaAcabada extends JPanel{
 		jp1.add(jl4);
 		jp1.add(jl2);
 		jp1.add(jl3);
-		this.add(jp1);
+		panel.add(jp1);
 		JPanel jp2 = new JPanel();
 		jp2.setLayout( new FlowLayout(FlowLayout.CENTER));
 		JLabel jl5 = new JLabel("8900");
@@ -41,15 +44,15 @@ public class VistaPartidaAcabada extends JPanel{
 		jp2.add(jl5);
 		jp2.add(jl7);
 		jp2.add(jl6);
-		this.add(jp2);
+		panel.add(jp2);
 		JPanel jp3 = new JPanel();
 		jp3.setLayout( new FlowLayout(FlowLayout.CENTER));
 		JLabel jl8 = new JLabel("FELICITATS :)");
 		jl8.setFont(new Font("Tahoma",1,20));
 		jp3.add(jl8);
-		this.add(jp3);
-		genBotons(this);
-	     vp.add(this);
+		panel.add(jp3);
+		genBotons(panel);
+	     vp.add(panel);
 	     vp.pack();
 	}
 	

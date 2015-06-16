@@ -207,6 +207,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 	}
 	
 	private void refresh(){
+		
 		puntuacio = res.getPuntuacio();
 		jpunt.setText(Integer.toString(puntuacio));
 
@@ -265,6 +266,9 @@ public class VistaPartida extends JPanel implements KeyListener{
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
+		}
+		if(jpvc.estaGuanyada()||jpvc.estaAcabada()){
+			vp.partidaAcabada();
 		}
 	}
 	/*

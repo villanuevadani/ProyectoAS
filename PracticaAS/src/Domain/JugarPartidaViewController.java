@@ -43,6 +43,14 @@ public class JugarPartidaViewController {
 		
 	}
 	
+	public boolean estaAcabada(){
+		return jugarPartidaUc.estaAcabada();
+	}
+	
+	public boolean estaGuanyada(){
+		return jugarPartidaUc.estaGuanyada();
+	}
+	
 	public void okPressed(){
 		//TODO
 	}
