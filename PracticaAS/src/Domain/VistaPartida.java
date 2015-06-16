@@ -85,6 +85,14 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[0][0] = new JButton();
         matr[0][0].setBackground(Color.LIGHT_GRAY);
         matr[0][0].setPreferredSize(new Dimension(70,70));
+        matr[0][0].addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+            	res = jpvc.direccioPressed("amunt");
+            	refresh();
+            }
+        });
         row1.add(matr[0][0]);
         
         matr[0][1] = new JButton();
@@ -173,7 +181,9 @@ public class VistaPartida extends JPanel implements KeyListener{
         row4.add(matr[3][3]);
         this.add(row4);
         ini();
-        addKeyListener(this);
+        this.setFocusable(true);
+        this.addKeyListener(this);
+        System.out.println("keylist");
         genBotons(this);
         vp.add(this);
         vp.pack();
@@ -184,6 +194,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		Set<CasAmbNum> cas = rjp.getCasAmbNum();
 	    int i = 0, j = 0;
 		for (CasAmbNum c : cas) {
+			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
 		    System.out.println("numero" + c.getNumero());
 		}
@@ -194,7 +205,8 @@ public class VistaPartida extends JPanel implements KeyListener{
 		Set<CasAmbNum> cas = res.getCasellesAmbNumero();
 	    int i = 0, j = 0;
 		for (CasAmbNum c : cas) {
-		    matr[i][j].setText(Integer.toString(c.getNumero()));
+			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
+		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
 		    System.out.println("numero" + c.getNumero());
 		    ++j;
 		    if (j > 3){
@@ -266,6 +278,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		System.out.println("0");
 	    if(bboton){
 	    	int key = e.getKeyCode();
+	    
 
 		    if (key == KeyEvent.VK_LEFT) {
 		    	System.out.println("1");

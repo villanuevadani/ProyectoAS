@@ -45,6 +45,18 @@ public class Casella {
 		return (num != -1); //devuelve cierto si tiene numero
 	}
 	
+	public int getI(){
+		return primaryKey.getNumeroFila();
+	}
+	
+	public int getJ(){
+		return primaryKey.getNumeroColumna();
+	}
+	
+	public int getN(){
+		return primaryKey.getNumero();
+	}
+	
 	public int getNumero(){
 		return primaryKey.getNumero();
 	}

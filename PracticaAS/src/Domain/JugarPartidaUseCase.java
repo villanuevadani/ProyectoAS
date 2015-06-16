@@ -58,6 +58,8 @@ public class JugarPartidaUseCase {
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
 		
+		System.out.println("casNum " + casNum.size());
+		
 		CtrlDataFactory.getJoc2048().setEstrategia("BestScore");
 
 		jugador.assignarPartida(p);
@@ -89,7 +91,7 @@ public class JugarPartidaUseCase {
 		result.setEstaPerduda(perduda);
 
 		if (!result.isEstaAcabada()) p.prepararMoviment();
-		
+		System.out.println("Ara hi ha " + p.casellesAmbNum().size() + " amb n");
 		result.setCasellesAmbNumero(p.casellesAmbNum());
 		
 		result.setPuntuacio(p.getPuntuacio());

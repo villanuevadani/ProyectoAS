@@ -138,11 +138,17 @@ public class Partida {
 	}
 	
 	public void setNumCasella(int i, int j, int num){
-		caselles[i][j].getPrimaryKey().setNumero(num);
+		Casella c = caselles[i][j];
+		System.out.println("oldcontent" + c.getN());
+		CasellaKey k = c.getPrimaryKey();
+		k.setNumero(num);
+		caselles[i][j] = c;
+		System.out.println("newcontent" + c.getN());
 	}
 	
 	public void prepararMoviment(){
 		ArrayList <Casella> casellesBuides = getCasellesBuides();
+		System.out.println("Hi ha " + casellesBuides.size());
 		afegirNumero(casellesBuides);
 	}
 	
@@ -151,7 +157,7 @@ public class Partida {
 		ArrayList<Casella> casellesbuides = new ArrayList<Casella>();
 		
 		for (int i = 0; i < 16; ++ i){
-			Casella cas = new Casella(i);
+			Casella cas = caselles[i/4][i%4];
 			boolean buida = caselles[i/4][i%4].getCasellaBuida(cas);
 			if (buida) casellesbuides.add(cas);	
 		}
@@ -161,16 +167,19 @@ public class Partida {
 	
 	
 	
-	public void afegirNumero(ArrayList <Casella> casellesBuides){
+	public void afegirNumero(ArrayList<Casella> casellesBuides){
 		
 		Random rand = new Random();
 		int ncasella = rand.nextInt(casellesBuides.size());
 		System.out.println("falla" + Integer.toString(ncasella));
 		Casella cas = casellesBuides.get(ncasella);
-		int i = 0, j = 0, num = 0;
-		cas.getInfo(i,j,num);
-		num  = rand.nextInt()%2;
-		if (num == 0) num = 2; 
+		int i = cas.getI();
+		int j = cas.getJ();
+		int num = cas.getN();
+		
+		//cas.getInfo(i,j,num);
+		int x  = rand.nextInt()%2;
+		if (x == 0) num = 2; 
 		else num = 4;
 		
 		setNumCasella(i,j,num);
@@ -251,7 +260,7 @@ public class Partida {
 			ii = i;
 			jj = j +1;
 		}
-		if(i < 0 || i > 4 || j < 0 || j > 4) movimentcorrecte = false;
+		if(ii < 0 || ii > 4 || jj < 0 || jj > 4) movimentcorrecte = false;
 		if(movimentcorrecte)
 		{
 			int num2 = getNumCasella(ii,jj);
@@ -314,12 +323,13 @@ public class Partida {
 		for(int i = 0; i < 4; ++i){
 			for(int j = 0; j < 4; ++j){
 				int num = 0;
-				boolean teNumero = caselles[i][j].getInfo(i,j,num);
+				int n = caselles[i][j].getN();
+				boolean teNumero = (n !=-1);
 				if (teNumero){
 					CasAmbNum casnum = new CasAmbNum();
 					casnum.setI(i);
 					casnum.setJ(j);
-					casnum.setNumero(num);
+					casnum.setNumero(n);;
 					result.add(casnum);
 				}
 			}

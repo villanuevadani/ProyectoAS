@@ -36,7 +36,7 @@ public class JugarPartidaViewController {
 	}
 	
 	public ResultFerMovimentPartida direccioPressed(String direccio){
-		
+		System.out.println("entrafermov");
 		ResultFerMovimentPartida result;
 		result = jugarPartidaUc.FerMoviment(direccio);
 		return result;
