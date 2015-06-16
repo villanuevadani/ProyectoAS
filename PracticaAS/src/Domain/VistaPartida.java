@@ -217,9 +217,10 @@ public class VistaPartida extends JPanel{
             });
         this.add(row4);
         ini();
-        this.setFocusable(true);
+        
         io = new IOKeyListener(this);
         this.addKeyListener(io);
+        this.requestFocusInWindow();
         genBotons(this);
         vp.add(this);
         vp.pack();
