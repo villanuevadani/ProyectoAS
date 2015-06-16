@@ -17,7 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VistaPartida extends JPanel implements KeyListener{
+public class VistaPartida extends JPanel{
 	private JButton Sortir;
 	private Boolean bboton;
 	private JugarPartidaViewController jpvc;  
@@ -27,6 +27,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private ResultFerMovimentPartida res;
 	private ResultJugarPartida rjp;
 	private int puntuacio;
+	private IOKeyListener io;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
 		
@@ -217,7 +218,8 @@ public class VistaPartida extends JPanel implements KeyListener{
         this.add(row4);
         ini();
         this.setFocusable(true);
-        this.addKeyListener(this);
+        io = new IOKeyListener(this);
+        this.addKeyListener(io);
         genBotons(this);
         vp.add(this);
         vp.pack();
@@ -255,7 +257,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    }*/
 		}
 	}
-	
+	/*
 	public void keyPressed(KeyEvent e) {
 		System.out.println("0");
 	    if(bboton){
@@ -283,7 +285,12 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    bboton = false;
 		    refresh();
 	    }		
-	}
+	}*/
+	
+	 public void keyPressed(String s){
+		res = jpvc.direccioPressed(s);
+     	refresh();
+	 }
 	
 	 private void genBotons(JPanel jp) {
 		 
@@ -305,7 +312,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 	    	
 	    	
 	  }
-
+	/*
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		System.out.println("a");
@@ -353,6 +360,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 			    }
 			}
 	    }
-		
-	}
+	
+	}*/
 }

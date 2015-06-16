@@ -134,7 +134,8 @@ public class Partida {
 		}
 
 	public int getNumCasella(int i, int j){
-		return caselles[i][j].getNumero();
+		/*return caselles[i][j].getNumero();*/
+		return caselles[i][j].getN();
 	}
 	
 	public void setNumCasella(int i, int j, int num){
