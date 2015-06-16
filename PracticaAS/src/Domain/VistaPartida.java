@@ -26,7 +26,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private JButton matr[][]; 
 	private ResultFerMovimentPartida res;
 	private ResultJugarPartida rjp;
-	private int puntuacio;
+	private int puntuacio, record;
 
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
 		
@@ -197,6 +197,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 	
 	private void ini(){
 		puntuacio = rjp.getPuntInicial();
+		record = rjp.getMillorPuntuacio();
 		Set<CasAmbNum> cas = rjp.getCasAmbNum();
 	    int i = 0, j = 0;
 		for (CasAmbNum c : cas) {
@@ -207,6 +208,8 @@ public class VistaPartida extends JPanel implements KeyListener{
 	
 	private void refresh(){
 		puntuacio = res.getPuntuacio();
+		jpunt.setText(Integer.toString(puntuacio));
+
 		Set<CasAmbNum> cas = res.getCasellesAmbNumero();
 		System.out.println(cas.size() + " per pintar");
 	    /*int i = 0, j = 0;*/

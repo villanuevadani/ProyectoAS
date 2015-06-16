@@ -291,7 +291,8 @@ public class Partida {
 					if(tauler[ii][jj].getN()==n){
 						System.out.println("merge amb " + ii + " " + jj + " : " + n);
 						setNumCasella(i,j,-1);
-						setNumCasella(ii,jj,2*n);	
+						setNumCasella(ii,jj,2*n);
+						puntuacio += 2*n;
 					}
 					else{
 						System.out.println("colocada a " + ii+1 + " " + jj + " : " + n);
@@ -316,6 +317,7 @@ public class Partida {
 					if(tauler[ii][jj].getN()==n){
 						setNumCasella(i,j,-1);
 						setNumCasella(ii,jj,2*n);
+						puntuacio += 2*n;
 					}
 					else{
 						setNumCasella(i,j,-1);
@@ -338,7 +340,8 @@ public class Partida {
 					stop = true;
 					if(tauler[ii][jj].getN()==n){
 						setNumCasella(i,j,-1);
-						setNumCasella(ii,jj,2*n);	
+						setNumCasella(ii,jj,2*n);
+						puntuacio += 2*n;
 					}
 					else{
 						setNumCasella(i,j,-1);
@@ -362,6 +365,7 @@ public class Partida {
 					if(tauler[ii][jj].getN()==n){
 						setNumCasella(i,j,-1);
 						setNumCasella(ii,jj,2*n);
+						puntuacio += 2*n;
 					}
 					else{
 						setNumCasella(i,j,-1);
