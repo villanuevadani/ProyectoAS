@@ -84,7 +84,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            s	res = jpvc.direccioPressed("amunt");
+            	res = jpvc.direccioPressed("amunt");
             	refresh();
             }
         });
@@ -107,6 +107,14 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[0][3].setPreferredSize(new Dimension(70,70));
         matr[0][3].setFont(new Font("Tahoma",1,20));
         row1.add(matr[0][3]);
+        matr[0][3].addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                	res = jpvc.direccioPressed("esquerra");
+                	refresh();
+                }
+            });
         this.add(row1);
         
         JPanel row2 = new JPanel();
@@ -134,6 +142,7 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[1][3].setPreferredSize(new Dimension(70,70));
         matr[1][3].setFont(new Font("Tahoma",1,20));
         row2.add(matr[1][3]);
+        
         
         this.add(row2);
         
@@ -171,6 +180,14 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[3][0].setPreferredSize(new Dimension(70,70));
         matr[3][0].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][0]);
+        matr[3][0].addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                	res = jpvc.direccioPressed("avall");
+                	refresh();
+                }
+            });
         
         matr[3][1] = new JButton();
         matr[3][1].setBackground(Color.LIGHT_GRAY);
@@ -189,6 +206,14 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[3][3].setPreferredSize(new Dimension(70,70));
         matr[3][3].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][3]);
+        matr[3][3].addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                	res = jpvc.direccioPressed("dreta");
+                	refresh();
+                }
+            });
         this.add(row4);
         ini();
         this.setFocusable(true);
@@ -211,10 +236,11 @@ public class VistaPartida extends JPanel implements KeyListener{
 	private void refresh(){
 		puntuacio = res.getPuntuacio();
 		Set<CasAmbNum> cas = res.getCasellesAmbNumero();
-	    int i = 0, j = 0;
-	    for(int z = 0; z < 3; ++z)
+		System.out.println(cas.size() + " per pintar");
+	    /*int i = 0, j = 0;*/
+	    for(int z = 0; z < 4; ++z)
 	    {
-	    	for(int w=0; w < 3; ++ w)
+	    	for(int w=0; w < 4; ++ w)
 	    	{
 	    		 matr[z][w].setText(" ");
 	    	}
@@ -222,11 +248,11 @@ public class VistaPartida extends JPanel implements KeyListener{
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		    ++j;
+		    /*++j;
 		    if (j > 3){
 		    	j = 0;
 		    	++i;
-		    }
+		    }*/
 		}
 	}
 	

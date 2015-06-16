@@ -189,6 +189,46 @@ public class Partida {
 	//int randomNum = rand.nextInt((max - min) + 1) + min;
 
 	public void ferMoviment(String tipusMov){
+		Casella tauler[][] = getCaselles();
+		if(tipusMov.equals("esquerra")){
+			for(int i = 0; i < 4; ++i){
+				for(int j = 0; j < 4; ++j){
+					if(tauler[i][j].getNumero()!=-1){
+						desplaça(i,j,tipusMov,tauler[i][j].getNumero());
+					}
+				}
+			}
+		}
+		if(tipusMov.equals("dreta")){
+			for(int i = 0; i < 4; ++i){
+				for(int j = 3; j >=0; --j){
+					if(tauler[i][j].getNumero()!=-1){
+						desplaça(i,j,tipusMov,tauler[i][j].getNumero());
+					}
+				}
+			}
+		}
+		if(tipusMov.equals("amunt")){
+			for(int j = 0; j < 4; ++j){
+				for(int i = 0; i < 4; ++i){
+					if(tauler[i][j].getNumero()!=-1){
+						System.out.println("desplaça");
+						desplaça(i,j,tipusMov,tauler[i][j].getNumero());
+					}
+				}
+			}
+		}
+		if(tipusMov.equals("avall")){
+			for(int j = 0; j < 4; ++j){
+				for(int i = 3; i >=0; --i){
+					if(tauler[i][j].getNumero()!=-1){
+						desplaça(i,j,tipusMov,tauler[i][j].getNumero());
+					}
+				}
+			}
+		}
+
+		/*
 		if(tipusMov.equals("esquerra")) 
 		{
 			for(int i = 3; i > 0; --i)
@@ -233,33 +273,135 @@ public class Partida {
 				}
 			}
 		}
+		*/
+	}
+	
+	public void desplaça(int i, int j, String tipusMov, int n){
+		System.out.println("desplaçant " + i + " " + j + " : " + n);
+		int ii = i;
+		int jj = j;
+		Casella tauler[][] = getCaselles();
+		if(tipusMov.equals("amunt")){
+			ii--;
+			boolean stop = false;
+			while(ii>=0 && !stop){
+				if(tauler[ii][jj].getN()!=-1){
+					stop = true;
+					if(tauler[ii][jj].getN()==n){
+						System.out.println("merge amb " + ii + " " + jj + " : " + n);
+						setNumCasella(i,j,-1);
+						setNumCasella(ii,jj,2*n);	
+					}
+					else{
+						System.out.println("colocada a " + ii+1 + " " + jj + " : " + n);
+						setNumCasella(i,j,-1);
+						setNumCasella(ii+1,jj,n);
+					}
+				}
+				--ii;
+			}
+			if(!stop){
+				System.out.println("colocada a " + 0 + " " + jj + " : " + n);
+				setNumCasella(i,j,-1);
+				setNumCasella(0,jj,n);
+			}
+		}
+		if(tipusMov.equals("avall")){
+			boolean stop = false;
+			ii++;
+			while(ii<4 && !stop){
+				if(tauler[ii][jj].getN()!=-1){
+					stop = true;
+					if(tauler[ii][jj].getN()==n){
+						setNumCasella(i,j,-1);
+						setNumCasella(ii,jj,2*n);
+					}
+					else{
+						setNumCasella(i,j,-1);
+						setNumCasella(ii-1,jj,n);
+					}
+				}
+				++ii;
+			}
+			if(!stop){
+				System.out.println("colocada a " + 3 + " " + jj + " : " + n);
+				setNumCasella(i,j,-1);
+				setNumCasella(3,jj,n);
+			}
+		}
+		if(tipusMov.equals("esquerra")){
+			jj--;
+			boolean stop = false;
+			while(jj>=0 && !stop){
+				if(tauler[ii][jj].getN()!=-1){
+					stop = true;
+					if(tauler[ii][jj].getN()==n){
+						setNumCasella(i,j,-1);
+						setNumCasella(ii,jj,2*n);	
+					}
+					else{
+						setNumCasella(i,j,-1);
+						setNumCasella(ii+1,jj,n);
+					}
+				}
+				--jj;
+			}
+			if(!stop){
+				System.out.println("colocada a " + ii + " " + 0 + " : " + n);
+				setNumCasella(i,j,-1);
+				setNumCasella(ii,0,n);
+			}
+		}
+		if(tipusMov.equals("dreta")){
+			boolean stop = false;
+			jj++;
+			while(jj<4 && !stop){
+				if(tauler[ii][jj].getN()!=-1){
+					stop = true;
+					if(tauler[ii][jj].getN()==n){
+						setNumCasella(i,j,-1);
+						setNumCasella(ii,jj,2*n);
+					}
+					else{
+						setNumCasella(i,j,-1);
+						setNumCasella(ii-1,jj,n);
+					}
+				}
+				++jj;
+			}
+			if(!stop){
+				System.out.println("colocada a " + ii + " " + 3 + " : " + n);
+				setNumCasella(i,j,-1);
+				setNumCasella(ii,3,n);
+			}
+		}
 	}
 	
 	public void moure(int i, int j, String tipusMov, int num1)
 	{
-		System.out.println("moure");
+		System.out.println("moure casella " + i + " " + j + ":" + num1);
 		int ii = 0;
 		int jj = 0;
 		Boolean movimentcorrecte = true;
 		if(tipusMov.equals("esquerra"))
 		{
-			ii = i -1;
-			jj = j;
-		}
-		else if(tipusMov.equals("dreta"))
-		{
-			ii = i +1;
-			jj = j;
-		}
-		else if(tipusMov.equals("amunt"))
-		{
 			ii = i;
 			jj = j -1;
 		}
-		else if(tipusMov.equals("avall"))
+		else if(tipusMov.equals("dreta"))
 		{
 			ii = i;
-			jj = j +1;
+			jj = j+1;
+		}
+		else if(tipusMov.equals("amunt"))
+		{
+			ii = i-1;
+			jj = j;
+		}
+		else if(tipusMov.equals("avall"))
+		{
+			ii = i+1;
+			jj = j;
 		}
 		if(ii < 0 || ii > 4 || jj < 0 || jj > 4) movimentcorrecte = false;
 		if(movimentcorrecte)
@@ -277,11 +419,13 @@ public class Partida {
 			}
 			else if(num2 == -1)
 			{
-				
+				System.out.println("buida");
+				System.out.println(ii + " " + jj + ":" + num2);
 				setNumCasella(ii,jj,num1);
+				System.out.println(i + " " + j + ":" + -1);
 				setNumCasella(i,j,-1);
 			}
-			else moure(ii,jj,tipusMov,num1);
+			/*else moure(ii,jj,tipusMov,num1);*/
 		}
 	}
 	
