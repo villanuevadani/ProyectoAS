@@ -227,7 +227,12 @@ public class VistaPartida extends JPanel implements KeyListener{
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
 
-		    if(c.getNumero() == 8) {
+		    if(c.getNumero() == 4) {
+		    	matr[c.getI()][c.getJ()].setBackground(Color.DARK_GRAY);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,40));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 8) {
 		    	matr[c.getI()][c.getJ()].setBackground(Color.YELLOW);
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,40));
 		    }
@@ -237,7 +242,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
 		    else if(c.getNumero() == 32) {
-		    	matr[c.getI()][c.getJ()].setBackground(Color.magenta);
+		    	matr[c.getI()][c.getJ()].setBackground(Color.MAGENTA);
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,25));
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
@@ -247,7 +252,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
 		    else if(c.getNumero() == 128) {
-		    	matr[c.getI()][c.getJ()].setBackground(Color.CYAN);
+		    	matr[c.getI()][c.getJ()].setBackground(Color.GREEN);
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
@@ -256,47 +261,23 @@ public class VistaPartida extends JPanel implements KeyListener{
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
-		    else if(c.getNumero() == 1024){
-		    	matr[c.getI()][c.getJ()].setBackground(Color.GREEN);
-		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
-		    }
-		    else if(c.getNumero() == 2048){
-		    	matr[c.getI()][c.getJ()].setBackground(Color.black);
+		    else if(c.getNumero() == 512){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.pink);
 		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,15));
 		        matr[c.getI()][c.getJ()].setForeground(Color.white);
 		    }
+		    else if(c.getNumero() == 1024){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.BLACK);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,7));
+		        matr[c.getI()][c.getJ()].setForeground(Color.white);
+		    }
+		    else if(c.getNumero() == 2048){
+		    	matr[c.getI()][c.getJ()].setBackground(Color.WHITE);
+		        matr[c.getI()][c.getJ()].setFont(new Font("Tahoma",1,7));
+		    }
 		}
 	}
-	/*
-	public void keyPressed(KeyEvent e) {
-		System.out.println("0");
-	    if(bboton){
-	    	int key = e.getKeyCode();
-
-		    if (key == KeyEvent.VK_LEFT) {
-		    	System.out.println("1");
-		        res = jpvc.direccioPressed("esquerra");
-		    }
-
-		    if (key == KeyEvent.VK_RIGHT) {
-		    	System.out.println("2");
-		    	res = jpvc.direccioPressed("dreta");
-		    }
-
-		    if (key == KeyEvent.VK_UP) {
-		    	System.out.println("3");
-		    	res = jpvc.direccioPressed("amunt");
-		    }
-
-		    if (key == KeyEvent.VK_DOWN) {
-		    	System.out.println("4");
-		    	res = jpvc.direccioPressed("avall");
-		    }
-		    bboton = false;
-		    refresh();
-	    }		
-	}*/
-	
+		
 	 public void keyPressed(String s){
 		res = jpvc.direccioPressed(s);
      	refresh();
