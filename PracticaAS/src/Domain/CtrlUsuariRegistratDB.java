@@ -15,7 +15,7 @@ public class CtrlUsuariRegistratDB implements ICtrlUsuariRegistrat {
 			s = HibernateUtil.getSessionFactory().getCurrentSession();
 			s.beginTransaction();
 			//System.out.println(nom);
-			ur = (UsuariRegistrat) s.createQuery("select * from USUARIREGISTRAT where USERNAME = '" + nom + "'").uniqueResult();
+			ur = (UsuariRegistrat)s.createQuery("from UsuariRegistrat where USERNAME = '" + nom + "'").uniqueResult();
 			if (ur == null) throw new Exception("no coge el elemento");
 			System.out.println("asd" + ur.getNom());
 			System.out.println("asd" + ur.getPwd());
