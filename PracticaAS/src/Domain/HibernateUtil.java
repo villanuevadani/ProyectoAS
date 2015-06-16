@@ -1,23 +1,19 @@
 package Domain;
 
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtil {
 
-	private static final SessionFactory sf;
+	private static  SessionFactory sf;
 	
-	static {
-		try {
+	private static void createSessionFactory(){
 			sf = new AnnotationConfiguration().configure().buildSessionFactory();
 		}
-		catch (Throwable exc) {
-			System.err.println("Error al crear la session factory" + exc);
-			throw new ExceptionInInitializerError();
-		}
-	}
 	
 	public static SessionFactory getSessionFactory() {
+		if (sf == null) createSessionFactory();
 		return sf;
 	}
 }
