@@ -22,6 +22,9 @@ public class JugarPartidaUseCase {
 		jugador = (Jugador)	ur;
 	}
 	
+	public int getPuntuacio(){
+		return p.getPuntuacio();
+	}
 	
 	public ResultJugarPartida crearPartida(){
 		int id = CtrlDataFactory.getJoc2048().getIdPartida();

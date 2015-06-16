@@ -21,6 +21,10 @@ public class JugarPartidaViewController {
 		//a part de les finestres?
 	}
 	
+	public int getPuntuacio(){
+		return jugarPartidaUc.getPuntuacio();
+	}
+	
 	public void iniciarSessioPressed(String userN, String passwd) throws Exception{
 		jugarPartidaUc.ferAutenticacio(userN, passwd);
 		//MANEGAR L'EXCEPCIO A LA VISTA I MOSTRAR SI FALLA EL LOGIN

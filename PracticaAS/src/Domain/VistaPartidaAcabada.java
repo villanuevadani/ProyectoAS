@@ -12,19 +12,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VistaPartidaAcabada extends JFrame{
+public class VistaPartidaAcabada extends JPanel{
 	private JButton consultarRanking;
 	private JButton Sortir;
 	private JugarPartidaViewController jpvc;
 	private VistaPrincipal vp;
 	private JPanel panel;
+	private int puntuacio, record;
 
 	public VistaPartidaAcabada(VistaPrincipal v, JugarPartidaViewController j){
 		vp = v; 
 		jpvc = j;
-		panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		
+		puntuacio = jpvc.getPuntuacio();
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel jp1 = new JPanel();
 		jp1.setLayout( new FlowLayout(FlowLayout.CENTER));
 		JLabel jl1 = new JLabel("Puntuació");
@@ -35,24 +35,27 @@ public class VistaPartidaAcabada extends JFrame{
 		jp1.add(jl4);
 		jp1.add(jl2);
 		jp1.add(jl3);
-		panel.add(jp1);
+		this.add(jp1);
 		JPanel jp2 = new JPanel();
 		jp2.setLayout( new FlowLayout(FlowLayout.CENTER));
-		JLabel jl5 = new JLabel("8900");
-		JLabel jl6 = new JLabel("15000");
+		JLabel jl5 = new JLabel(Integer.toString(puntuacio));
+		JLabel jl6 = new JLabel("-");
 		JLabel jl7 = new JLabel("              ");
 		jp2.add(jl5);
 		jp2.add(jl7);
 		jp2.add(jl6);
-		panel.add(jp2);
+		this.add(jp2);
 		JPanel jp3 = new JPanel();
 		jp3.setLayout( new FlowLayout(FlowLayout.CENTER));
-		JLabel jl8 = new JLabel("FELICITATS :)");
+		String msg;
+		if(jpvc.estaGuanyada()) msg = "FELICITATS :)";
+		else msg = "GAME OVER :(";
+		JLabel jl8 = new JLabel(msg);
 		jl8.setFont(new Font("Tahoma",1,20));
 		jp3.add(jl8);
-		panel.add(jp3);
-		genBotons(panel);
-	     vp.add(panel);
+		this.add(jp3);
+		genBotons(this);
+	     vp.add(this);
 	     vp.pack();
 	}
 	

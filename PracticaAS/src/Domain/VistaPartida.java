@@ -278,6 +278,7 @@ public class VistaPartida extends JPanel implements KeyListener{
 		    }
 		}
 		if(jpvc.estaGuanyada()||jpvc.estaAcabada()){
+			vp.remove(this);
 			vp.partidaAcabada();
 		}
 	}
