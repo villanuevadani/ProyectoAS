@@ -206,7 +206,7 @@ public class Partida {
 			for(int j = 0; j < 4; ++j){
 				for(int i = 0; i < 4; ++i){
 					if(tauler[i][j].getNumero()!=-1){
-						System.out.println("desplaça");
+						
 						desplaça(i,j,tipusMov,tauler[i][j].getNumero());
 					}
 				}
