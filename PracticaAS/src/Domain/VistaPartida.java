@@ -31,25 +31,20 @@ public class VistaPartida extends JPanel implements KeyListener{
 	public VistaPartida(VistaPrincipal v, JugarPartidaViewController j) {
 		
 		jpvc = j;
-		
 		rjp = jpvc.crearPartidaPressed();
-		
 		vp = v;
 		bboton = false;
 		matr = new JButton[4][4];
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.setBackground(Color.black);
-
-	 	
 	 	JPanel aux = new JPanel();
 	 	aux.setLayout( new FlowLayout(FlowLayout.LEFT));
         jlabel = new JLabel("              ");
         jlabel.setForeground( new Color(0,0,0,0));
         aux.add(jlabel);
-        jlabel = new JLabel("Puntuaci�\n");
+        jlabel = new JLabel("Puntuacion");
         jlabel.setForeground(Color.gray);
         jlabel.setFont(new Font("Tahoma",1,12));
-        //aux.add(jlabel);
         jlabel2 = new JLabel("Record");
         jlabel2.setForeground(Color.gray);
         jlabel2.setFont(new Font("Tahoma",1,12));
@@ -81,16 +76,15 @@ public class VistaPartida extends JPanel implements KeyListener{
         
         JPanel row1 = new JPanel();
         row1.setBackground(Color.black);
-      //  row1.setLayout(new GridLayout(4,4));
         matr[0][0] = new JButton();
         matr[0][0].setBackground(Color.LIGHT_GRAY);
         matr[0][0].setPreferredSize(new Dimension(70,70));
         matr[0][0].setFont(new Font("Tahoma",1,40));
         matr[0][0].addActionListener(new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-            	res = jpvc.direccioPressed("amunt");
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            s	res = jpvc.direccioPressed("amunt");
             	refresh();
             }
         });
@@ -199,7 +193,6 @@ public class VistaPartida extends JPanel implements KeyListener{
         ini();
         this.setFocusable(true);
         this.addKeyListener(this);
-        //System.out.println("keylist");
         genBotons(this);
         vp.add(this);
         vp.pack();
@@ -209,17 +202,9 @@ public class VistaPartida extends JPanel implements KeyListener{
 		puntuacio = rjp.getPuntInicial();
 		Set<CasAmbNum> cas = rjp.getCasAmbNum();
 	    int i = 0, j = 0;
-	    for(int z = 0; z < 3; ++z)
-	    {
-	    	for(int w=0; w < 3; ++ w)
-	    	{
-	    		 matr[z][w].setText(" ");
-	    	}
-	    }
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		 //   System.out.println("numero" + c.getNumero());
 		}
 	}
 	
@@ -237,7 +222,6 @@ public class VistaPartida extends JPanel implements KeyListener{
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		   // System.out.println("numero" + c.getNumero());
 		    ++j;
 		    if (j > 3){
 		    	j = 0;
