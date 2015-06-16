@@ -61,6 +61,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	}
 	
 	public void assignarPartida(Partida p){
+		System.out.println("assignapartida");
 		partidaActual = p;
 	}
 

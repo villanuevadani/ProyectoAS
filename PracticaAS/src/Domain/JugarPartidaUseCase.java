@@ -18,15 +18,24 @@ public class JugarPartidaUseCase {
 		//login = new LoginUseCase(CtrlDataFactory.getInstance());
 		login = new LoginUseCase();
 		
+		System.out.println("bbbbb");
+		
 		login.Login(userN, passwd);
 		
+		System.out.println("ccccc");
+		
 		UsuariRegistrat ur = CtrlDataFactory.getCtrlUsuariRegistrat().get(userN);
+		
+		System.out.println("aaaa");
+		
+		System.out.println("aaaa" + ur.getNom());
 		
 		boolean b = ur.esJugador();
 		
 		if (!b) throw new Exception ("L'usuari registrat no es jugador");
 		
 		jugador = (Jugador)	ur;
+
 		
 	}
 	

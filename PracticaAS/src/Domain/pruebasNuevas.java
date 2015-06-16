@@ -6,7 +6,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class pruebasNuevas {
-	public static void main(String[] args){
+	public pruebasNuevas(){
 		AnnotationConfiguration config = new AnnotationConfiguration();
 		config.addAnnotatedClass(UsuariRegistrat.class);
 		config.addAnnotatedClass(Joc2048.class);
@@ -42,6 +42,10 @@ public class pruebasNuevas {
 		us3.setPwd("jase");
 		
 		session.save(us3);
+		
+		Jugador j = new Jugador("German");
+		j.setPwd("1234");
+		session.save(j);
 		
 		Joc2048 j2 = new Joc2048();
 		j2.setIdPartida(2048);
