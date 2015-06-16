@@ -12,6 +12,7 @@ public class CtrlUsuariRegistratDB implements ICtrlUsuariRegistrat {
 		try{			
 			s = HibernateUtil.getSessionFactory().getCurrentSession();
 			s.beginTransaction();
+			//ur = (UsuariRegistrat) s.get(UsuariRegistrat.class, nom);
 			ur = new UsuariRegistrat();
 			ur.setUsername(nom);
 			ur.setNom(nom);
