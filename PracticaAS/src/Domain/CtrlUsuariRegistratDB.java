@@ -26,10 +26,11 @@ public class CtrlUsuariRegistratDB implements ICtrlUsuariRegistrat {
 			//System.out.println(username);
 		}
 		
-		catch (RuntimeException exc){
-			System.out.println("catch");
-			s.getTransaction().rollback();
-			throw new Exception("Usuari no existeix");
+		catch (Exception exc){
+			//System.out.println("catch");
+			//s.getTransaction().rollback();
+			//throw new Exception("Usuari no existeix");
+			System.out.println(exc.getMessage());
 		}
 		return ur;
 	}

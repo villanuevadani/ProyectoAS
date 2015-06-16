@@ -31,10 +31,13 @@ public class JugarPartidaUseCase {
 		System.out.println("aaaa" + ur.getNom());
 		
 		boolean b = ur.esJugador();
+		System.out.println(b);
 		
 		if (!b) throw new Exception ("L'usuari registrat no es jugador");
 		
 		jugador = (Jugador)	ur;
+		
+		System.out.println(jugador.getPwd());
 
 		
 	}
@@ -92,6 +95,9 @@ public class JugarPartidaUseCase {
 		result.setPuntuacio(p.getPuntuacio());
 				
 		//if (result.isEstaAcabada()) p.partidaJugada();
+
+		//if (result.isEstaAcabada()) p.partidaJugada(); HAY QUE DESCOMENTARLO!!
+
 		
 		return result;
 			

@@ -129,6 +129,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		return partidasJugadas.size();
 	}
 	
+	@Override
 	public boolean esJugador(){
 		return true;
 	}

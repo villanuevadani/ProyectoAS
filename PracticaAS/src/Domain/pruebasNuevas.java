@@ -6,7 +6,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class pruebasNuevas {
-	public pruebasNuevas(){
+	public static void main(String[] args){
 		AnnotationConfiguration config = new AnnotationConfiguration();
 		config.addAnnotatedClass(UsuariRegistrat.class);
 		config.addAnnotatedClass(Joc2048.class);
@@ -22,6 +22,7 @@ public class pruebasNuevas {
 		
 		session.beginTransaction();
 		
+
 		/*UsuariRegistrat us = new UsuariRegistrat("villanuevadani");
 		us.setNom("Daniel");
 		us.setCognom("Villanueva");
@@ -59,17 +60,26 @@ public class pruebasNuevas {
 		
 		Joc2048 ju = new Joc2048();
 		ju.setIdPartida(2048);
+
 		
 		Partida p = new Partida();
 		p.setEstaAcabada(true);
 		p.setEstaGuanyada(true);
 		p.setIdPartida(2048);
 		
+
 		
 		session.save(ju);
+
 		session.save(p);
+		
 		session.getTransaction().commit();
 		
+		factory = config.buildSessionFactory();
+		session = factory.getCurrentSession();
+		session.beginTransaction();
+		UsuariRegistrat ur = (UsuariRegistrat) session.get(UsuariRegistrat.class, "villa");
+		System.out.println(ur.getPwd());
 	}
 
 }
