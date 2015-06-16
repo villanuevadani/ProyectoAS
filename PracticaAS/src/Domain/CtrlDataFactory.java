@@ -1,10 +1,10 @@
 package Domain;
 
 public class CtrlDataFactory {
-	private static CtrlDataFactory instance;
-	private static ICtrlJugador ctrlJugador;
-	private static ICtrlPartida ctrlPartida;
-	private static ICtrlUsuariRegistrat ctrlUsReg;
+	private static CtrlDataFactory instance = null;
+	private static ICtrlJugador ctrlJugador = null;
+	private static ICtrlPartida ctrlPartida = null;
+	private static ICtrlUsuariRegistrat ctrlUsReg = null;
 	
 	//faltaria el ADAPTER MISSATGE, lo dejamos apra
 	//+ adelante
@@ -13,6 +13,7 @@ public class CtrlDataFactory {
 	}
 	
 	public static CtrlDataFactory getInstance(){
+		
 		if (instance == null) instance = new CtrlDataFactory();
 		return instance;
 	}
@@ -28,6 +29,7 @@ public class CtrlDataFactory {
 	}
 
 	public static ICtrlUsuariRegistrat getCtrlUsuariRegistrat() {
+		System.out.println("bale");
 		if (ctrlUsReg == null) ctrlUsReg = new CtrlUsuariRegistratDB();
 		return ctrlUsReg;
 	}
