@@ -34,8 +34,10 @@
         <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
         <mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml"/> -->
 
-		<mapping class="Domain.UsuariRegistrat"/>	
-		<mapping class="Domain.Jugador"/>
+		<mapping class="Domain.Jugador"/>	
+	
+		<mapping class="Domain.Partida"/>
+		<mapping class="Domain.Joc2048"/>
     </session-factory>
 
 </hibernate-configuration>
