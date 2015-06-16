@@ -237,6 +237,7 @@ public class Partida {
 	
 	public void moure(int i, int j, String tipusMov, int num1)
 	{
+		System.out.println("moure");
 		int ii = 0;
 		int jj = 0;
 		Boolean movimentcorrecte = true;
@@ -263,15 +264,20 @@ public class Partida {
 		if(ii < 0 || ii > 4 || jj < 0 || jj > 4) movimentcorrecte = false;
 		if(movimentcorrecte)
 		{
+			System.out.println("correcte");
 			int num2 = getNumCasella(ii,jj);
+			System.out.println(num2);
 			if(num1 == num2)
 			{
+				System.out.println("merge casella " + ii + " " + jj + " " + 2*num2);
 				setNumCasella(ii,jj,2*num2);
+				System.out.println("amb casella " + i + " " + j + " " + -1);
 				setNumCasella(i,j,-1);
 				puntuacio += 2*num2;
 			}
-			else if(num2 == 0)
+			else if(num2 == -1)
 			{
+				
 				setNumCasella(ii,jj,num1);
 				setNumCasella(i,j,-1);
 			}
