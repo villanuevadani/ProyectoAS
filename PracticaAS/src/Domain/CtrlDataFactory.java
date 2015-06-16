@@ -6,8 +6,7 @@ public class CtrlDataFactory {
 	private static ICtrlPartida ctrlPartida = null;
 	private static ICtrlUsuariRegistrat ctrlUsReg = null;
 	
-	//faltaria el ADAPTER MISSATGE, lo dejamos apra
-	//+ adelante
+	
 	
 	public CtrlDataFactory(){
 	}
