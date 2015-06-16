@@ -14,15 +14,18 @@ public class CtrlUsuariRegistratDB implements ICtrlUsuariRegistrat {
 			System.out.println("try");
 			s = HibernateUtil.getSessionFactory().getCurrentSession();
 			s.beginTransaction();
-			System.out.println(nom);
-			ur = (UsuariRegistrat) s.get(UsuariRegistrat.class, nom);
+			//System.out.println(nom);
+			ur = (UsuariRegistrat) s.createQuery("select * from USUARIREGISTRAT where USERNAME = '" + nom + "'").uniqueResult();
+			if (ur == null) throw new Exception("no coge el elemento");
 			System.out.println("asd" + ur.getNom());
+			System.out.println("asd" + ur.getPwd());
 		}
 		
-		catch (RuntimeException exc){
-			System.out.println("catch");
-			s.getTransaction().rollback();
-			throw new Exception("Usuari no existeix");
+		catch (Exception exc){
+			//System.out.println("catch");
+			//s.getTransaction().rollback();
+			//throw new Exception("Usuari no existeix");
+			System.out.println(exc.getMessage());
 		}
 		return ur;
 	}

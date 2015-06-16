@@ -87,7 +87,7 @@ public class JugarPartidaUseCase {
 		
 		result.setPuntuacio(p.getPuntuacio());
 				
-		if (result.isEstaAcabada()) p.partidaJugada();
+		//if (result.isEstaAcabada()) p.partidaJugada(); HAY QUE DESCOMENTARLO!!
 		
 		return result;
 			
