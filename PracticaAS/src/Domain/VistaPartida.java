@@ -85,6 +85,7 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[0][0] = new JButton();
         matr[0][0].setBackground(Color.LIGHT_GRAY);
         matr[0][0].setPreferredSize(new Dimension(70,70));
+        matr[0][0].setFont(new Font("Tahoma",1,40));
         matr[0][0].addActionListener(new ActionListener() {
 
             @Override
@@ -98,16 +99,19 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[0][1] = new JButton();
         matr[0][1].setBackground(Color.LIGHT_GRAY);
         matr[0][1].setPreferredSize(new Dimension(70,70));
+        matr[0][1].setFont(new Font("Tahoma",1,20));
         row1.add(matr[0][1]);
         
         matr[0][2] = new JButton();
         matr[0][2].setBackground(Color.LIGHT_GRAY);
         matr[0][2].setPreferredSize(new Dimension(70,70));
+        matr[0][2].setFont(new Font("Tahoma",1,20));
         row1.add(matr[0][2]);
         
         matr[0][3] = new JButton();
         matr[0][3].setBackground(Color.LIGHT_GRAY);
         matr[0][3].setPreferredSize(new Dimension(70,70));
+        matr[0][3].setFont(new Font("Tahoma",1,20));
         row1.add(matr[0][3]);
         this.add(row1);
         
@@ -116,21 +120,25 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[1][0] = new JButton();
         matr[1][0].setBackground(Color.LIGHT_GRAY);
         matr[1][0].setPreferredSize(new Dimension(70,70));
+        matr[1][0].setFont(new Font("Tahoma",1,20));
         row2.add(matr[1][0]);
         
         matr[1][1] = new JButton();
         matr[1][1].setBackground(Color.LIGHT_GRAY);
         matr[1][1].setPreferredSize(new Dimension(70,70));
+        matr[1][1].setFont(new Font("Tahoma",1,20));
         row2.add(matr[1][1]);
         
         matr[1][2] = new JButton();
         matr[1][2].setBackground(Color.LIGHT_GRAY);
         matr[1][2].setPreferredSize(new Dimension(70,70));
+        matr[1][2].setFont(new Font("Tahoma",1,20));
         row2.add(matr[1][2]);
         
         matr[1][3] = new JButton();
         matr[1][3].setBackground(Color.LIGHT_GRAY);
         matr[1][3].setPreferredSize(new Dimension(70,70));
+        matr[1][3].setFont(new Font("Tahoma",1,20));
         row2.add(matr[1][3]);
         
         this.add(row2);
@@ -140,21 +148,25 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[2][0] = new JButton();
         matr[2][0].setBackground(Color.LIGHT_GRAY);
         matr[2][0].setPreferredSize(new Dimension(70,70));
+        matr[2][0].setFont(new Font("Tahoma",1,20));
         row3.add(matr[2][0]);
         
         matr[2][1] = new JButton();
         matr[2][1].setBackground(Color.LIGHT_GRAY);
         matr[2][1].setPreferredSize(new Dimension(70,70));
+        matr[2][1].setFont(new Font("Tahoma",1,20));
         row3.add(matr[2][1]);
         
         matr[2][2] = new JButton();
         matr[2][2].setBackground(Color.LIGHT_GRAY);
         matr[2][2].setPreferredSize(new Dimension(70,70));
+        matr[2][2].setFont(new Font("Tahoma",1,20));
         row3.add(matr[2][2]);
         
         matr[2][3] = new JButton();
         matr[2][3].setBackground(Color.LIGHT_GRAY);
         matr[2][3].setPreferredSize(new Dimension(70,70));
+        matr[2][3].setFont(new Font("Tahoma",1,20));
         row3.add(matr[2][3]);
         this.add(row3);
         
@@ -163,27 +175,31 @@ public class VistaPartida extends JPanel implements KeyListener{
         matr[3][0] = new JButton();
         matr[3][0].setBackground(Color.LIGHT_GRAY);
         matr[3][0].setPreferredSize(new Dimension(70,70));
+        matr[3][0].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][0]);
         
         matr[3][1] = new JButton();
         matr[3][1].setBackground(Color.LIGHT_GRAY);
         matr[3][1].setPreferredSize(new Dimension(70,70));
+        matr[3][1].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][1]);
         
         matr[3][2] = new JButton();
         matr[3][2].setBackground(Color.LIGHT_GRAY);
         matr[3][2].setPreferredSize(new Dimension(70,70));
+        matr[3][2].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][2]);
         
         matr[3][3] = new JButton();
         matr[3][3].setBackground(Color.LIGHT_GRAY);
         matr[3][3].setPreferredSize(new Dimension(70,70));
+        matr[3][3].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][3]);
         this.add(row4);
         ini();
         this.setFocusable(true);
         this.addKeyListener(this);
-        System.out.println("keylist");
+        //System.out.println("keylist");
         genBotons(this);
         vp.add(this);
         vp.pack();
@@ -193,10 +209,17 @@ public class VistaPartida extends JPanel implements KeyListener{
 		puntuacio = rjp.getPuntInicial();
 		Set<CasAmbNum> cas = rjp.getCasAmbNum();
 	    int i = 0, j = 0;
+	    for(int z = 0; z < 3; ++z)
+	    {
+	    	for(int w=0; w < 3; ++ w)
+	    	{
+	    		 matr[z][w].setText(" ");
+	    	}
+	    }
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		    System.out.println("numero" + c.getNumero());
+		 //   System.out.println("numero" + c.getNumero());
 		}
 	}
 	
@@ -204,10 +227,17 @@ public class VistaPartida extends JPanel implements KeyListener{
 		puntuacio = res.getPuntuacio();
 		Set<CasAmbNum> cas = res.getCasellesAmbNumero();
 	    int i = 0, j = 0;
+	    for(int z = 0; z < 3; ++z)
+	    {
+	    	for(int w=0; w < 3; ++ w)
+	    	{
+	    		 matr[z][w].setText(" ");
+	    	}
+	    }
 		for (CasAmbNum c : cas) {
 			System.out.println(c.getI() + " " + c.getJ() + " " + c.getNumero());
 		    matr[c.getI()][c.getJ()].setText(Integer.toString(c.getNumero()));
-		    System.out.println("numero" + c.getNumero());
+		   // System.out.println("numero" + c.getNumero());
 		    ++j;
 		    if (j > 3){
 		    	j = 0;

@@ -24,46 +24,36 @@ public class VistaJugarPartida extends JPanel{
 	private VistaPrincipal vp;
 	
 	public VistaJugarPartida(VistaPrincipal v, JugarPartidaViewController j){
-		vp = v;
-		jpvc = j;
-		  this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-	      JLabel jlabel;
-	        
-	      /*  jlabel = new JLabel("             ");
-	        jlabel.setForeground( new Color(0,0,0,0));
-	        this.add(jlabel);*/
+			vp = v;
+			jpvc = j;
+		  	this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+	      	JLabel jlabel;
 	        jlabel = new JLabel("2048");
 	        jlabel.setForeground(Color.darkGray);
 	        jlabel.setFont(new Font("Tahoma",1,50));
-	        //jlabel.setHorizontalAlignment(JLabel.CENTER);
 	        JPanel aux = new JPanel();
-	       // aux.setBackground(Color.gray);
 	        aux.setLayout( new FlowLayout(FlowLayout.CENTER));
 	        aux.add(jlabel);
 	        this.add(aux);
 	        genBotons(this);
 	        vp.add(this);
 	        vp.pack();
-	 
 	}
 	
 
 	
 	 private void genBotons(JPanel jp) {
 	    	JPanel pb = new JPanel();
-	    	//pb.setBackground(Color.gray);
 	    	pb.setLayout( new FlowLayout(FlowLayout.RIGHT));
-
 	    	JugarPartida = new JButton(" Jugar Partida ");
 	    	pb.add(JugarPartida); 
-	    	
 	    	Sortir = new JButton(" Sortir ");
 	    	pb.add(Sortir);
 	    	jp.add(pb);
 	    	Sortir.addActionListener(new ActionListener() {
 
-	            @Override
-	            public void actionPerformed(ActionEvent ae) {
+	        @Override
+	        public void actionPerformed(ActionEvent ae) {
 	                vp.tancar();
 	            }
 	        });

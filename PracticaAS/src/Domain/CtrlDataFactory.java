@@ -29,7 +29,6 @@ public class CtrlDataFactory {
 	}
 
 	public static ICtrlUsuariRegistrat getCtrlUsuariRegistrat() {
-		System.out.println("bale");
 		if (ctrlUsReg == null) ctrlUsReg = new CtrlUsuariRegistratDB();
 		return ctrlUsReg;
 	}

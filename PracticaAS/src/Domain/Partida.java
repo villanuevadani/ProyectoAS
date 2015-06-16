@@ -139,16 +139,16 @@ public class Partida {
 	
 	public void setNumCasella(int i, int j, int num){
 		Casella c = caselles[i][j];
-		System.out.println("oldcontent" + c.getN());
+		//System.out.println("oldcontent" + c.getN());
 		CasellaKey k = c.getPrimaryKey();
 		k.setNumero(num);
 		caselles[i][j] = c;
-		System.out.println("newcontent" + c.getN());
+		//System.out.println("newcontent" + c.getN());
 	}
 	
 	public void prepararMoviment(){
 		ArrayList <Casella> casellesBuides = getCasellesBuides();
-		System.out.println("Hi ha " + casellesBuides.size());
+	//	System.out.println("Hi ha " + casellesBuides.size());
 		afegirNumero(casellesBuides);
 	}
 	
@@ -171,7 +171,7 @@ public class Partida {
 		
 		Random rand = new Random();
 		int ncasella = rand.nextInt(casellesBuides.size());
-		System.out.println("falla" + Integer.toString(ncasella));
+		//System.out.println("falla" + Integer.toString(ncasella));
 		Casella cas = casellesBuides.get(ncasella);
 		int i = cas.getI();
 		int j = cas.getJ();

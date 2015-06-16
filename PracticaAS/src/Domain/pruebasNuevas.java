@@ -79,7 +79,7 @@ public class pruebasNuevas {
 		session = factory.getCurrentSession();
 		session.beginTransaction();
 		UsuariRegistrat ur = (UsuariRegistrat) session.get(UsuariRegistrat.class, "villa");
-		System.out.println(ur.getPwd());
+		//System.out.println(ur.getPwd());
 	}
 
 }
