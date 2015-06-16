@@ -82,14 +82,7 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 	}
 	
 	public int getMillorPuntuacio() {
-		return millorPuntuacio;
-		 /* int n=-1;
-		    for(Partida pa : partidasJugadas){
-				int a = pa.getPuntuacio();
-				if(n < a) n = a;
-			}
-			return n;*/
-		 
+		return millorPuntuacio;	 
 	}
 	@Transient
 	public int getMitjaPuntuacio(){
@@ -104,9 +97,6 @@ public class Jugador extends UsuariRegistrat implements Serializable {
 		
 	}
 
-
-
-	
 	ArrayList<Partida> getPartidasJugadas() {
 		return partidasJugadas;
 	}

@@ -29,7 +29,6 @@ public class VistaUsuario extends JPanel{
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	 	JLabel jlabel, jlabel2;
 	 	JPanel aux = new JPanel();
-	 	//aux.setBackground(Color.gray);
         jlabel = new JLabel("             ");
         jlabel.setForeground( new Color(0,0,0,0));
         aux.add(jlabel);
@@ -41,7 +40,6 @@ public class VistaUsuario extends JPanel{
         aux.add(tf1);
         
         JPanel aux2 = new JPanel();
-       // aux2.setBackground(Color.DARK_GRAY);
         jlabel2 = new JLabel("             ");
         jlabel2.setForeground( new Color(0,0,0,0));
         aux2.add(jlabel2);
@@ -52,9 +50,6 @@ public class VistaUsuario extends JPanel{
         aux2.add(jlabel2);
         tf2 = new JTextField(20);
         aux2.add(tf2);        
-        
-        //aux.setLayout( new FlowLayout(FlowLayout.LEFT));
-        //aux2.setLayout( new FlowLayout(FlowLayout.LEFT));
        JPanel aux3 = new JPanel();
        jtext = new JTextArea(3,30);
        aux3.add(jtext);
@@ -72,7 +67,6 @@ public class VistaUsuario extends JPanel{
 		 
 		 	
 	    	JPanel pb = new JPanel();
-	    	//pb.setBackground(Color.DARK_GRAY);
 	    	pb.setLayout( new FlowLayout(FlowLayout.CENTER));
 
 	    	IniciarSessio = new JButton(" Iniciar Sessió ");
@@ -98,7 +92,6 @@ public class VistaUsuario extends JPanel{
 	            		System.out.println(tf2.getText());
 						jpvc.iniciarSessioPressed(tf1.getText(), tf2.getText());
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						jtext.setText(e.toString());
 					}
 	            	vp.remove(jp);

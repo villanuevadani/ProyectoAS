@@ -1,7 +1,6 @@
 package Domain;
 
-public class LoginUseCase {
-	
+public class LoginUseCase {	
 	//private CtrlDataFactory ctrlDataFactory;
 	
 	public LoginUseCase(){

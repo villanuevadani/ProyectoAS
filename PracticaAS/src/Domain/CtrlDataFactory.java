@@ -6,8 +6,6 @@ public class CtrlDataFactory {
 	private static ICtrlPartida ctrlPartida = null;
 	private static ICtrlUsuariRegistrat ctrlUsReg = null;
 	
-	
-	
 	public CtrlDataFactory(){
 	}
 	

@@ -12,15 +12,12 @@ public class AdapterServeiEmail implements IAdapterServeiEmail {
 	
 	@Override
 	public void enviarMissatgeGuanyada(int idPartida, int puntuacio) {
-		// TODO Auto-generated method stub
 		sl = ServiceLocator.getInstance();
 		ServeiEmail semail = sl.find(this.id);
 		if(semail==null) try {
 			throw new Exception ("No s'ha pogut enviar l'email");
 		} catch(Exception ex) {
 			Logger.getLogger(ServeiEmail.class.getName()).log(null, ex);
-		}
-		
+		}		
 	}
-
 }

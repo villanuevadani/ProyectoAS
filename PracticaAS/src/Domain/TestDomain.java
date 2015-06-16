@@ -6,9 +6,6 @@ import java.util.Iterator;
 public class TestDomain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-
 		//ClaseJugador
 		Jugador alex = new Jugador();
 		alex.setUsername("uname");

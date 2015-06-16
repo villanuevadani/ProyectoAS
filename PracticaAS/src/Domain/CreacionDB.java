@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-public class pruebasNuevas {
+public class CreacionDB {
 	public static void main(String[] args){
 		AnnotationConfiguration config = new AnnotationConfiguration();
 		config.addAnnotatedClass(UsuariRegistrat.class);

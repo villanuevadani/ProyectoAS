@@ -2,8 +2,7 @@ package Domain;
 
 public class JugarPartidaViewController {
 	
-	private JugarPartidaViewController instance;
-	
+	private JugarPartidaViewController instance;	
 	private JugarPartidaUseCase jugarPartidaUc;
 	
 	
@@ -16,19 +15,14 @@ public class JugarPartidaViewController {
 	}
 	
 	public void sortirPressed(){
-		//TODO
-		//pot ser que no calgui? s'ha de tancar alguna cosa 
-		//a part de les finestres?
 	}
 	
 	public void iniciarSessioPressed(String userN, String passwd) throws Exception{
 		jugarPartidaUc.ferAutenticacio(userN, passwd);
-		//MANEGAR L'EXCEPCIO A LA VISTA I MOSTRAR SI FALLA EL LOGIN
 	}
 	
 	
 	public void consultarRankingPressed(){
-		//TODO
 	}
 	
 	public ResultJugarPartida crearPartidaPressed(){
@@ -36,11 +30,9 @@ public class JugarPartidaViewController {
 	}
 	
 	public ResultFerMovimentPartida direccioPressed(String direccio){
-		System.out.println("entrafermov");
 		ResultFerMovimentPartida result;
 		result = jugarPartidaUc.FerMoviment(direccio);
-		return result;
-		
+		return result;	
 	}
 	
 	public boolean estaAcabada(){
@@ -52,7 +44,6 @@ public class JugarPartidaViewController {
 	}
 	
 	public void okPressed(){
-		//TODO
 	}
 	
 	
