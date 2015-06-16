@@ -17,7 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class VistaPartida extends JPanel{
+public class VistaPartida extends JPanel implements KeyListener{
 	private JButton Sortir;
 	private Boolean bboton;
 	private JugarPartidaViewController jpvc;  
@@ -81,14 +81,6 @@ public class VistaPartida extends JPanel{
         matr[0][0].setBackground(Color.LIGHT_GRAY);
         matr[0][0].setPreferredSize(new Dimension(70,70));
         matr[0][0].setFont(new Font("Tahoma",1,40));
-        matr[0][0].addActionListener(new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            	res = jpvc.direccioPressed("amunt");
-            	refresh();
-            }
-        });
         row1.add(matr[0][0]);
         
         matr[0][1] = new JButton();
@@ -108,14 +100,6 @@ public class VistaPartida extends JPanel{
         matr[0][3].setPreferredSize(new Dimension(70,70));
         matr[0][3].setFont(new Font("Tahoma",1,20));
         row1.add(matr[0][3]);
-        matr[0][3].addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                	res = jpvc.direccioPressed("esquerra");
-                	refresh();
-                }
-            });
         this.add(row1);
         
         JPanel row2 = new JPanel();
@@ -181,14 +165,6 @@ public class VistaPartida extends JPanel{
         matr[3][0].setPreferredSize(new Dimension(70,70));
         matr[3][0].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][0]);
-        matr[3][0].addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                	res = jpvc.direccioPressed("avall");
-                	refresh();
-                }
-            });
         
         matr[3][1] = new JButton();
         matr[3][1].setBackground(Color.LIGHT_GRAY);
@@ -207,20 +183,14 @@ public class VistaPartida extends JPanel{
         matr[3][3].setPreferredSize(new Dimension(70,70));
         matr[3][3].setFont(new Font("Tahoma",1,20));
         row4.add(matr[3][3]);
-        matr[3][3].addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                	res = jpvc.direccioPressed("dreta");
-                	refresh();
-                }
-            });
         this.add(row4);
         ini();
         
-        io = new IOKeyListener(this);
-        this.addKeyListener(io);
+        //io = new IOKeyListener(this);
+        this.addKeyListener(this);
+        this.setFocusable(true);
         this.requestFocusInWindow();
+        
         genBotons(this);
         vp.add(this);
         vp.pack();
@@ -313,6 +283,32 @@ public class VistaPartida extends JPanel{
 	    	
 	    	
 	  }
+	 
+	 public void keyTyped(KeyEvent e){}
+	 public void keyReleased(KeyEvent e){}
+	 public void keyPressed(KeyEvent e) {
+	    	System.out.println("press");
+	    	int key = e.getKeyCode();
+		    
+		    if (key == KeyEvent.VK_LEFT) {
+		    	keyPressed("esquerra");
+		    }
+
+		    if (key == KeyEvent.VK_RIGHT) {
+		    	keyPressed("dreta");
+		    }
+
+		    if (key == KeyEvent.VK_UP) {
+		    	System.out.println("amunt is all in");
+		    	keyPressed("amunt");
+		    }
+
+		    if (key == KeyEvent.VK_DOWN) {
+		    	keyPressed("avall");
+		    }
+			
+	    }
+	 
 	/*
 	@Override
 	public void keyReleased(KeyEvent arg0) {
