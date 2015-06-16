@@ -11,7 +11,7 @@ public class LoginUseCase {
 	public void Login(String userN, String passwd) throws Exception {
 		
 		System.out.println("cr7");
-		UsuariRegistrat ur = CtrlDataFactory.getInstance().getCtrlUsuariRegistrat().get(userN); 
+		UsuariRegistrat ur = CtrlDataFactory.getCtrlUsuariRegistrat().get(userN); 
 		System.out.println("morata");
 		boolean b = ur.passIncorrecte(passwd);
 		System.out.println("topo");

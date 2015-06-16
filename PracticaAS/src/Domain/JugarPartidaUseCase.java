@@ -47,6 +47,10 @@ public class JugarPartidaUseCase {
 		
 		CtrlDataFactory.getJoc2048().setIdPartida(id+1);
 		
+		jugador = new Jugador();
+		jugador.setEmail("german@gmail");
+		jugador.setMillorPuntuacio(4);
+		
 		p = new Partida(id, jugador);
 		
 		Set<CasAmbNum> casNum = p.casellesAmbNum();
@@ -87,7 +91,7 @@ public class JugarPartidaUseCase {
 		
 		result.setPuntuacio(p.getPuntuacio());
 				
-		if (result.isEstaAcabada()) p.partidaJugada();
+		//if (result.isEstaAcabada()) p.partidaJugada();
 		
 		return result;
 			

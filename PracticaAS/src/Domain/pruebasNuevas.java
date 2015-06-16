@@ -22,7 +22,7 @@ public class pruebasNuevas {
 		
 		session.beginTransaction();
 		
-		UsuariRegistrat us = new UsuariRegistrat("villanuevadani");
+		/*UsuariRegistrat us = new UsuariRegistrat("villanuevadani");
 		us.setNom("Daniel");
 		us.setCognom("Villanueva");
 		us.setPwd("davi");
@@ -41,14 +41,24 @@ public class pruebasNuevas {
 		us3.setCognom("Semira");
 		us3.setPwd("jase");
 		
-		session.save(us3);
+		session.save(us3);*/
 		
-		Jugador j = new Jugador("German");
-		j.setPwd("1234");
-		session.save(j);
+		UsuariRegistrat us4 = new UsuariRegistrat("1234");
+		us4.setNom("1234");
+		us4.setCognom("1234");
+		us4.setPwd("1234");
 		
-		Joc2048 j2 = new Joc2048();
-		j2.setIdPartida(2048);
+		session.save(us4);
+		
+		/*Jugador j = new Jugador("gutierrezgerman");
+		j.setPwd("German");
+		session.save(j);*/
+		
+		Jugador j2 = new Jugador("4321");
+		session.save(j2);
+		
+		Joc2048 ju = new Joc2048();
+		ju.setIdPartida(2048);
 		
 		Partida p = new Partida();
 		p.setEstaAcabada(true);
@@ -56,7 +66,7 @@ public class pruebasNuevas {
 		p.setIdPartida(2048);
 		
 		
-		session.save(j2);
+		session.save(ju);
 		session.save(p);
 		session.getTransaction().commit();
 		

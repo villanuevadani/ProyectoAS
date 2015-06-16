@@ -10,13 +10,20 @@ public class CtrlUsuariRegistratDB implements ICtrlUsuariRegistrat {
 		Session s = null;
 		UsuariRegistrat ur = null;
 		
-		try{
+		try{			
 			System.out.println("try");
 			s = HibernateUtil.getSessionFactory().getCurrentSession();
 			s.beginTransaction();
 			System.out.println(nom);
-			ur = (UsuariRegistrat) s.get(UsuariRegistrat.class, nom);
-			System.out.println("asd" + ur.getNom());
+			//ur = (UsuariRegistrat) s.get(UsuariRegistrat.class, nom);
+			ur = new UsuariRegistrat();
+			ur.setUsername(nom);
+			ur.setNom(nom);
+			ur.setCognom("1234");
+			ur.setPwd("1234");
+			//String username = s.createSQLQuery("SELECT USERNAME FROM USUARIREGISTRAT").getQueryString();
+			System.out.println("asd");
+			//System.out.println(username);
 		}
 		
 		catch (RuntimeException exc){

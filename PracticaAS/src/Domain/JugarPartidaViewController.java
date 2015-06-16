@@ -12,7 +12,7 @@ public class JugarPartidaViewController {
 	}
 	
 	public void jugarPartidaPressed(){
-		//jugarPartidaUc = new JugarPartidaUseCase();
+		jugarPartidaUc = new JugarPartidaUseCase();
 	}
 	
 	public void sortirPressed(){
@@ -31,8 +31,8 @@ public class JugarPartidaViewController {
 		//TODO
 	}
 	
-	public void crearPartidaPressed(){
-		jugarPartidaUc.crearPartida();
+	public ResultJugarPartida crearPartidaPressed(){
+		return jugarPartidaUc.crearPartida();
 	}
 	
 	public ResultFerMovimentPartida direccioPressed(String direccio){

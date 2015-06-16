@@ -93,6 +93,9 @@ public class VistaUsuario extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent ae) {
 	            	try {
+	            		System.out.println("asfasdgagsdg");
+	            		System.out.println(tf1.getText());
+	            		System.out.println(tf2.getText());
 						jpvc.iniciarSessioPressed(tf1.getText(), tf2.getText());
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
